@@ -1,0 +1,164 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登机口页面竖版(无气象)</title>
+    <link rel="stylesheet" href="~/Content/reset.css" />
+    <link rel="stylesheet" href="~/Content/common.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />  
+    <link href="~/Content/boardingGate-VNW.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/boardingGate-VNW.js"></script>
+    <script>
+        $(function () {
+            //跑马灯效果
+            util.dynamicCalcRem(1080);
+            util.marquee('.tips', 80);
+            VNWBoardingGuide.Init();
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <div class="menu">
+        <div class="menuGroup-1">
+            <div class="menu-time">
+                <i class="icon-time"></i>
+                <span>时间</span>
+            </div>
+            <div class="menu-text">
+                <i class="icon-text"></i>
+                <span>文本</span>
+            </div>
+            <div class="menu-pic">
+                <i class="icon-pic"></i>
+                <span>图片</span>
+            </div>
+            <div class="menu-weather">
+                <i class="icon-weather"></i>
+                <span>气象</span>
+            </div>
+            <div class="menu-bg">
+                <i class="icon-bg"></i>
+                <span>背景</span>
+            </div>
+            <div class="menu-video">
+                <i class="icon-video"></i>
+                <span>视频</span>
+            </div>
+            <div class="menu-msg">
+                <i class="icon-msg"></i>
+                <span>消息</span>
+            </div>
+        </div>
+        <div class="menuGroup-3">
+            <div class="menu-save">
+                <i class="icon-save"></i>
+                <span>保存</span>
+            </div>
+            <div class="menu-pub">
+                <i class="icon-pub"></i>
+                <span>发布</span>
+            </div>
+        </div>
+        <div class="menuGroup-2">
+            <div class="menu-clear">
+                <i class="icon-clear"></i>
+                <span>重置</span>
+            </div>
+            <div class="menu-view">
+                <i class="icon-view"></i>
+                <span>预览</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- header start -->
+    <div class="header clearfix">
+        <div class="header-logo">
+            <img src="@ViewBag.logo" alt="" />
+        </div>
+        <div class="gateNum">@ViewBag.gateid</div>
+        @Html.Raw(ViewBag.hstr)
+    </div>
+    <!-- header end -->
+    <!-- main start -->
+    <div class="main">
+        <div class="flightNum">
+            <span>航班号/Flight</span>
+            <span>CA1234</span>
+        </div>
+        <div class="ext-xline"></div>
+        <div class="flightCon">
+            <div class="flightCon-left">
+                <dl>
+                    <dt>终点站/经停|TO/Via</dt>
+                    <dd>乌鲁木齐</dd>
+                </dl>
+            </div>
+            <div class="ext-yline"></div>
+            <div class="flightCon-right">
+                <dl>
+                    <dt>计划/STD</dt>
+                    <dd>09:30</dd>
+                </dl>
+                <dl>
+                    <dt>预计/ETD</dt>
+                    <dd>09:30</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="ext-xline"></div>
+        <div class="boarding is-greenActive">
+            正在登机
+        </div>
+        <div class="flyWeather">航班列表/NextFlight</div>
+        <div class="box">
+            <div class="row box-hd">
+                <div class="col-4">航班号</div>
+                <div class="col-4">终点站</div>
+                <div class="col-4">计划时间</div>
+            </div>
+            <ul class="box-bd">
+                <li class="row">
+                    <div class="col-4">CA1234</div>
+                    <div class="col-4">哈萨克斯坦</div>
+                    <div class="col-4">12:20</div>
+                </li>
+                <li class="row">
+                    <div class="col-4">CA1234</div>
+                    <div class="col-4">哈萨克斯坦</div>
+                    <div class="col-4">12:20</div>
+                </li>
+                <li class="row">
+                    <div class="col-4">CA1234</div>
+                    <div class="col-4">哈萨克斯坦</div>
+                    <div class="col-4">12:20</div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="tips" id="00001"> ttttttttttttttttttttttttt </div>
+        </div>
+    </div>
+    <!-- main end -->
+</body>
+</html>

@@ -1,0 +1,191 @@
+body {
+    font: 12px/1 "Microsoft Yahei","Î¢ÈíÑÅºÚ", Arial, sans-serif;
+}
+/* header start */
+.header {
+    position: relative;
+    width: 100%;
+    height: 1.93rem;
+    background: #fdfdfd;
+    background: -webkit-linear-gradient(left, #fdfdfd,#fcfcfc);
+    box-shadow: 2px 2px 8px 0 rgba(0,0,0,.35);
+    font-size:0.48rem;
+    overflow: hidden;
+}
+.header>div{
+    float: left;
+}
+.header .header-logo {
+    position: relative;
+    width: 3.2rem;
+    height: 100%;
+    text-align: center;
+    background-color: #e7f0fa;
+}
+
+.header .img-baggage01 {
+    width: 1.21rem;
+    height: 1.24rem;
+    margin-top: 0.26rem;
+    margin-left: 2.00rem;
+}
+.header .img-baggage01 img{
+    max-width: 100%;
+    height: auto;
+}
+.header .baggageInfo {
+    margin-top: 0.26rem;
+    margin-left: 0.4rem;
+    font-size: 1.2rem;
+    color: #0f86e1;
+}
+.header .curTime {
+    margin-top: 1.4rem;
+    margin-left: 0.75rem;
+    font-size: 0.48rem;
+    font-weight: 300;
+    color: #1e8be2;
+}
+.header .baggageNum {
+    float: right;
+    width: 3.2rem;
+    height: 100%;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.68rem;
+    color: #0f86e1;
+    background-color: #e3ecf5;
+}
+/* header end */
+/* main start */
+.main {
+    width: 100%;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.35);
+}
+/* mainCon start */
+
+/* mainCon-hd start */
+.main .mainCon .mainCon-hd {
+    width: 100%;
+    height: 1.04rem;
+    font-size: 0.6rem;
+    line-height: 1.04rem;
+    text-align: center;
+}
+
+/*.flightNum {
+    padding-left: 100px;
+}
+.place {
+    padding-left: 80px;
+}
+.bagPan {
+    padding-left: 200px;
+}
+.status {
+    padding-left: 250px;
+}*/
+
+/* mainCon-hd end */
+
+/* mainCon-bd start */
+.mainCon .mainCon-bd {
+    height: 5.9rem;
+    overflow: hidden;
+    margin: 0 0.3rem;
+    font-size: 1rem;
+    line-height: 48px;
+}
+.mainCon .mainCon-bd>div{
+    height: 2rem;
+    line-height: 2rem;
+}
+.flightNum-con > div{
+    display: inline-block;
+}
+.flightNum-con .flightNum-con-img{
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-left: 0.3rem;
+    margin-right: 0.08rem;
+
+}
+.flightNum-con .flightNum-con-img img {
+    width: 100%;
+    height: 100%;
+    margin-top: -0.15rem;
+}
+
+.flightNum-con div {
+    letter-spacing: 0.05rem;
+}
+.place-con {
+    text-align: center;
+}
+.bagPan-con {
+    padding-left: 1.15rem;
+    text-align: center;
+}
+.status-con {
+    padding-left: 0.9rem;
+    text-align: center;
+}
+.status-flag{
+    width: 5rem;
+    height: 1.5rem;
+    margin-top: 0.25rem;
+    text-align: center;
+    font-size: 0.72rem;
+    line-height: 1.5rem;
+}
+.mainCon-bd .is-greenMark {
+    font-weight: 500;
+}
+.mainCon-bd .is-yellowMark {
+    font-weight: 500;
+}
+/* mainCon-bd end */
+
+/* mainCon end */
+/* main end */
+.tips {
+    color: #fff;
+    padding-left: 0.05rem;
+}
+
+.labelBox {
+    position:absolute;
+    top:0;
+    left:0;
+    min-width: 3.2rem;
+    max-width: 8.0rem;
+    /*overflow:hidden;*/
+    height: 100%;
+    line-height:1.93rem;
+    color:#0f86e1;
+    text-align:center;
+    background-color:#fff;
+    white-space: nowrap;
+    /*width:3.2rem;*/
+    height:1.93rem;
+    /*padding-top: 0.5rem;*/
+}
+.timeBox {
+    margin-left: 0.86rem;
+    margin-top: 0.66rem;
+    font-size: 0.30rem;
+    font-weight: 300;
+}
+.header .labelBox img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    /*width: 100%;
+    height: 100%;*/
+}

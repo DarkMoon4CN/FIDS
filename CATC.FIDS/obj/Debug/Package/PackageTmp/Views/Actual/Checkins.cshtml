@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>值机页面</title>
+    <link rel="stylesheet" href="~/Content/reset.css" />
+    <link rel="stylesheet" href="~/Content/common.css" />
+    <link rel="stylesheet" href="~/Content/checkins.css" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/checkins.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(1920);
+            util.marquee('.flightRoute', 120);
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <!-- 头部 start -->
+    <div class="header clearfix">
+        <div class="header-logo">
+            <img src="~/Images/logo.png" alt="中国国际航空公司" />
+        </div>
+        @Html.Raw(ViewBag.hstr)
+    </div>
+    <div class="main clearfix">
+        <!-- 左半部分 start -->
+        <div class="main-left">
+            <div class="flightNum">CA1304</div>
+            <div class="flightRoute">
+                北京/乌鲁木齐 <span class="flightRouteSpell">Beijing/Wulumuqi</span>
+            </div>
+            <!--<div class="flightRouteSpell">Beijing/Wulumuqi</div>-->
+        </div>
+        <!-- 左半部分 end -->
+        <div class="ext-line"></div>
+        <!-- 右半部分 start -->
+        <div class="main-right">
+            <div class="planInfo">
+                <div class="planInfo-name">登机口/GATE:</div>
+                <div class="planInfo-con">A01</div>
+            </div>
+        </div>
+        <!-- 右半部分 end -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+.wrap{
+	width: 100%;
+	height: 100%;
+}
+.Departureflight{
+	width: 1920px;
+	margin: 0 auto;
+	background-image:url(/Images/Departureflight/bg.png);
+	background-size: cover;
+}/*头部开始*/
+.header{
+	width: 1920px;
+	height: 100px;
+	background: #fefefe;
+    position: relative;
+}
+.logo{
+	width: 295px;
+	height: 100px;
+	float: left;
+}
+.title{
+	width: 1305px;
+	height: 100px;
+	float: left;
+	color: #0f86e1;
+	position: relative;
+}
+.title h1{
+	font-size: 49px;
+	line-height: 100px;
+	margin-left: 90px;
+}
+.title marquee{
+	position: absolute;
+	left: 70px;
+	width: 960px;
+}
+.title p{
+	position: absolute;
+	right: 35px;
+	bottom: 5px;
+	font-size: 24px;
+}
+.flight{
+    position:absolute;
+   
+	/*float: left;*/
+	width: 320px;
+	height: 100px;
+	background: #f1f5fa;
+	font-size: 58px;
+	color: #0f86e1;
+	line-height: 100px;
+	text-align: center;
+}
+/*内容*/
+.main{
+	width: 1920px;
+	}
+.main ul{
+	width: 1920px;
+	height: 62px;
+}
+.main ul li{
+	float: left;
+	width: 320px;
+	height: 62px;
+	line-height: 65px;
+	text-align: center;
+	font-size: 24px;
+}
+.main ul li img{
+	margin-bottom: 8px;
+}
+.main ul li span{
+	color: #fafafa;
+}
+
+.oddbg{
+	background:transparent;
+	color: #000;
+	background-color: rgba(255,255,255,0.2);
+}
+.information{
+	background: none;
+}
+.information li{
+	color: #faeb43;
+	font-weight: bold;
+}
+#ahead{
+	width: 160px;
+}
+#green li span{
+	color: #69fc8c;
+}
+#yellow li span{
+	color: #ffbd20;
+}
+#red li span{
+	color: #fb3333;
+}
+/*顶部模板*/
+.check{
+	width: 100%;
+	height: 100px;
+}
+.check ul li{
+	float: left;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	margin-top: 15px;
+	margin-left: 20px;
+	cursor:pointer;
+}

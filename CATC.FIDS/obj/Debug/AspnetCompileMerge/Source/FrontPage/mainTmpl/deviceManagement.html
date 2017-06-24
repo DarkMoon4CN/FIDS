@@ -1,0 +1,213 @@
+<!-- 设备管理 start -->
+<div id="deviceManage">
+    <div class="menu js-menu">       
+        <div class="menu-set"><i class="icon icon-set-blue"></i>编辑设备属性</div>
+        <div class="menu-boot"><i class="icon icon-boot-blue"></i>启动设备</div>
+        <div class="menu-stop"><i class="icon icon-stop-blue"></i>关闭设备</div>
+        <div class="menu-reboot"><i class="icon icon-reboot-blue"></i>重启设备</div>
+        <div class="js-menuDisplay menuHide">
+            <div class="menu-enabled"><i class="icon icon-enabled-blue"></i>启用设备</div>
+        </div>
+        <div class="menu-disable"><i class="icon icon-disable-blue"></i>停用设备</div>
+
+    </div>
+    <!--设备监控-->
+    <div class="flightSearch">
+        <div><i class="icon icon-home"></i></div>
+        <a href="deviceMonitor.html" target="_blank">设备监控</a>
+    </div>
+    <!--主要内容-->
+    <div class="equipTable js-equipTable">
+        <h4></h4>
+        <div class="select-style layui-form">
+            <label class="label">设备组</label>
+            <div class="ext-yline"></div>
+            <select name="deviceGroupSelect" lay-filter="deviceGroupSelect" id="deviceGroupSelect">
+                <option value="all">全部</option>
+            </select>
+        </div>
+        <div class="clearfix"></div>
+        <div class="tabCheck clearfix js-tabCheck">
+            <div class="borderR-none is-active" data-flag="valid">有效设备</div>
+            <div data-flag="invalid">无效设备</div>
+        </div>
+        <ul>
+            <li><span class="allEquip checkbox js-allEquip"></span>全选</li>
+            <li>设备名称</li>
+            <li>IP地址</li>
+            <li>设备状态</li>
+            <li>设备组</li>
+            <li>描述</li>            
+            <li>启动类型</li>
+            <li>显示属性</li>            
+        </ul>
+        <div class="tableCon js-tableCon">
+            <ol id="device-list"></ol>
+        </div>
+    </div>
+</div>
+<!-- 设备管理 end -->
+
+<!-- deviceManagement弹框 -->
+<div class="js-modal-device">
+    <!--编辑设备属性-->
+    <div class="modal-device js-modal-edit">
+        <div class="mod-boxMask js-boxMask" style="display: none">
+            <div class="mod-popupBox">
+                <!-- 弹框内容 start -->
+                <h3 class="js-modalTitle">编辑设备信息</h3>
+                <form class="layui-form">
+                    <!--设备名称-->
+                    <div class="input-style clearfix">
+                        <label class="label">设备名称</label>
+                        <input type="text" name="isPrimary" class="layui-input" style="display: none">
+                        <input type="text" name="deviceId" class="layui-input" style="display: none">
+                        <input type="text" name="deviceName" autocomplete="off" class="layui-input" />
+                    </div>
+                    <!--IP地址-->
+                    <div class="input-style clearfix">
+                        <label class="label">IP地址</label>
+                        <input type="text" name="deviceIp" autocomplete="off" class="layui-input" disabled="disabled" />
+                    </div>
+                    <!--设备组-->
+                    <div class="select-style clearfix">
+                        <label class="label">设备组</label>
+                        <div class="ext-yline"></div>
+                        <select name="deviceGroup" id="deviceGroup" lay-filter="modal-device-sel">
+                            <option value="">请选择设备组</option>
+            
+                        </select>
+                    </div>
+                    <!--设备描述-->
+                    <div class="input-style clearfix">
+                        <label class="label">设备描述</label>
+                        <input type="text" name="deviceDesc" autocomplete="off" class="layui-input" />
+                    </div>
+                    <!--启动类型-->
+                    <div class="row">
+                        <label class="label">启动类型</label>
+                        <input type="radio" name="bootType" id="startHand" value="0" title="手动">
+                        <input type="radio" name="bootType" id="startAuto" value="1" title="自动">
+                    </div>
+                    <!--亮度属性-->
+                    <div class="row">
+                        <label class="label">亮度属性</label>
+                        <div class="input-number">
+                            <input type="number" id="displayProp" name="displayProp" max="150" min="0">
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <input type="reset" class="js-reset" style="display: none" />
+                        <div class="cancel-btn js-btnCancel">取消</div>
+                        <div class="ensure-btn js-btnEnsure" lay-submit>确定</div>
+                    </div>
+                    <div class="close-btn icon icon-close js-btnClose"></div>
+                    <!-- btn end -->
+                </form>
+                <!-- 弹框内容 start -->
+            </div>
+        </div>
+    </div>
+    <!--监控频率-->
+    <div class="modal-device js-modal-monitor">
+        <div class="mod-boxMask js-boxMask" style="display: none">
+            <div class="mod-popupBox">
+                <!-- 弹框内容 start -->
+                <h3 class="js-modalTitle">监控频率设置</h3>
+                <form>
+                    <div class="row">
+                        <label class="label">监控频率</label>
+                        <div class="input-number">
+                            <input type="number" id="displayMonitor" name="displayMonitor" max="30" min="1">
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <input type="reset" class="js-reset" style="display: none" />
+                        <div class="cancel-btn js-btnCancel">取消</div>
+                        <div class="ensure-btn js-btnEnsure" lay-submit>保存</div>
+                    </div>
+                    <div class="close-btn icon icon-close js-btnClose"></div>
+                    <!-- btn end -->
+                </form>
+                <!-- 弹框内容 start -->
+            </div>
+        </div>
+    </div>
+    <!--confirm弹框-->
+    <div class="modal-device confirm">
+        <div class="mod-boxMask" style="display: none">
+            <div class="mod-popupBox">
+                <!-- 弹框内容 start -->
+                <h3 class="js-modalTitle">添加设备</h3>
+                <form class="layui-form">
+                    <div class="modalCon js-modalCon"></div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <input type="reset" class="js-cfReset" style="display: none" />
+                        <div class="cancel-btn js-btnCancel1">取消</div>
+                        <div class="ensure-btn js-btnEnsure1">确定</div>
+                    </div>
+                    <div class="close-btn icon icon-close js-btnClose1"></div>
+                    <!-- btn end -->
+                </form>
+                <!-- 弹框内容 start -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--设备管理: tableCon中的列表-->
+<script type="text/x-dot-template" id="device-list-tmpl">
+    {{~it:value}}
+    <li class="row" data-primary="{{=value.isPrimary}}" data-deviceid="{{=value.displayID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-displayName="{{=value.displayName}}" title="{{=value.displayName}}">{{=value.displayName}}</p>          
+        <p data-ip="{{=value.ip}}">{{=value.ip}}</p>
+
+        {{?value.displayState === 1}}
+        <p class="is-equipNormal">开机开显示器</p>
+        {{??value.displayState === 2}}
+        <p class="is-equipNormal">开机关显示器</p>
+        {{??value.displayState === 3}}
+        <p class="is-equipNormal">重启计算机</p>
+        {{??value.displayState === 4}}
+        <p class="is-equipOff">关机</p>
+        {{??}}
+        <p class="is-equipError">设备发生未知错误</p>
+        {{?}}
+
+        {{?value.displayGroup !== 0}}
+        <p data-displayGroup="{{=value.displayGroup}}" title="{{=value.name}}">{{=value.name}}</p>
+        {{??}}
+        <p>未分配</p>
+        {{?}}
+
+        {{?value.displayMark !== 'null' || !value.displayMark}}
+        <p data-displayMark="{{=value.displayMark}}" title="{{=value.displayMark}}">{{=value.displayMark || '---'}}</p>
+        {{??}}
+        <p data-displayMark="" >---</p>
+        {{?}}     
+
+        <p data-bootType="1">手动</p>
+        <p data-displayLumi="{{=value.displayLuminance}}">亮度：{{=value.displayLuminance}}</p>            
+    </li>
+    {{~}}
+</script>
+<!--设备管理: tableCon中的设备组选择-->
+<script type="text/x-dot-template" id="deviceGro-tmpl">
+    <option value="all">请选择设备</option>
+    {{~it:item}}
+    <option value="{{=item.ID}}">{{=item.name}}</option>
+    {{~}}
+</script>
+<!--设备管理: tableCon中的设备组选择-->
+<script type="text/x-dot-template" id="deviceGroSel-tmpl">
+    <option value="all">全部</option>
+    {{~it:item}}
+    <option value="{{=item.ID}}">{{=item.name}}</option>
+    {{~}}
+</script>

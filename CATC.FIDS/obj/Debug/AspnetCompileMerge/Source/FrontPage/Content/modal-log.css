@@ -1,0 +1,215 @@
+/* 公共样式 start */
+.modal-log .float {
+    float: left;
+}
+
+.modal-log .marginRight {
+    margin-right: 0.45rem;
+}
+
+/* 公共样式 end */
+
+/* 弹出窗口 start */
+.modal-log .mod-boxMask {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 1000;
+}
+
+.modal-log .mod-popupBox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 7rem;
+    height: 3.5rem;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 6px rgba(0, 0, 0, .08);
+}
+
+/* 弹出窗口 end */
+
+/* 弹框内容 start */
+.modal-log h3 {
+    width: 100%;
+    height: .6rem;
+    padding-bottom: .3rem;
+    line-height: .6rem;
+    font-size: .3rem;
+    text-align: center;
+    color: #333c54;
+}
+
+.modal-log ul.dataList > li {
+    position: relative;
+    float: left;
+    width: 3.5rem;
+    height: .7rem;
+    line-height: .4rem;
+
+}
+.modal-log .label {
+    float: left;
+    width: 1.48rem;
+    height: 0.6rem;
+    font-size: 0.18rem;
+    color: #666;
+    text-align: right;
+}
+.modal-log .input-style,
+.modal-log .select-style {
+    float: left;
+    position: relative;
+    width: 159px;
+    font-size: 16px;
+}
+
+
+/* 弹框内容 end */
+
+
+/* btn start */
+.modal-log .ensure-btn,
+.modal-log .cancel-btn {
+    position: absolute;
+    bottom: 0.18rem;
+    width: 1.65rem;
+    height: 0.54rem;
+    line-height: 0.54rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1px;
+}
+
+.modal-log .cancel-btn {
+    background: #ebebeb;
+    color: #333;
+    left: 1rem;
+}
+.modal-log .ensure-btn {
+    right: 0.8rem;
+    z-index: 11;
+    border-radius: 2px;
+    background-color: #428bca;
+}
+
+.modal-log .close-btn {
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+}
+
+/* btn end */
+
+/* layui组件样式覆盖 */
+.modal-log .layui-input {
+    top: 10px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #666;
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+    cursor: pointer;
+}
+
+/* 下拉框 */
+.modal-log .layui-form-select {
+    float: left;
+    width: 159px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.modal-log .layui-select-title {
+    font-size: 16px;
+}
+
+.modal-log .layui-form-select dl {
+    top: 21px;
+    text-align: center;
+    max-height: 200px;
+}
+
+.modal-log .layui-icon {
+    position: absolute;
+    top: 19px;
+    left: 40px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 50%;
+}
+
+/* 单选框覆盖样式 */
+.modal-log .layui-form-radio {
+    margin: 0;
+    padding: 0;
+}
+
+.modal-log .layui-form-radio i {
+    font-size: 0;
+    color: #427fff;
+    box-shadow: 0 0 0 5px rgba(61, 124, 255, .08);
+}
+
+.modal-log .layui-form-radioed i {
+    background-color: #427fff;
+}
+
+.modal-log .layui-form-radio i:hover {
+    border-color: #427fff;
+}
+
+.modal-log .layui-form-radio span {
+    font-size: 12px;
+}
+
+/* 多选框覆盖样式 */
+.modal-log .layui-form-checkbox i {
+    left: 63px;
+    top: 10px;
+    width: 16px;
+    color: #fb931a;
+    font-size: 0;
+    border-color: #fb931a;
+    box-shadow: 0 0 0 5px rgba(251, 145, 21, .08);
+}
+
+.modal-log .layui-form-checkbox span {
+    background: #fff;
+    color: inherit;
+}
+
+.modal-log .layui-form-checked,
+.modal-log .layui-form-checked:hover {
+    border: none;
+
+}
+
+.modal-log .layui-form-checked i,
+.modal-log .layui-form-checked:hover i {
+    background-color: #fb931a;
+}
+
+.modal-log .layui-unselect.layui-form-checkbox:hover {
+    background-color: #fff;
+    border: none;
+}
+
+
+

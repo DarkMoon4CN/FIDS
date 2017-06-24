@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>行李提取显示页面</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/baggageClaimShow.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/baggageClaim.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(1920);
+            util.marquee('.tips', 80);
+            //BaggageClaim.Init();
+            //轮询获取消息
+            setInterval(function () {
+                Global.GetEventMessage("BaggageClaim");
+            }, changeTime * 1000);
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <!-- 头部 start -->
+    <div class="header">
+        @Html.Raw(ViewBag.hstr)
+    </div>
+    <!-- 头部 end -->
+    <!-- 主体显示区域 start -->
+    <div class="main">
+        <div class="mainCon">
+            <!-- 内容标题部分 start -->
+            @Html.Raw(ViewBag.tableStr)
+            <!-- 内容标题部分 end -->
+            <!-- 内容主体部分 start -->
+            <div class="mainCon-bd">
+                <div class="row is-greenMark">
+                    <div class="col-4 flightNum-con">
+                        <div class="flightNum-con-img">
+                            <img src="~/Images/AirLogo/logo_01.png" alt="" />
+                        </div>
+                        <div>CA1202</div>
+                    </div>
+                    <div class="col-4 place-con">上海</div>
+                    <div class="col-4 status-con">
+                        <div class="status-flag is-greenActive">行李放置开始</div>
+                    </div>
+                </div>
+                <div class="row is-yellowMark">
+                    <div class="col-4 flightNum-con">
+                        <div class="flightNum-con-img">
+                            <img src="~/Images/AirLogo/logo_01.png" alt="" />
+                        </div>
+                        <div>CA1202</div>
+                    </div>
+                    <div class="col-4 place-con">上海/济南</div>
+                    <div class="col-4 status-con">
+                        <div class="status-flag is-yellowActive">行李放置结束</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 flightNum-con">
+                        <div class="flightNum-con-img">
+                            <img src="~/Images/AirLogo/logo_01.png" alt="" />
+                        </div>
+                        <div>CA1202</div>
+                    </div>
+                    <div class="col-4 place-con">济南</div>
+                    <div class="col-4 status-con">
+                        <div class="status-flag">暂无行李</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容主体部分 end -->
+        </div>
+    </div>
+    <div class="footer">
+        <div class="tips" id="00001"> </div>
+    </div>
+    <!-- 主体显示区域 end -->
+</body>
+</html>
+

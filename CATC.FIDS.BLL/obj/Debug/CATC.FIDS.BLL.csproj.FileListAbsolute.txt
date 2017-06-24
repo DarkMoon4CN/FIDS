@@ -1,0 +1,9 @@
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\bin\Debug\CATC.FIDS.BLL.dll
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\bin\Debug\CATC.FIDS.BLL.pdb
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\obj\Debug\CATC.FIDS.BLL.dll
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\obj\Debug\CATC.FIDS.BLL.pdb
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\obj\Debug\CATC.FIDS.BLL.csprojResolveAssemblyReference.cache
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\bin\Debug\CATC.FIDS.BLL.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\bin\Debug\CATC.FIDS.BLL.pdb
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\obj\Debug\CATC.FIDS.BLL.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.BLL\obj\Debug\CATC.FIDS.BLL.pdb

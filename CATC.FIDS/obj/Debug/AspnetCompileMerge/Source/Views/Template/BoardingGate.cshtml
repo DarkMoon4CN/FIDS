@@ -1,0 +1,218 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登机口页面(有气象)</title>  
+    
+    <link href="~/Content/reset.css" rel="stylesheet" />   
+    <link href="~/Content/common.css" rel="stylesheet" />    
+    <link href="~/Content/slick-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />  
+    <link href="~/Content/boardingGate.css" rel="stylesheet" /> 
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />  
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/slick.min.js"></script> 
+    <script src="~/Scripts/util.js"></script>  
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/boardingGate.js"></script>
+    <script>
+        $(function () {
+            //跑马灯效果
+            util.dynamicCalcRem(1080);
+            util.marquee('.tips', 80);
+            $(".box").slick({
+                dots: true,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 3,
+                autoplay: true,
+                infinite: true,
+                arrows: false,
+                speed: 500,
+                pauseOnHover: false
+            });
+            BoardingGate.Init();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <div class="menuGroup-1">
+            <div class="menu-time">
+                <i class="icon-time"></i>
+                <span>时间</span>
+            </div>
+            <div class="menu-text">
+                <i class="icon-text"></i>
+                <span>文本</span>
+            </div>
+            <div class="menu-pic">
+                <i class="icon-pic"></i>
+                <span>图片</span>
+            </div>
+            <div class="menu-weather">
+                <i class="icon-weather"></i>
+                <span>气象</span>
+            </div>
+            <div class="menu-bg">
+                <i class="icon-bg"></i>
+                <span>背景</span>
+            </div>
+            <div class="menu-video">
+                <i class="icon-video"></i>
+                <span>视频</span>
+            </div>
+            <div class="menu-msg">
+                <i class="icon-msg"></i>
+                <span>消息</span>
+            </div>
+        </div>
+        <div class="menuGroup-3">
+            <div class="menu-save">
+                <i class="icon-save"></i>
+                <span>保存</span>
+            </div>
+            <div class="menu-pub">
+                <i class="icon-pub"></i>
+                <span>发布</span>
+            </div>
+        </div>
+        <div class="menuGroup-2">
+            <div class="menu-clear">
+                <i class="icon-clear"></i>
+                <span>重置</span>
+            </div>
+            <div class="menu-view">
+                <i class="icon-view"></i>
+                <span>预览</span>
+            </div>
+        </div>
+    </div>
+    <!-- header start -->
+    <div class="header clearfix">
+        <div class="header-logo">
+            <img src="~/Images/logo.png" alt="中国国际航空公司" />
+        </div>
+        <div class="gateNum">06</div>
+        <div class="curTime">当前时间: 9:00</div>
+    </div>
+    <!-- header end -->
+    <!-- main start -->
+    <div class="main">
+        <div class="flightNum">
+            <span>航班号/Flight</span>
+            <span>CA1234</span>
+        </div>
+        <div class="ext-xline"></div>
+        <div class="flightCon">
+            <div class="flightCon-left">
+                <dl>
+                    <dt>终点站/经停|TO/Via</dt>
+                    <dd>北京</dd>
+                </dl>
+                <div class="weatherInfo">
+                    <div class="weather">
+                        <dl>
+                            <dt><img src="~/Images/img-weather.png" /></dt>
+                            <dd>晴转多云</dd>
+                        </dl>
+                    </div>
+                    <div class="temperature">
+                        <dl>
+                            <dt><img src="~/Images/img-temperature.png" /></dt>
+                            <dd>-12°C~-11°C</dd>
+                        </dl>
+                    </div>
+                    <div class="windDirect">
+                        <dl>
+                            <dt><img src="~/Images/img-windDirect.png" /></dt>
+                            <dd>西南转西北</dd>
+                        </dl>
+                    </div>
+                    <div class="windSpeed">
+                        <dl>
+                            <dt><img src="~/Images/img-windSpeed.png" /></dt>
+                            <dd>8m/s</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="ext-yline"></div>
+            <div class="flightCon-right">
+                <dl>
+                    <dt>计划/STD</dt>
+                    <dd>09:30</dd>
+                </dl>
+                <dl>
+                    <dt>预计/ETD</dt>
+                    <dd>09:30</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="ext-xline"></div>
+        <div class="nextFlight">
+            <span>下一航班/Next Flight</span>
+            <span>CA2355</span>
+        </div>
+        <div class="boarding is-greenActive">
+            正在登机
+        </div>
+        <div class="flyWeather">飞行气象因素的当前状况</div>
+        <div class="box slider">
+            <div class="con">
+                <div class="imgs"><img src="~/Images/img-weather_02.jpg"></div>
+                <div class="con-name is-redActive">
+                    <p>起飞机场能见度1</p>
+                    <p>The airport of departurevisibility</p>
+                </div>
+                <p class="con-desc">能见度<100M高度预警</p>
+            </div>
+            <div class="con">
+                <div class="imgs"><img src="~/Images/img-weather_01.jpg"></div>
+                <div class="con-name is-greenActive">
+                    <p>起飞气场雷暴区2</p>
+                    <p>The airport of departurevisibility</p>
+                </div>
+                <p class="con-desc">目前机场区域天气状况良好</p>
+            </div>
+
+            <div class="con">
+                <div class="imgs"><img src="~/Images/img-weather_03.jpg"></div>
+                <div class="con-name is-yellowActive">
+                    <p>起飞机场低云区3</p>
+                    <p>The airport of departurevisibility</p>
+                </div>
+                <p class="con-desc">目前机场区域云层较低</p>
+            </div>
+            <div class="con">
+                <div class="imgs"><img src="~/Images/img-weather_01.jpg"></div>
+                <div class="con-name is-greenActive">
+                    <p>起飞气场雷暴区4</p>
+                    <p>The airport of departurevisibility</p>
+                </div>
+                <p class="con-desc">目前机场区域天气状况良好</p>
+            </div>
+        </div>
+        <div class="tips">目前首都国际机场能见度700米，预计11:30至12:00机场能见度上升至800米以上。同时，影响首都国际机场的霜已经结束。</div>
+    </div>
+
+    <!-- main end -->   
+</body>
+</html>
+
+

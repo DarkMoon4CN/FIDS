@@ -1,0 +1,98 @@
+﻿@using CATC.FIDS.Models;
+@{
+    Layout = null;
+    EventItem eventItem = @ViewBag.result;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>修改 消息</title>
+    <link href="~/Content/bootstrap2.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link href="~/Scripts/jquery.cxcolor-1.2/css/jquery.cxcolor.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.cxcolor-1.2/jquery.cxcolor.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/departureflight.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script>
+        $(function () {
+            // init start
+            $("#fontcolor").cxColor({ color: $("#hid_fontcolor").val() });
+            //init end
+            $(".btn-info").on("click", function () {
+                _defaultData = null;
+                var url = "/Template/DoEditMessage";
+                var dataid = $("#dataId").val();
+                var text = $("#text").val();
+                var othertext = $("#othertext").val();
+                var fontcolor = $("#fontcolor").val();
+                data = { dataid: dataid, text: text,othertext: othertext,fontcolor: fontcolor};
+                defaultAjax(url, data, defaultCallback);
+                layer.alert('设置成功！', { icon: 1 }, function () {
+                    var json = $.parseJSON(_defaultData.Data);
+                    console.log(json);
+                    parent.Global.FillMessage(json);
+                    parent.layer.closeAll();
+                });
+            });
+            $(".btn-default").on("click", function () {
+                parent.layer.closeAll();
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <div class="form-horizontal">
+        <fieldset>
+            <div id="legend">
+                <legend></legend>
+            </div>
+            <div class="control-group">
+                <!-- Text input-->
+                <label class="control-label" for="input01">默认元素ID</label>
+                <div class="controls">
+                    <input class="input-xlarge" type="text" id="dataId" value="@eventItem.dataID" readonly>
+                    <p class="help-block">此为默认元素ID</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Text input-->
+                <label class="control-label" for="input01">中文内容</label>
+                <div class="controls">
+                    <textarea class="input-xlarge" id="text" rows="5" cols="20" style="resize:none" placeholder="输入文字">@ViewBag.content</textarea>
+                    <p class="help-block">显示在页面的文字</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Text input-->
+                <label class="control-label" for="input01">其他语种内容</label>
+                <div class="controls">
+                    <textarea class="input-xlarge" id="othertext" rows="5" cols="20" style="resize:none" placeholder="对应的其他语种">@ViewBag.otherContent</textarea>
+                    <p class="help-block">选填</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">字体颜色</label>
+                <div class="controls">
+                    <input type="hidden" id="hid_fontcolor" value="@ViewBag.color"> 
+                    <input class="input_cxcolor" id="fontcolor" style="background-color:rgb(0,0,0);width:18px;height:18px;padding:0;border:0;font-size:0px;line-height:0" type="text" readonly="">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"></label>
+                <div class="controls">
+                    <button class="btn btn-info" style="margin-left:20px;">提交</button>
+                    <button class="btn btn-default" style="margin-left:20px;">取消</button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>

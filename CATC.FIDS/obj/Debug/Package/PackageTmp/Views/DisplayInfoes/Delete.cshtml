@@ -1,0 +1,128 @@
+﻿@model CATC.FIDS.Models.DisplayInfo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DisplayInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.displayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.displayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.x)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.x)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.y)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.y)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.width)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.width)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.index)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.index)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isPrimary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isPrimary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.displayLuminance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.displayLuminance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.displayGray)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.displayGray)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.displayState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.displayState)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

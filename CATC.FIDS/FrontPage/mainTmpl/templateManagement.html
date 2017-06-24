@@ -1,0 +1,267 @@
+<!-- 模版管理 start -->
+<div id="tmplManage">
+    <div class="menu js-menu">
+        <div class="menu-add js-templateAllow" data-menu="device"><i class="icon icon-add-blue"></i>模板分配</div>
+        <div class="menu-send js-templatePub" data-menu="publish"><i class="icon icon-send-blue"></i>模版发布</div>
+        <div class="menu-send hide js-backoutPub" data-menu="publish"><i class="icon icon-send-blue"></i>撤销发布</div>
+        <div class="menu-del js-menuDel"><i class="icon icon-del-blue"></i>删除模板</div>
+    </div>
+    <div class="equipTable js-equipTable">
+        <div class="tabCtrl clearfix js-tabCtrl">
+            <div class="select-style layui-form" id="flag-display">
+                <label class="label">设备选择</label>
+                <div class="ext-yline"></div>
+                <select name="deviceSelect" lay-filter="deviceSelect" id="deviceSelect">
+                    <option value="0">全部</option>
+                </select>
+            </div>
+            <div id="log-view-paging" class="log-view-paging"></div>
+        </div>
+        <div class="tabCtrl-con hide show">
+            <h4 class="h4"><span class="allEquip checkbox js-allEquip" title=""></span>全选</h4>
+            <ul>
+                <li></li>
+                <li>页面名称</li>
+                <li>模板名称</li>                
+                <li>设备名称</li>
+                <li>排序</li>
+                <li>是否发布</li>
+                <li>起始日期</li>
+                <li>结束日期</li>
+                <li>开始时间</li>
+                <li>结束时间</li>
+                <li>持续时间</li>
+                <li>循环次数</li>
+                <li>每周</li>
+                <li>允许覆盖</li>
+                <li>允许广告</li>
+                <li>操作</li>
+            </ul>
+            <div class="tableCon js-tableCon" data-menu="template">
+                <ol id="tmplTableCon"></ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模版管理 end -->
+
+<!-- tmplManagement弹框 -->
+<div class="js-modal-tmplManage ">
+    <div class="modal-tmplManage-big">
+        <div class="mod-boxMask">
+            <div class="mod-popupBox">
+                <!-- 弹框内容 start -->
+                <h3 class="js-modalBigTitle">模板分配</h3>
+                <form class="layui-form">
+                    <div class="modalLeft">
+                        <!--设备名称-->
+                        <div class="row clearfix">
+                            <label class="label js-labSelect">设备名称<span class="required">(必填)</span></label>
+                            <div class="spinner">
+                                <div class="ext-yline"></div>
+                                <select name="deviceName" lay-filter="modal-tmpl-sel" id="deviceName" lay-verify="required">
+                                    <option value="">请选择设备</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--页面名称-->
+                        <div class="row clearfix">
+                            <label class="label js-labSelect">页面名称<span class="required">(必填)</span></label>
+                            <input type="text" name="pageName" id="pageName" class="layui-input" placeholder="请输入页面名称" lay-verify="required" />
+                        </div>
+                        <!--模板-->
+                        <div class="row clearfix">
+                            <label class="label js-labSelect">模板<span class="required">(必填)</span></label>
+                            <div class="spinner">
+                                <div class="ext-yline"></div>
+                                <select name="templateName" id="templateName" lay-filter="modal-tmpl-sel" lay-verify="required">
+                                    <option value="">请选择模版</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--子模板-->
+                        <div class="row clearfix child-tmpl js-child-tmpl">
+                            <label class="label js-labSelect">子模板<span class="required">(必填)</span></label>
+                            <div class="spinner">
+                                <div class="ext-yline"></div>
+                                <select name="displaySymbol" id="childTmplName" lay-filter="modal-tmpl-sel">
+                                    <option value="">请选择对应子模版</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--排序-->
+                        <div class="row clearfix">
+                            <label class="label js-labSelect">排序</label>
+                            <input type="number" min="1" max="255" name="taxis" id="taxis" class="layui-input" placeholder="1" />
+                            <span class="input-tips">当前值已被占用</span>
+                        </div>
+                        <!--持续时间-->
+                        <div class="row clearfix">
+                            <div class="label">持续时间</div>
+                            <input type="number" min="0" step="1" name="holdTime" id="holdTime" class="layui-input" value="1" lay-verify="required" lay-verify="number"
+                            />
+                        </div>
+                        <!--上屏代码-->
+                        <div class="row clearfix">
+                            <label class="label js-labSelect">上屏代码</label>
+                            <div class="spinner">
+                                <div class="ext-yline"></div>
+                                <select name="topScreenCode" id="topScreenCode" lay-filter="modal-tmpl-sel">
+                                    <option value="0">请选择</option>
+                                    <option value="1">CHECK</option>
+                                    <option value="2">GATE</option>
+                                    <option value="3">NONE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--循环次数-->
+                        <div class="row clearfix">
+                            <label class="label js-labSelect">循环次数</label>
+                            <input type="number" min="-1" name="loopCount" id="loopCount" class="layui-input" value="-1" lay-verify="required" />
+                        </div>
+                    </div>
+                    <div class="modalRight">
+                        <!--开始日期-->
+                        <div class="row clearfix">
+                            <div class="label">开始日期<span class="required">(必填)</span></div>
+                            <div class="spinner">
+                                <input class="input-text js-dateStart" id="startDate" type="text" name="startDate" lay-verify="required">
+                                <div class="ext-yline"></div>
+                                <div class="icon icon-calendar"></div>
+                            </div>
+                        </div>
+                        <!--结束日期-->
+                        <div class="row clearfix">
+                            <div class="label">结束日期<span class="required">(必填)</span></div>
+                            <div class="spinner">
+                                <input class="input-text js-dateEnd" type="text" id="endDate" name="endDate" lay-verify="required">
+                                <div class="ext-yline"></div>
+                                <div class="icon icon-calendar"></div>
+                            </div>
+                        </div>
+                        <!--开始时间-->
+                        <div class="row clearfix">
+                            <div class="label">每日显示<span class="required">(必填)</span></div>
+                            <div class="spinner">
+                                <input class="input-text js-time" type="text" placeholder="00:00" id="startTime" name="startTime" lay-verify="required">
+                                <div class="ext-yline"></div>
+                                <div class="icon icon-timer"></div>
+                            </div>
+                        </div>
+                        <!--结束时间-->
+                        <div class="row clearfix">
+                            <div class="label">至<span class="required">(必填)</span></div>
+                            <div class="spinner">
+                                <input class="input-text js-time" type="text" id="endTime" placeholder="00:00" name="endTime" lay-verify="required">
+                                <div class="ext-yline"></div>
+                                <div class="icon icon-timer"></div>
+                            </div>
+                        </div>
+                        <!--周-->
+                        <div class="row clearfix">
+                            <div class="label">周</div>
+                            <div class="checkbox-list js-checkbox-list">
+                                <div class="checkContain js-checkAll"><span class="checkbox checkbox-checked"></span>全选</div>
+                                <div class="checkContain" data-name="1"><span class="checkbox checkbox-checked"></span>周一</div>
+                                <div class="checkContain" data-name="2"><span class="checkbox checkbox-checked"></span>周二</div>
+                                <div class="checkContain" data-name="3"><span class="checkbox checkbox-checked"></span>周三</div>
+                                <br />
+                                <div class="checkContain" data-name="4"><span class="checkbox checkbox-checked"></span>周四</div>
+                                <div class="checkContain" data-name="5"><span class="checkbox checkbox-checked"></span>周五</div>
+                                <div class="checkContain" data-name="6"><span class="checkbox checkbox-checked"></span>周六</div>
+                                <div class="checkContain" data-name="7"><span class="checkbox checkbox-checked"></span>周日</div>
+                            </div>
+                        </div>
+                        <!--允许广告-->
+                        <div class="row float clearfix">
+                            <div class="label padding-r">允许广告</div>
+                            <div class="check-box">
+                                <input type="checkbox" name="ad" id="ad" title=" ">
+                            </div>
+                        </div>
+                        <!--允许覆盖-->
+                        <div class="row float clearfix">
+                            <div class="label padding-r">允许覆盖</div>
+                            <div class="check-box">
+                                <input type="checkbox" name="cover" id="cover" title=" ">
+                            </div>
+                        </div>
+                        <!--是否发布-->
+                        <!--<div class="row float clearfix">
+                            <div class="label padding-r">是否发布</div>
+                            <div class="check-box">
+                                <input type="checkbox" name="isPublish" id="publish" title=" ">
+                            </div>
+                        </div>-->
+                    </div>
+                    <!-- 弹框内容 start -->
+                    <!-- btn start -->
+                    <div class="cancel-btn">取消</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                    <div class="ensure-btn" lay-submit>确定</div>
+                    <div class="close-btn icon icon-close"></div>
+                    <!-- btn end -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--模版管理: tableCon中的列表-->
+<script type="text/x-dot-template" id="template-list">
+    {{~it:item}}
+    <li class="row" data-rowid="{{=item.ID}}" data-is-send="{{=item.IsSend}}">
+        <p><span class="checkbox"></span></p>
+        <p title="{{=item.PageName}}">{{=item.PageName}}</p>
+        <p title="{{=item.TemplateName}}">{{=item.TemplateName}}</p>
+        <p title="{{=item.ip}}">{{=item.DisplayName}}</p>
+        <p>{{=item.Index}}</p>
+        <p>{{!item.IsSend=== 0 ? '否' : '是' }}</p>
+        <p>{{!new Date(Number(/(\d+)/.exec(item.StartTime)[1])).toLocaleDateString()}}</p>
+        <p>{{!new Date(Number(/(\d+)/.exec(item.EndTime)[1])).toLocaleDateString()}}</p>
+        <p>{{!/(\d{2}:\d{2}):\d{2}/.exec(new Date(Number(/(-?\d+)/.exec(item.SpaceStartTime)[1])))[1]}}</p>
+        <p>{{!/(\d{2}:\d{2}):\d{2}/.exec(new Date(Number(/(-?\d+)/.exec(item.SpaceEndTime)[1])))[1]}}</p>
+        <p>{{=item.IntervalSecond}}s</p>
+        <p>{{=item.Count}}</p>
+        <p>{{=item.Weeks}}</p>
+        <p>{{!item.IsCover=== 0 ? '否' : '是' }}</p>
+        <p>{{!item.IsAdvert=== 0 ? '否' : '是' }}</p>           
+        <p>
+            <span class="icoBtn js-edit"><i class="icon icon-edit-black"></i></span>
+            <span class="icoBtn js-del"><i class="icon icon-del-black"></i></span>
+        </p>
+    </li>
+    {{~}}
+</script>
+<!--模版管理: 弹框中的模板列表-->
+<script type="text/x-dot-template" id="select-tmpl">
+    <option value="">请选择模板</option>
+    {{~it:item}}
+        <option value="{{=item.templateID}}">{{=item.description}}</option>
+    {{~}}
+</script>
+<!--模版管理: 弹框中的子模板列表-->
+<script type="text/x-dot-template" id="select-child-tmpl">
+    <option value="">请选择对应子模板</option>
+    {{?it.value}}
+        {{~it.value:item}} 
+            <option value="{{=item.Display_Symbol}}">{{=item.Description}}</option>
+        {{~}}
+    {{?}}
+</script>
+<!--模版管理: 弹框中的设备列表-->
+<script type="text/x-dot-template" id="select-device">
+    <option value="">请选择设备</option>
+    {{~it:item}}
+    <option value="{{=item.displayID}}">{{=item.displayName}} : {{=item.ip}}</option>
+    {{~}}
+</script>
+<!--模版管理: tableCon中的设备选择 -->
+<script type="text/x-dot-template" id="device-tmpl">
+    <option value="all">全部</option>
+    {{~it:item}}
+    <option value="{{=item.displayID}}">{{=item.displayName}}</option>
+    {{~}}
+</script>

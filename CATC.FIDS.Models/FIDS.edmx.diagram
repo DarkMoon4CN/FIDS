@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="29504e95ef364b2ca7dac1a5cd890370" Name="Diagram1">
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.DailySchedule" Width="1.5" PointX="5.75" PointY="5.125" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.DailySchedule_Extension" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.DailySchedule_ExtFileds" Width="1.5" PointX="5.75" PointY="1.25" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.EventItem" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.EventMessage" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Aircraft" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_AircraftType" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Airline" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Airline_Sub" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Airport" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Alliance" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_City" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Country" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_DelayCode" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Province" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_Status" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.F_TaskCode" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.FIDS_Parameter" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Flight_Dynamic" Width="1.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Flight_Schedule" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Flight_Service" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.History_Flight_Dynamic" Width="1.5" PointX="14.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.L_Operation_Log" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.R_DeviceGroup" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.R_DeviceMonitoring" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.R_DeviceStatus" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.R_DisplayInfo" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.R_Facility" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.R_FacilityType" Width="1.5" PointX="16.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Schedule" Width="1.5" PointX="16.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Sy_Role" Width="1.5" PointX="16.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Sy_UserInfo" Width="1.5" PointX="12.75" PointY="16.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Sy_UserRole" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.sysdiagrams" Width="1.5" PointX="14.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Template" Width="1.5" PointX="16.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Template_DisplayInfo_Rel" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.TemplateDisplayInfoView" Width="1.5" PointX="18.75" PointY="6.75" />
+        <AssociationConnector Association="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule1" />
+        <AssociationConnector Association="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Status" Width="1.5" PointX="7.375" PointY="18.75" />
+        <EntityTypeShape EntityType="CATC_FIDS_DBModel.Flight_Resource_Allocation" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="CATC_FIDS_DBModel.FK_Flight_ResAllocation_ActualGate" />
+        <AssociationConnector Association="CATC_FIDS_DBModel.FK_Flight_ResAllocation_EstimateGate" />
+        <AssociationConnector Association="CATC_FIDS_DBModel.FK_Flight_ResAllocation_SchedGate" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

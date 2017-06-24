@@ -1,0 +1,444 @@
+﻿@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DataTables example - Zero configuration</title>
+    <link rel="stylesheet" type="text/css" href="/Scripts/EasyUI/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/Scripts/EasyUI/themes/icon.css" />
+    <script type="text/javascript" language="javascript" src="/Scripts/EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/Scripts/EasyUI/jquery.easyui.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/Scripts/EasyUI/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            setInterval("selectdatagrid2()", 3000);
+            //$('#AirWayList').datagrid({
+            //    title: '',
+            //    loadMsg: "数据加载中，请稍后……",
+            //    nowrap: true,
+            //    url: '/DisplayInfoes/SelectAllRecord',
+            //    queryParams:{isPrimary_select:"0", displayGroup_name: ""},
+            //    fit: true,
+            //    pagination: true,
+            //    pageSize: 10,
+            //    idField: 'displayID',
+            //    singleSelect: true,
+            //    columns: [[
+            //            {
+            //                field: 'displayID',
+            //                title: 'displayID',
+            //                width: 100,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'ip',
+            //                title: 'ip',
+            //                width: 100,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'displayName',
+            //                title: '设备名称',
+            //                width: 120,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'url',
+            //                title: 'url',
+            //                width: 120,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'displayLuminance',
+            //                title: '亮度',
+            //                width: 120,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'displayState',
+            //                title: '状态',
+            //                width: 120,
+            //                align: 'center',
+            //                formatter : function(value, rec, index) {
+            //                    if (value == 1) {
+            //                        return '<span style="color:red">开机开显示器</span>';
+            //                    };
+            //                    if (value == 2) {
+            //                        return '<span style="color:red">开机关显示器</span>';
+            //                    };
+            //                    if (value == 4) {
+            //                        return '<span style="color:red">关机</span>';
+            //                    }
+            //                }
+            //            },
+            //            {
+            //                field: 'createTime',
+            //                title: '状态修改时间',
+            //                width: 120,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'displayGroup',
+            //                title: '分组',
+            //                width: 120,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'displayMAC',
+            //                title: 'MAC',
+            //                width: 120,
+            //                align: 'center',
+            //                sortable: true
+            //            },
+            //            {
+            //                field: 'temp2',
+            //                title: '操作',
+            //                width: 70,
+            //                align: 'center',
+            //                formatter: function (
+            //                        value, rec,
+            //                        index) {
+            //                    return '<a href="javascript:void(0);" onclick="showDialog(\''
+            //                             + rec.displayID
+            //                             + '\',\''
+            //                             + rec.ip
+            //                             + '\',\''
+            //                             + rec.displayName
+            //                             + '\',\''
+            //                             + rec.url
+            //                             + '\',\''
+            //                             + rec.createTime
+            //                             + '\',\''
+            //                             + rec.displayLuminance
+            //                             + '\',\''
+            //                             + rec.displayState
+            //                             + '\',\''
+            //                             + rec.displayGroup
+            //                             + '\',\''
+            //                             + index
+            //                             + '\');"><span style="color:blue">修改</span></a>';
+            //                }
+            //            },
+            //            {
+            //                field: 'temp1',
+            //                title: '操作',
+            //                width: 70,
+            //                align: 'center',
+            //                formatter: function (value, rec, index) {
+            //                    return '<a href="javascript:void(0);" style="text-decoration:underline" onclick="startingUp(\'' + rec.displayMAC + '\');">开机</a>';
+            //                }
+            //            },
+            //            {
+            //                field: 'temp3',
+            //                title: '操作',
+            //                width: 70,
+            //                align: 'center',
+            //                formatter: function (value, rec, index) {
+            //                    var str = '<a href="javascript:void(0);" style="text-decoration:underline" onclick="shutdown(\'' + rec.displayID + '\',\'' + rec.ip + '\');">关机</a>';
+            //                    return str;
+            //                }
+            //            },
+            //            {
+            //                field: 'temp4',
+            //                title: '操作',
+            //                width: 70,
+            //                align: 'center',
+            //                formatter: function (value, rec, index) {
+            //                    var str = '<a href="javascript:void(0);" style="text-decoration:underline" onclick="reboot(\'' + rec.displayID + '\',\'' + rec.ip + '\');">重启</a>';
+            //                    return str;
+            //                }
+            //            }
+            //    ]],
+            //    onLoadSuccess: function () {
+            //        $('.datagrid-header-rownumber')
+            //                .css('width', '50px');
+            //    }
+            //});
+
+            $('#AirWayList2').datagrid({
+                title: '',
+                loadMsg: "数据加载中，请稍后……",
+                nowrap: true,
+                url: '/DisplayInfoes/RefreshDeviceState',
+                queryParams: { isPrimary_select: "1", displayGroup_name: "" },
+                fit: true,
+                pagination: true,
+                pageSize: 10,
+                idField: 'displayID',
+                singleSelect: true,
+                columns: [[
+                        {
+                            field: 'DisplayID',
+                            title: 'displayID',
+                            width: 100,
+                            align: 'center',
+                            sortable: true
+                        },
+                        {
+                            field: 'Ip',
+                            title: 'ip',
+                            width: 100,
+                            align: 'center',
+                            sortable: true
+                        },
+                        {
+                            field: 'DisplayName',
+                            title: '设备名称',
+                            width: 120,
+                            align: 'center',
+                            sortable: true
+                        },
+                        {
+                            field: 'IsPrimary',
+                            title: 'url',
+                            width: 120,
+                            align: 'center',
+                            sortable: true
+                        },
+                        {
+                            field: 'ConnectedTime',
+                            title: '时间',
+                            width: 120,
+                            align: 'center',
+                            sortable: true
+                        },
+                         {
+                             field: 'Status1',
+                             title: '状态',
+                             width: 120,
+                             align: 'center',
+                             sortable: true
+                         },
+                        {
+                            field: 'ExceptionMsg',
+                            title: '异常',
+                            width: 120,
+                            align: 'center',
+                            sortable: true
+                        }
+                ]],
+                onLoadSuccess: function () {
+                    $('.datagrid-header-rownumber')
+                            .css('width', '50px');
+                }
+            });
+
+            $('#form_screen_infor').form({
+                onSubmit: function () {
+                    if (confirm("确认修改吗?")) {
+                        return true;
+                    }
+                    return false;
+                },
+                success: function (data) {
+                    var json = $.parseJSON(data);
+                    $.messager.show({
+                        title: '提示',
+                        msg: json.Message,
+                        showType: 'fade',
+                        style:
+                        {
+                            right: '',
+                            bottom: ''
+                        }
+                    });
+                    selectdatagrid();
+                    $('#update').window('close');
+                }
+            });
+        });
+
+        function selectdatagrid2() {
+            $('#AirWayList').datagrid({
+                url: '/DisplayInfoes/RefreshDeviceState',
+                queryParams: { isPrimary_select: "0", displayGroup_name: "" },
+                onLoadError: function () {
+                    alert("错误或无内容!");
+                }
+            });
+            $('#AirWayList2').datagrid('reload');
+            $('#AirWayList2').datagrid('unselectAll');
+        }
+
+        //重新加载列表
+        function selectdatagrid() {
+            $('#AirWayList').datagrid({
+                url: '/DisplayInfoes/SelectAllRecord',
+                onLoadError: function () {
+                    alert("错误或无内容!");
+                }
+            });
+            $('#AirWayList').datagrid('reload');
+            $('#AirWayList').datagrid('unselectAll');
+        }
+
+        //编辑对话框
+        function showDialog(displayID, ip, displayName, url, createTime, displayLuminance, displayState, displayGroup, rowindex) {
+            $('#update').window('open');
+            //初始化变量
+            $('#displayID_name').val(displayID);
+            $('#datagrid_rowid').val(rowindex);
+            $('#ip_name').val(ip);
+            $('#displayName_name').val(displayName);
+            $('#url_name').val(url);
+            $('#createTime_name').val(createTime);
+            $('#displayLuminance_name').val(displayLuminance);
+            $('#displayState_name').val(displayState);
+            $('#displayGroup_name').val(displayGroup);
+        }
+
+        //开机
+        function startingUp(mac_address_str) {
+            $.ajax({
+                type: "post",
+                url: "/DisplayInfoes/ControlMethod",
+                data: "id_list_json=" + mac_address_str,
+                dataType: "text",
+                success: function (data, status) {
+                    var json = $.parseJSON(data);
+                    alert(json.Message);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+
+        //关机
+        function shutdown(displayID_p, ip_p) {
+            $.ajax({
+                type: "post",
+                url: "/DisplayInfoes/ControlMethod",
+                data: "displayID_name=" + displayID_p + "&ip_name=" + ip_p,
+                dataType: "text",
+                success: function (data, status) {
+                    var json = $.parseJSON(data);
+                    alert(json.Message);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+
+        //重启
+        function reboot(displayID_p, ip_p) {
+            $.ajax({
+                type: "post",
+                url: "/DisplayInfoes/ControlMethod",
+                data: "displayID_name=" + displayID_p + "&ip_name=" + ip_p,
+                dataType: "text",
+                success: function (data, status) {
+                    var json = $.parseJSON(data);
+                    alert(json.data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+
+        //test操作
+        function textmethod() {
+            $.ajax({
+                type: "post",
+                url: "/DisplayInfoes/UpdateConnectTimeALL",
+                data: "request_time=6",
+                dataType: "text",
+                success: function (data, status) {
+                    var json = $.parseJSON(data);
+                    alert(json.Message);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+
+        function textmethod2() {
+            $.ajax({
+                type: "post",
+                url: "/DisplayInfoes/ControlMethod",
+                data: "message=invalid&data=56",
+                dataType: "text",
+                success: function (data, status) {
+                    var json = $.parseJSON(data);
+                    alert(json.Message);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="测试按钮" onclick="textmethod()"></input>
+    <input type="button" value="测试按钮2" onclick="textmethod2()"></input>
+    <table id="AirWayList"></table>
+    <table id="AirWayList2"></table>
+    <div id="update" class="easyui-window" title="修改"
+         style="width: 400px; height: 400px;" iconcls="icon-edit" closed="true"
+         maximizable="false" minimizable="false" collapsible="false"
+         modal="true">
+        <form id="form_screen_infor"
+              action="/DisplayInfoes/UpdateOneRecord"
+              method="POST">
+            <table width="100%" id="updatetable">
+                <tr>
+                    <td align="center">
+                        ip：<input id="ip_name" name="ip_name" value="" />
+                        <input id="displayID_name" name="displayID_name" type="hidden" value="" />
+                        <input id="datagrid_rowid" name="datagrid_rowid_name" type="hidden" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        设备名称：<input id="displayName_name" name="displayName_name" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        url：<input id="url_name" name="url_name" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        创建时间：<input id="createTime_name" name="createTime_name" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        亮度：<input id="displayLuminance_name" name="displayLuminance_name" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        状态：<input id="displayState_name" name="displayState_name" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        分组：<input id="displayGroup_name" name="displayGroup_name" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input id="checksubmit" type="submit"
+                               value="提交"></input> <input type="button" value="关闭" onclick="javascript:$('#update').window('close')"></input>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>到港&离港大屏页面</title>
+    <link rel="stylesheet" href="~/Content/reset.css" />
+    <link rel="stylesheet" href="~/Content/common.css" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <link rel="stylesheet" href="~/Content/departureAirport.css" />
+    <link rel="stylesheet" href="~/Content/deparAirport-tab.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/departuresBigScreen.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(3840);
+            util.marquee('.tips');
+            DeparturesBigScreen.Init();
+        });
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <div class="menuGroup-1">
+            <div class="menu-time">
+                <i class="icon-time"></i>
+                <span>时间</span>
+            </div>
+            <div class="menu-text">
+                <i class="icon-text"></i>
+                <span>文本</span>
+            </div>
+            <div class="menu-pic">
+                <i class="icon-pic"></i>
+                <span>图片</span>
+            </div>
+            <div class="menu-weather">
+                <i class="icon-weather"></i>
+                <span>气象</span>
+            </div>
+            <div class="menu-bg">
+                <i class="icon-bg"></i>
+                <span>背景</span>
+            </div>
+            <div class="menu-video">
+                <i class="icon-video"></i>
+                <span>视频</span>
+            </div>
+            <div class="menu-msg">
+                <i class="icon-msg"></i>
+                <span>消息</span>
+            </div>
+        </div>
+        <div class="menuGroup-3">
+            <div class="menu-save">
+                <i class="icon-save"></i>
+                <span>保存</span>
+            </div>
+            <div class="menu-pub">
+                <i class="icon-pub"></i>
+                <span>发布</span>
+            </div>
+        </div>
+        <div class="menuGroup-2">
+            <div class="menu-clear">
+                <i class="icon-clear"></i>
+                <span>重置</span>
+            </div>
+            <div class="menu-view">
+                <i class="icon-view"></i>
+                <span>预览</span>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="flights">国内离港航班</div>
+    </div>
+    <div class="col-6 domesticFlights">
+        <div class="main">
+            <div class="mainCon mainCon-table">
+                <ul class="col-2" id="t_1">
+                    <h3 class="mainCon-hd">实际时间</h3>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                </ul>
+                <ul class="col-2" id="t_6">
+                    <h3 class="mainCon-hd">经停/终点站</h3>
+                    <li>上海</li>
+                    <li>上海</li>
+                    <li>上海</li>
+                </ul>
+                <ul class="col-2" id="t_8">
+                    <h3 class="mainCon-hd">航空公司</h3>
+                    <li class="airportCompany">
+                        <div class="img-airportCompany"><img src="../Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div class="airportCompany-name">中国国际航空</div>
+                    </li>
+                    <li class="airportCompany">
+                        <div class="img-airportCompany"><img src="../Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div class="airportCompany-name">中国国际航空</div>
+                    </li>
+                    <li class="airportCompany">
+                        <div class="img-airportCompany"><img src="../Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div class="airportCompany-name">中国国际航空</div>
+                    </li>
+                </ul>
+                <ul class="col-2" id="t_11">
+                    <h3 class="mainCon-hd">航班号</h3>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                </ul>
+                <ul class="col-2" id="t_12">
+                    <h3 class="mainCon-hd">计划时间</h3>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                </ul>
+                <ul class="col-2" id="t_13">
+                    <h3 class="mainCon-hd status">备注</h3>
+                    <li>
+                        <div class="status-flag is-greenActive">
+                            正在登机
+                        </div>
+                    </li>
+                    <li>
+                        <div class="status-flag is-yellowActive">
+                            计划变更
+                        </div>
+                    </li>
+                    <li>
+                        <div class="status-flag is-redActive">
+                            立即登机
+                        </div>
+                    </li>
+                    <li>
+                        <div class="status-flag">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="col-2" id="t_14">
+                    <h3 class="mainCon-hd">值机柜台</h3>
+                    <li>E区/</li>
+                    <li>E区/</li>
+                    <li>E区/</li>
+                </ul>
+                <ul class="col-2" id="t_15">
+                    <h3 class="mainCon-hd">共享号</h3>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                </ul>
+                <ul class="col-2" id="t_16">
+                    <h3 class="mainCon-hd">登机口</h3>
+                    <li>5号登机口</li>
+                    <li>5号登机口</li>
+                    <li>5号登机口</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 domesticFlights">
+        <div class="main">
+            <div class="mainCon mainCon-table">
+                <ul class="col-2" id="t_1">
+                    <h3 class="mainCon-hd">实际时间</h3>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                </ul>
+                <ul class="col-2" id="t_6">
+                    <h3 class="mainCon-hd">经停/终点站</h3>
+                    <li>上海</li>
+                    <li>上海</li>
+                    <li>上海</li>
+                </ul>
+                <ul class="col-2" id="t_8">
+                    <h3 class="mainCon-hd">航空公司</h3>
+                    <li class="airportCompany">
+                        <div class="img-airportCompany"><img src="../Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div class="airportCompany-name">中国国际航空</div>
+                    </li>
+                    <li class="airportCompany">
+                        <div class="img-airportCompany"><img src="../Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div class="airportCompany-name">中国国际航空</div>
+                    </li>
+                    <li class="airportCompany">
+                        <div class="img-airportCompany"><img src="../Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div class="airportCompany-name">中国国际航空</div>
+                    </li>
+                </ul>
+                <ul class="col-2" id="t_11">
+                    <h3 class="mainCon-hd">航班号</h3>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                </ul>
+                <ul class="col-2" id="t_12">
+                    <h3 class="mainCon-hd">计划时间</h3>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                    <li>8:30AM</li>
+                </ul>
+                <ul class="col-2" id="t_13">
+                    <h3 class="mainCon-hd status">备注</h3>
+                    <li>
+                        <div class="status-flag is-greenActive">
+                            正在登机
+                        </div>
+                    </li>
+                    <li>
+                        <div class="status-flag is-yellowActive">
+                            计划变更
+                        </div>
+                    </li>
+                    <li>
+                        <div class="status-flag is-redActive">
+                            立即登机
+                        </div>
+                    </li>
+                    <li>
+                        <div class="status-flag">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="col-2" id="t_14">
+                    <h3 class="mainCon-hd">值机柜台</h3>
+                    <li>E区/</li>
+                    <li>E区/</li>
+                    <li>E区/</li>
+                </ul>
+                <ul class="col-2" id="t_15">
+                    <h3 class="mainCon-hd">共享号</h3>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                    <li>CA1202</li>
+                </ul>
+                <ul class="col-2" id="t_16">
+                    <h3 class="mainCon-hd">登机口</h3>
+                    <li>5号登机口</li>
+                    <li>5号登机口</li>
+                    <li>5号登机口</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+            <div class="tips" id="00001">
+
+            </div>
+        </div>
+
+</body>
+</html>

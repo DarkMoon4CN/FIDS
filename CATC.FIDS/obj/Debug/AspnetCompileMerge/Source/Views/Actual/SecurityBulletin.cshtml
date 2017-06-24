@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>安全公告页面</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/securityBulletin.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(1080);
+            //SecurityBulletin.Init();
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <style>
+            body {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                /*background: none;*/
+            }
+
+            .img-secBulletin {
+                width: 100%;
+                height: 100%;
+                /*
+        height: 19.2rem;*/
+            }
+
+                .img-secBulletin img {
+                    width: 100%;
+                    /*
+        height: 100%;*/
+                }
+    </style>
+    
+    <div class="img-secBulletin">
+        @Html.Raw(ViewBag.bstr)
+        @*<img src="~/Images/img-securityBulletin.png" alt="安全公告">*@
+    </div>
+
+</body>
+</html>

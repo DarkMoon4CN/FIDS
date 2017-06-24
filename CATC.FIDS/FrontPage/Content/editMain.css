@@ -1,0 +1,144 @@
+/* main部分 start */
+/*#main {
+    background: url("/Images/bg-editmain.jpg") no-repeat;
+    background-size: 100% 100%;
+}*/
+
+/* 通用左侧边栏 start */
+
+/*!* 主要编辑部分 start *!
+.mainContent {
+    float: left;
+    width: 91.667%;
+    height: 100%;
+    background-color: rgba(0,0,0,.3);
+}
+!* 主要编辑部分 end *!*/
+
+/* category start */
+.category {
+    width: 100%;
+    height: 100%;
+    margin-top: 0.6rem;
+}
+.category li {
+    position: relative;
+    float: left;
+    width: 4rem;
+    height: 2.4rem;
+    margin-left: 0.32rem;
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+    background-color: rgba(101,121,129,.5);
+}
+.category .displayView {
+    width: 100%;
+    height: 100%;
+    padding-left: 0.45rem;
+    padding-right: 0.47rem;
+    padding-top: 0.18rem;
+    background-size: 100% 100%;
+}
+.category .displayView img {
+    width: 3.21rem;
+    height: 2.19rem;
+}
+.displayView span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 2.2rem;
+    font-size: 0.36rem;
+    text-align: center;
+    font-weight: 300;
+}
+.displayView span.font-vip {
+    font-size: 0.24rem;
+}
+.category .displayView-mask {
+    position: absolute;
+    left: 0;
+    top: 2.4rem;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: top .8s cubic-bezier(0.23,1,0.32,1);
+    -moz-transition: top .8s cubic-bezier(0.23,1,0.32,1);
+    -ms-transition: top .8s cubic-bezier(0.23,1,0.32,1);
+    transition: top .8s cubic-bezier(0.23,1,0.32,1);
+}
+.category li:hover .displayView-mask{
+    top: 0;
+}
+
+.blueStyle .displayView-mask {
+    background-color: rgba(66,139,202,.95);
+}
+
+.blackStyle .displayView-mask {
+    background-color: rgba(38,39,40,.9);
+}
+.classicStyle .displayView-mask {
+    background-color: rgba(26,181,179,.95);
+}
+
+.dis-title {
+    width: 100%;
+    margin-top: 0.28rem;
+    font-size: 0.24rem;
+    text-align: center;
+}
+.dis-titleEn {
+    width: 100%;
+    margin-top: 0.1rem;
+    font-size: 0.12rem;
+    text-align: center;
+}
+.dis-line {
+    width: 100%;
+    margin-top: 0.1rem;
+    text-align: center;
+}
+.dis-line span {
+    display: inline-block;
+    width: 106px;
+    height: 1px;
+    background-color: #fff;
+}
+.dis-circle {
+    margin: 0.18rem auto 0;
+    width: 0.61rem;
+    height: 0.61rem;
+    border-radius: 50%;
+    border: 1px solid #e4e4e4;
+    opacity: 0;
+    transform: scale(0,0);
+    -webkit-transition: all .8s ease-in-out ;
+    -moz-transition: all .8s ease-in-out;
+    -ms-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
+}
+.dis-arrow {
+    width: 0;
+    height: 0;
+    border-top: 0.15rem solid transparent;
+    border-left: 0.24rem solid #e4e4e4;
+    border-bottom: 0.15rem solid transparent;
+    margin-top: 0.16rem;
+    margin-left: 0.23rem;
+    -webkit-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -ms-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
+}
+.category li:hover .dis-circle{
+    transform: scale(1,1);
+    opacity: 1;
+}
+
+.category li:hover .dis-circle:hover .dis-arrow {
+    border-left-color: #fff;
+}
+/* category end */

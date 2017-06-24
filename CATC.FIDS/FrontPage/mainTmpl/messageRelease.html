@@ -1,0 +1,239 @@
+<div id="msgRelease">
+    <!-- menu start-->
+    <div class="menu">
+        <div class="menu-send js-msg-pub" data-menu="publish"><i class="icon icon-send-blue"></i>发布消息</div>
+        <div class="menu-add hide js-menu-add"><i class="icon icon-add-blue"></i>添加</div>
+        <div class="menu-edit js-menu-edit"><i class="icon icon-edit-blue"></i>编辑</div>
+        <div class="menu-del js-menu-del"><i class="icon icon-del-blue"></i>删除</div>
+    </div>
+    <!-- menu end-->
+
+    <div class="js-dataTabs">
+        <!-- data type tab start-->
+        <ul class="dataTabs">
+            <li class="is-active" data-flag="msg-pub">消息发布</li>
+            <li data-flag="define-msg">预定义消息</li>
+            <li data-flag="msg-area">消息区域</li>
+        </ul>
+        <!-- data type tab end-->
+        <!-- 消息发布 start-->
+        <div class="dataTable hide show js-dataTable">
+             <div class="tabCtrl-con table-col7">
+                <h4 class="h4"><span class="allEquip checkbox js-allEquip" title=""></span>全选</h4>
+                <ul>
+                    <li></li>
+                    <li>消息内容</li>
+                    <li>消息区域</li>
+                    <li>起始时间</li>
+                    <li>结束时间</li>
+                    <li>优先级</li>
+                    <li>操作ID</li>
+                    <li>状态</li>
+                </ul>
+                <div class="tableCon js-tableCon" data-menu="template">
+                    <ol>
+                        <li class="row">
+                            <p><span class="checkbox"></span></p>
+                            <p>飞往北京的CA1234航班正在值机，请该航班旅客到003号值机柜台办理值机手续</p>
+                            <p>张三</p>
+                            <p>2015/01/01 12:00:00</p>
+                            <p>2015/01/01 13:00:00</p>
+                            <p>1</p>
+                            <p>zs</p>
+                            <p>已结束</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- 消息发布 end-->
+        <!-- 预定义消息 start-->
+        <div class="dataTable hide js-dataTable">
+            <div class="tabCtrl-con table-col3">
+                <h4 class="h4"><span class="allEquip checkbox js-allEquip" title=""></span>全选</h4>
+                <ul>
+                    <li></li>
+                    <li>消息名称</li>
+                    <li>消息内容</li>
+                    <li>优先级</li>
+                </ul>
+                <div class="tableCon js-tableCon" data-menu="template">
+                    <ol>
+                        <li class="row">
+                            <p><span class="checkbox"></span></p>
+                            <p>1</p>
+                            <p>由于天气原因，航班大面积延误，给您的出行造成的不便请，各位旅客谅解。由于天气原因，航班大面积延误，给您的出行造成的不便请，敬请各位旅客谅解</p>
+                            <p>1</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- 预定义消息 end-->
+        <!-- 消息区域 start-->
+        <div class="dataTable hide js-dataTable">
+            <div class="tabCtrl-con table-col2">
+                <h4 class="h4"><span class="allEquip checkbox js-allEquip" title=""></span>全选</h4>
+                <ul>
+                    <li></li>
+                    <li>区域名称</li>
+                    <li>设备清单</li>
+                </ul>
+                <div class="tableCon js-tableCon" data-menu="template">
+                    <ol>
+                        <li class="row">
+                            <p><span class="checkbox"></span></p>
+                            <p>All Device</p>
+                            <p>D1.D2.D3.D4.D5.D6.D7.D8.D9.D1.D2.D3.D4.D5.D6.D7.D8.D9.D1.D2.D3.D9.D1.D2.D3.D9.D1.D2.D3.D9.D1.D2.D3.D9.D1.D2.D3.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- 消息区域 end-->
+    </div>
+</div>
+
+<!-- messageRelease弹框 -->
+<div class="modal-msg">
+    <div class="mod-boxMask" style="display: none">
+        <div class="mod-popupBox">
+            <!-- 弹框内容 start -->
+            <h3 class="js-modalBigTitle">消息发布</h3>
+            <!-- 消息发布 -->
+            <form class="layui-form js-modal-pub">
+                <ul class="dataList clearfix">
+                    <!--消息名称-->
+                    <li class="row clearfix">
+                        <label class="label">消息名称<span class="required">(必填)</span></label>
+                        <div class="spinner">
+                            <div class="ext-yline"></div>
+                            <select name="msgName" lay-filter="modal-tmpl-sel" id="msgName" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="2" selected>自由文本</option>
+                            </select>
+                        </div>
+                    </li>
+                    <!--消息内容-->
+                    <li class="row msg-textarea clearfix">
+                        <label class="label">消息内容<span class="required">(必填)</span></label>
+                        <div class="spinner">
+                            <textarea name="msgCon" placeholder="请输入" class="textarea-style" id="msgCon" lay-verify="required"></textarea>
+                        </div>
+                    </li>
+                    <!--消息区域-->
+                    <li class="row clearfix">
+                        <label class="label">消息区域<span class="required">(必填)</span></label>
+                        <div class="spinner">
+                            <div class="ext-yline"></div>
+                            <select name="msgName" lay-filter="modal-tmpl-sel" id="msgName" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="2">自由文本</option>
+                            </select>
+                        </div>
+                    </li>
+                    <div style="clear: both"></div>
+                    <!--开始时间-->
+                    <li class="row clearfix">
+                        <div class="label">开始时间<span class="required">(必填)</span></div>
+                        <div class="spinner">
+                            <input class="input-style js-date-time" type="text" placeholder="00:00" id="startTime" name="startTime" lay-verify="required">
+                            <div class="ext-yline"></div>
+                            <div class="icon icon-timer"></div>
+                        </div>
+                    </li>
+                    <!--结束时间-->
+                    <li class="row clearfix">
+                        <div class="label">结束时间<span class="required">(必填)</span></div>
+                        <div class="spinner">
+                            <input class="input-style js-date-time" type="text" id="endTime" placeholder="00:00" name="endTime" lay-verify="required">
+                            <div class="ext-yline"></div>
+                            <div class="icon icon-timer"></div>
+                        </div>
+                    </li>
+                    <!--优先级-->
+                    <li class="row clearfix">
+                        <div class="label">优先级<span class="required">(必填)</span></div>
+                        <div class="spinner">
+                            <input class="layui-input" type="number" id="endTime" placeholder="请选择" min="1" max="10" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                </ul>
+                <!-- btn start -->
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <!-- 预定义消息 -->
+            <form class="layui-form js-modal-define hide">
+                <ul class="dataList clearfix">
+                    <li class="row clearfix">
+                        <label class="label">消息名称<span class="required">(必填)</span></label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row msg-textarea clearfix">
+                        <label class="label">消息内容<span class="required">(必填)</span></label>
+                        <div class="spinner">
+                            <textarea name="msgCon" placeholder="请输入" class="textarea-style textarea-h" id="msgCon" lay-verify="required"></textarea>
+                        </div>
+                    </li>
+                    <div style="clear: both"></div>
+                    <!--优先级-->
+                    <li class="row clearfix">
+                        <div class="label">优先级<span class="required">(必填)</span></div>
+                        <div class="spinner">
+                            <input class="layui-input" type="number" id="endTime" placeholder="请选择" min="1" max="10" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                </ul>
+                <!-- btn start -->
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <!-- 消息区域 -->
+            <form class="layui-form js-modal-area hide">
+                <ul class="dataList clearfix">
+                    <li class="row clearfix">
+                        <label class="label">区域名称</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+
+                    <li class="row msg-textarea clearfix">
+                        <label class="label">设备列表</label>
+                        <div class="spinner textarea-style device-list js-scroll-device">
+                            <div class="checkbox-list js-checkbox-list">
+                                <div class="checkContain js-checkAll"><span class="checkbox"></span>全选</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备一</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备二</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备三</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备四</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备五</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备六</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备七</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备七</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备七</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备七</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- btn start -->
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <div class="close-btn icon icon-close"></div>
+        </div>
+    </div>
+</div>

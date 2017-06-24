@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VIP旅客页面</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <link href="~/Content/specialService.css" rel="stylesheet" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/vipService.js"></script>
+    <script>
+        $(function () {
+            //跑马灯效果
+            util.dynamicCalcRem(1920);
+            util.marquee('.tips', 80);
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <!-- 头部 start -->
+    <div class="header clearfix">
+        <div class="header-logo">
+            <img src="@ViewBag.logo" alt="中国国际航空公司" />
+        </div>
+        @Html.Raw(ViewBag.hstr)
+    </div>
+    <!-- 头部 end -->
+    <!-- 主体显示区域 start -->
+    <div class="main clearfix">
+        <!-- mainCon start -->
+        <div class="mainCon">
+            <div class="flightNum">VIP旅客服务</div>
+            <div class="flightRouteSpell">VIP Passenger Service</div>
+        </div>
+        <!--mainCon end -->
+    </div>
+    <!-- 主体显示区域 end -->
+    <div class="footer">
+        <div class="tips" id="00001"></div>
+    </div>
+</body>
+</html>

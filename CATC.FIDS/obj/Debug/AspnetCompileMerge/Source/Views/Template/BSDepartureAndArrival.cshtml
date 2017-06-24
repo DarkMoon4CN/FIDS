@@ -1,0 +1,227 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>到港&离港大屏页面</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/deparAndArriveBigScreen.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/deparAndArriveBigScreen.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(3840);
+            util.marquee('.tips');
+        });
+    </script>
+</head>
+<body>
+
+    <!-- 国内出港航班 start -->
+    <div class="col-6 domesticFlights">
+        <!-- 头部 start -->
+        <div class="header">
+            <div class="flights">
+                国内离港航班
+            </div>
+        </div>
+        <!-- 头部 end -->
+        <!-- 主体显示区域 start -->
+        <div class="main">
+            <div class="mainCon">
+                <!-- 内容标题部分 start -->
+                <div class="mainCon-hd is-hdColor">
+                    <div class="col-2">航空公司</div>
+                    <div class="col-2 airportNum">航班号</div>
+                    <div class="col-2 terminal">终点站/经停</div>
+                    <div class="col-2">起飞时间</div>
+                    <div class="col-2">值机柜台</div>
+                    <div class="col-2 remark">备注</div>
+                </div>
+                <!-- 内容标题部分 end -->
+                <!-- 内容主体部分 start -->
+                <div class="mainCon-bd">
+                    <div class="row is-greenMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">中国国际航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">E区/</div>
+                        <div class="col-2">
+                            <div class="status-flag is-greenActive">正在登机</div>
+                        </div>
+                    </div>
+                    <div class="row is-yellowMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">中国国际航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">2号</div>
+                        <div class="col-2">
+                            <div class="status-flag is-yellowActive">计划变更</div>
+                        </div>
+                    </div>
+                    <div class="row is-yellowMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">中国国际航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">E区/</div>
+                        <div class="col-2">
+                            <div class="status-flag is-yellowActive">计划变更</div>
+                        </div>
+                    </div>
+                    <div class="row is-redMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">上海航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">E区/</div>
+                        <div class="col-2">
+                            <div class="status-flag is-redActive">立即登机</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">上海航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">E区/</div>
+                        <div class="col-2">
+                            <div class="status-flag"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容主体部分 end -->
+            </div>
+        </div>
+        <!-- 主体显示区域 end -->
+    </div>
+    <!-- 国内出港航班 end -->
+    <!-- 国际出港航班 start -->
+    <div class="col-6 foreignFlights">
+        <!-- 头部 start -->
+        <div class="header">
+            <div class="flights">
+                国内到港航班
+            </div>
+        </div>
+        <!-- 头部 end -->
+        <!-- 主体显示区域 start -->
+        <div class="main">
+            <div class="mainCon">
+                <!-- 内容标题部分 start -->
+                <div class="mainCon-hd is-hdColor">
+                    <div class="col-2">航空公司</div>
+                    <div class="col-2 airportNum">航班号</div>
+                    <div class="col-2 terminal">始发站/经停</div>
+                    <div class="col-2">计划时间</div>
+                    <div class="col-2">实际时间</div>
+                    <div class="col-2 remark">备注</div>
+                </div>
+                <!-- 内容标题部分 end -->
+                <!-- 内容主体部分 start -->
+                <div class="mainCon-bd">
+                    <div class="row is-greenMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">中国国际航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">8:30AM</div>
+                        <div class="col-2">
+                            <div class="status-flag is-greenActive">到达</div>
+                        </div>
+                    </div>
+                    <div class="row is-yellowMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">中国国际航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">8:30AM</div>
+                        <div class="col-2">
+                            <div class="status-flag is-yellowActive">延误</div>
+                        </div>
+                    </div>
+                    <div class="row is-yellowMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">中国国际航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">8:30AM</div>
+                        <div class="col-2">
+                            <div class="status-flag is-yellowActive">延误</div>
+                        </div>
+                    </div>
+                    <div class="row is-redMark">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">上海航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">8:30AM</div>
+                        <div class="col-2">
+                            <div class="status-flag is-redActive">取消</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 airportCompany">
+                            <div><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                            <div class="airportCompany-name">上海航空</div>
+                        </div>
+                        <div class="col-2 airportName">CA1202</div>
+                        <div class="col-2">上海</div>
+                        <div class="col-2">8:30AM</div>
+                        <div class="col-2 checkInCounter">8:30AM</div>
+                        <div class="col-2">
+                            <div class="status-flag"> </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 内容主体部分 end -->
+            </div>
+        </div>
+        <!-- 主体显示区域 end -->
+    </div>
+    <!-- 国际出港航班 end -->
+    <div class="footer">
+        <div class="tips" id="00001"></div>
+    </div>
+
+</body>
+</html>

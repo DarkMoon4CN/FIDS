@@ -1,0 +1,415 @@
+/* common start */
+#tmplManage .hide {
+    display: none;
+}
+#tmplManage .show {
+    display: block;
+}
+#tmplManage .circle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow:1px 2px 6px 0 rgba(0,0,0,.15);
+}
+#tmplManage .blueCircle {
+    border-color: #4fb3fc;
+}
+#tmplManage .redCircle {
+    border-color: #f64a57;
+}
+#tmplManage .greenCircle {
+    border-color: #25ee53;
+}
+/* common end */
+
+/* iscroll 滚动条 */
+#tmplManage .iScrollVerticalScrollbar {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    width: 0.3rem;
+    height: 100%;
+    overflow: hidden;
+    background-color: #e8e8e8;
+    border-left: 1px solid #ccc;
+}
+
+#tmplManage .iScrollIndicator {
+    position: absolute;
+    background: #fff;
+    /*opacity: 0.7;*/
+}
+
+#tmplManage .iScrollVerticalScrollbar.iScrollBothScrollbars {
+    /*bottom: 18px;*/
+    background-color: #e8e8e8;
+}
+
+#tmplManage .iScrollVerticalScrollbar .iScrollIndicator {
+    width: 0.3rem;
+    border-radius: 0;
+
+}
+
+
+/* main部分 start */
+
+/* menu start */
+#tmplManage .menu {
+    margin: 0.38rem 0 0.12rem 0.32rem;
+    overflow: hidden;
+}
+#tmplManage .menu div[class^="menu-"] {
+    float: left;
+    width: 1.38rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    text-align: center;
+    color: #428bca;
+    border: 1px solid #428bca;
+    cursor: pointer;
+}
+#tmplManage .menu div[class^="menu-"]:hover {
+    color: #fff;
+    background-color: #428bca;
+}
+
+#tmplManage .menu div.menu-add,
+#tmplManage .menu div.menu-send{
+    margin-right: 0.2rem;
+    border-radius: 4px;
+}
+
+
+#tmplManage .menu div.menu-del {
+    border-radius: 4px;
+}
+
+#tmplManage .menu div.menu-del:hover {
+    border-color: #f26455;
+    background-color: #f26455;
+}
+
+
+#tmplManage .menu div.menu-del i {
+    top: 3px;
+    right: 5px;
+}
+#tmplManage .menu div.menu-add:hover i{
+    background-position: 0 -368px;
+}
+#tmplManage .menu div.menu-send:hover i{
+    background-position: 0 -272px;
+}
+#tmplManage .menu div.menu-del:hover i{
+    background-position: 0 -56px;
+}
+
+
+
+/* menu end */
+/* euqipTable start */
+#tmplManage .equipTable{
+    position: relative;
+    float: left;
+    width: 97%;
+    margin-left: .3rem;
+}
+
+#tmplManage .allEquip {
+    margin-left: .04rem;
+    margin-right: .1rem;
+}
+#tmplManage .h4 {
+    position: absolute;
+    top: 0;
+    left: .1rem;
+    z-index: 1;
+    font-size: .2rem;
+    font-weight: normal;
+    color: #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#tmplManage .tabCtrl {
+    width:100%;
+}
+/*#tmplManage .tabCtrl > div {
+    position: relative;
+    bottom: -1px;
+    float: left;
+    width: 1.12rem;
+    height: 0.37rem;
+    line-height: 0.37rem;
+    text-align: center;
+    font-size: 0.2rem;
+    color: #999;
+    border: 1px solid #ccc;
+}*/
+#tmplManage .tabCtrl > div {
+    position: relative;
+    float: left;
+    /*width: 1.12rem;*/
+    /*height: 0.37rem;*/
+    padding-left: 1rem;
+    /*line-height: 0.37rem;*/
+    text-align: center;
+    font-size: 0.2rem;
+    color: #999;
+}
+#tmplManage .tabCtrl .borderR-none {
+    border-right: none;
+}
+#tmplManage .tabCtrl div.is-click {
+    z-index: 1;
+    border-bottom-color: #fff;
+}
+
+
+#tmplManage .tabCtrl-con ul {
+    height: 0.44rem;
+    overflow: hidden;
+    text-align: center;
+    color: #999;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+#tmplManage .tabCtrl-con ul > li {
+    float: left;
+    line-height: 0.44rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(1):after {
+    content: '1';
+    width: 1px;
+    font-size: 0;
+}
+
+#tmplManage .tableCon {
+    position: relative;
+    height: 74.5vh;
+    font-size: 0.16rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    overflow: hidden;
+}
+#tmplManage .tableCon ol {
+    overflow: hidden;
+    color: #666;
+}
+#tmplManage .tableCon ol li {
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid #ccc;
+}
+#tmplManage .tableCon ol li:hover{
+    background:#f3f7fc;
+}
+#tmplManage .tableCon ol li.is-active {
+    background: #ececec;
+}
+#tmplManage .tableCon ol li.is-equipError:hover{
+    background: #f26455;
+}
+#tmplManage .tableCon ol li.is-active.is-equipError{
+    background: #f26455;
+}
+
+#tmplManage .tableCon ol li>p {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#tmplManage .tabCtrl-con ul > li:nth-child(1),
+#tmplManage .tableCon ol p:nth-child(1){
+    width: 0.45rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(2),
+#tmplManage .tableCon ol p:nth-child(2){
+    width: 1.1rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(3),
+#tmplManage .tableCon ol p:nth-child(3){
+    width: 1.4rem;
+    padding: 0 0.1rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(4),
+#tmplManage .tableCon ol p:nth-child(4){
+    width: 1.6rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(5),
+#tmplManage .tableCon ol p:nth-child(5){
+    width: 0.7rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(6),
+#tmplManage .tableCon ol p:nth-child(6){
+    width: 1rem;
+}
+
+#tmplManage .tabCtrl-con ul > li:nth-child(7),
+#tmplManage .tableCon ol p:nth-child(7){
+    width: 1.2rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(8),
+#tmplManage .tableCon ol p:nth-child(8){
+    width: 1.2rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(9),
+#tmplManage .tableCon ol p:nth-child(9){
+    width: 1rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(10),
+#tmplManage .tableCon ol p:nth-child(10){
+    width: 1rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(11),
+#tmplManage .tableCon ol p:nth-child(11){
+    width: 1.2rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(12),
+#tmplManage .tableCon ol p:nth-child(12){
+    width: .9rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(13),
+#tmplManage .tableCon ol p:nth-child(13){
+    width: 1.4rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(14),
+#tmplManage .tableCon ol p:nth-child(14){
+    width: .9rem;
+}
+#tmplManage .tabCtrl-con ul > li:nth-child(15),
+#tmplManage .tableCon ol p:nth-child(15){
+    width: 1rem;
+}
+
+#tmplManage .tabCtrl-con ul > li:nth-child(16),
+#tmplManage .tableCon ol p:nth-child(16){
+    width: .5rem;
+}
+
+/* edit && del btn */
+#tmplManage .row .icon {
+    left: 0;
+    top: -0.11rem;
+}
+#tmplManage .icoBtn {
+    position: relative;
+    display: block;
+    width: 0.5rem;
+    height: 0.4rem;
+    border-left: 1px solid #cdcdcd;
+    background-color: #eee;
+}
+#tmplManage .icoBtn:hover {
+    background-color: #e8e8e8;
+}
+/* euqipTable end */
+
+#tmplManage div.log-view-paging {
+    float: right;
+}
+
+/* 自定义多选框选中样式 */
+#tmplManage .checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 23px;
+    margin-top: -3px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 0 2px 0 #ccc inset;
+    background-color: #fff;
+}
+#tmplManage .checkbox-checked {
+    background: url("../Images/sprite.png");
+    background-position: 2px 0;
+    background-color: #f3f7fc;
+}
+
+/* 非弹框中的下拉框 */
+#tmplManage div.select-style {
+    width: 6rem;
+}
+#tmplManage .label {
+    float: left;
+    width: 1rem;
+    height: .4rem;
+    padding-right: .2rem;
+    /*line-height: .4rem;*/
+    font-size: .2rem;
+    color: #999;
+    text-align: right;
+}
+#tmplManage .ext-yline {
+    position: absolute;
+    right: 1.12rem;
+    z-index: 11;
+    width: 1px;
+    height: 72%;
+    background-color: #ccc;
+}
+/*layui 下拉框*/
+#tmplManage .select-style .layui-form-select {
+    float: left;
+    width: 4rem;
+    font-size: 18px;
+    text-align: center;
+    /*box-shadow: 0 0 4px 0 #ccc inset;*/
+}
+
+#tmplManage .layui-select-title {
+    font-size: 16px;
+}
+#tmplManage .layui-select-title .layui-input {
+    height: .3rem;
+    line-height: .3rem;
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    border-radius: 0;
+    background-color: transparent;
+}
+#tmplManage .layui-form-select dl {
+    width: 100%;
+    top: 0.3rem;
+    z-index: 10000;
+    text-align: center;
+    max-height: 2rem;
+    border-radius: 0;
+}
+#tmplManage .layui-form-select dl dd {
+    line-height: 0.36rem;
+}
+#tmplManage .layui-form-select dl dd.layui-this {
+    background-color: #428bca;
+}
+#tmplManage .layui-form-select .layui-edge {
+    right: 0.09rem;
+    margin-top: -3px;
+    border-width: .08rem;
+    border-top-color: #428bca;
+    -webkit-transform:rotate(0deg);
+    transform: rotate(0deg);
+}
+
+
+
+/*.jedateblue .jedatehmscon {
+    width: 155px;
+}*/
+/*.jedateblue .jedatehmscon,
+.jedateproptext{
+    width: 1.8rem !important;
+}*/

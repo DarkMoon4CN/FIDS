@@ -1,0 +1,359 @@
+﻿body {
+    overflow: visible;
+    overflow-x: hidden;
+    background: url("../../Images/bg-gate.jpg") no-repeat;
+    background-size: 100% 100%;
+    font-family: Microsoft Yahei, Arial, sans-serif;
+}
+
+.ext-yline {
+    margin-top: 0.14rem;
+    width: 3px;
+    height: 4rem;
+    background-color: rgba(255,255,255,.3);
+}
+.ext-xline {
+    height: 3px;
+    width: 9.8rem;
+    margin-left: 0.42rem;
+    background-color: rgba(255,255,255,.3);
+}
+.main .tips {
+    width: 100%;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    bottom: -15px;
+    padding-left: 0;
+    color: #fff;
+    background-color: rgba(255,255,255,.2);
+}
+/*dl, dt, dd {
+    line-height: inherit;
+}*/
+p {
+    margin: 0;
+}
+/* header start */
+.header {
+    position: relative;
+    width: 100%;
+    height: 1.8rem;
+    background-color: #fff;
+    overflow: hidden;
+}
+.header .header-logo {
+    float: left;
+    width: 5.07rem;
+    height: 1.33rem;
+    margin: 0.19rem 0 0 0.27rem;
+}
+.header .curTime,
+.header .gateNum {
+    float: right;
+    color: #1a7eee;
+}
+.header .curTime {
+    margin: 1.4rem 0.1rem 0 0;
+    font-size: 0.3rem;
+}
+.header .gateNum {
+    width: 2.4rem;
+    height: 1.8rem;
+    line-height: 1.68rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: #e5e2e2;
+}
+.header img {
+    max-width: 100%;
+    height: auto;
+}
+/* header end */
+/* main start */
+.main {
+    position: relative;
+    width: 100%;
+    height: 17rem;
+    color: #fff;
+
+}
+.main .flightNum,
+.main .flightCon{
+    margin: 0.22rem 0 0 0.42rem;
+    padding-bottom: 0.4rem;
+    overflow: hidden;
+    /*border-bottom: 3px solid rgba(255,255,255,.3);*/
+}
+.main .flightNum span,
+.main .nextFlight > span{
+    float: left;
+    /*display: inline-block;
+    vertical-align: middle;*/
+}
+.main .flightNum span:first-child{
+    margin-right: 0.38rem;
+    font-size: 0.56rem;
+    line-height: 1.6rem;
+    opacity: .5;
+}
+.main .flightNum span:last-child {
+    margin-left: 0.08rem;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
+
+.main .flightCon > div{
+    float: left;
+}
+.flightCon-left>dl {
+    margin: 0 0.42rem;
+    text-align: center;
+}
+
+.flightCon-left>dl dt,
+.flightCon-right>dl dt,
+.nextFlight span:first-child{
+    font-size: 0.48rem;
+    color: #fff;
+    opacity: .5;
+}
+
+.flightCon-left>dl dd {
+    margin: 0.7rem 0 0.75rem 0;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+.flightCon-left .weatherInfo> div{
+    float: left;
+}
+
+.weatherInfo dl {
+    text-align: center;
+    font-size: 0.24rem;
+}
+.weatherInfo dt {
+    position: relative;
+    height: 0.95rem;
+}
+.weatherInfo .weather {
+    width: 1.02rem;
+    margin-right: 0.14rem;
+}
+.weatherInfo .temperature {
+    width: 1.4rem;
+    margin-right: 0.14rem;
+}
+.weatherInfo .windDirect {
+    width: 1.2rem;
+    margin-right: 0.14rem;
+}
+.weatherInfo .windSpeed {
+    width: 0.9rem;
+}
+.weatherInfo dt img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.flightCon-right dl{
+    margin-left: 1.4rem;
+    text-align: center;
+}
+.flightCon-right dl dt {
+    /*margin-bottom: 0.42rem;*/
+}
+.flightCon-right dl dd {
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+.flightCon-right dl:last-child dd {
+    margin-bottom: 0;
+}
+
+.main .nextFlight {
+    height: 1.62rem;
+    line-height: 1.62rem;
+    margin-left: 0.42rem;
+}
+.nextFlight span:last-child {
+    width: 4.3rem;
+    margin-left: 1.08rem;
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+.main .boarding {
+    width: 100%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.72rem;
+    text-align: center;
+    background-color: #3ad748;
+    box-shadow: 1px 1px 7px 4px rgba(0,0,0,.2);
+}
+.boarding.is-greenActive{
+    border-radius: inherit;
+    text-shadow: none;
+}
+
+.main .flyWeather {
+    width: 100%;
+    /*height: 0.38rem;*/
+    margin-top: 0.16rem;
+    padding-left: 0.05rem;
+    /*line-height: 0.58rem;*/
+    font-size: 0.3rem;
+    line-height:0.3rem;
+    opacity: .5;
+}
+
+
+/* main end */
+
+/* 轮播图样式 自定义样式和slickJs样式*/
+.slider {
+    /*width: 9.8rem;*/
+}
+.slick-slide {
+    margin: 0 0.20rem;
+    transform: scale(0.8,0.8);
+    transition: transform .5s;
+}
+.box {
+    position: relative;
+    width: 100%;
+    height :5.1rem;
+    overflow: hidden;
+}
+.con {
+    float: left;
+    overflow: hidden;
+    width :3.55rem;
+    /*height: 5rem;*/
+    border-radius: 5px;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,.25);
+    transform: scale(0.8,0.8);
+
+}
+
+.imgs {
+    width: 100%;
+    height: 2.8rem;
+}
+.imgs img {
+    width: 100%;
+    height: 100%
+}
+.con > .con-name {
+    height: 0.8rem;
+}
+.con-name {
+    text-align: center;
+}
+.con-name p {
+    color: #fff;
+    margin: 0;
+}
+.con-name p:nth-child(1) {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.3rem;
+}
+.con-name p:nth-child(2) {
+    font-size: 0.18rem;
+    line-height: 0.18rem;
+    
+}
+.con-name.is-greenActive {
+    background-color: #18e34d;
+    border-radius: 0;
+}
+.con-name.is-redActive {
+    background-color: #f17676;
+    border-radius: 0;
+}
+.con-name.is-yellowActive {
+    background-color: #e3b927;
+    border-radius: 0;
+}
+.con-desc {
+    width: auto;
+    height: 1.1rem;
+    padding: 0.1rem 0.1rem 0;
+    margin: 0;
+    line-height: 0.48rem;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #666;
+    background-color: #fff;
+}
+.slick-center {
+    transform: scale(1,1);
+}
+.slick-dots {
+    bottom: 0;
+}
+.slick-dots li {
+    width: 0.15rem;
+    height: 0.15rem;
+    font-size: 0;
+    background-color: #fff;
+    opacity: .2;
+    border-radius: 50%;
+}
+.slick-dots li button {
+    font-size: 0;
+    opacity: 0;
+}
+.slick-dots li.slick-active {
+    background-color: #fff;
+    font-size: 0;
+    opacity: 1;
+}
+
+.slick-dotted.slick-slider {
+    padding-top: 0.1rem;
+}
+
+.labelBox {
+    font-size: 0.30rem;
+    position:absolute;
+    top:0;
+    left:0;
+    min-width: 3.2rem;
+    max-width: 9.0rem;
+    /*overflow:hidden;*/
+    height: 100%;
+    line-height:1.93rem;
+    color:#0f86e1;
+    text-align:center;
+    background-color:#fff;
+    white-space: nowrap;
+    /*width:3.2rem;*/
+    /*height:1.93rem;*/
+    /*padding-top: 0.5rem;*/
+}
+.timeBox {
+    margin-left: 0.86rem;
+    margin-top: 0.66rem;
+    font-size: 0.30rem;
+    font-weight: 300;
+}
+.header .labelBox img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    max-width: 100%;
+    height: auto;
+    /*width: 100%;
+    height: 100%;*/
+    transform: translate(-50%, -50%);
+  
+}

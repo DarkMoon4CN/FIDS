@@ -1,0 +1,392 @@
+﻿@using CATC.FIDS.Utils;
+@using CATC.FIDS.Model;
+@using Webdiyer.WebControls.Mvc;
+@using CATC.FIDS.Controllers;
+@model PagedList<CATC.FIDS.Models.Flight_Dynamic>
+<div id="dataModels">
+    <!-- 国内进港航班 start -->
+    <div class="col-6 domesticFlights">
+        <div class="main">
+            <div class="mainCon">
+                @Html.Raw(ViewBag.tableStrA)
+                <!-- 内容主体部分 start -->
+                <div class="mainCon-bd">
+                    <input type="hidden" value="@ViewBag.pageIndex" id="pageIndex">
+                    <input type="hidden" value="@ViewBag.totalPageCount" id="totalPageCount">
+                    <input type="hidden" value="@ViewBag.minTime" id="hid_minTime">
+                    <input type="hidden" value="@ViewBag.maxTime" id="hid_maxTime">
+                    <input type="hidden" value="@ViewBag.fdids" id="fdids">
+
+                    @if (Model != null)
+                    {
+                        var fileds = (List<TemplateTD>)ViewBag.sf;
+                        var airportList = (List<CATC.FIDS.Models.F_Airport>)ViewBag.airportList;
+                        var airLineList = (List<CATC.FIDS.Models.F_Airline>)ViewBag.airLineList;
+                        var baggageList = (List<CATC.FIDS.Models.Flight_Resource_Allocation>)ViewBag.baggageList;
+                        var newStatusList = (List<CATC.FIDS.Models.F_Status>)ViewBag.newStatusList;
+                        int pagesize = (int)ViewBag.pageSize;
+                        var fristModel = Model.Skip(0).Take(pagesize).ToList();
+                        foreach (var item in fristModel)
+                        {
+                            @Html.Raw("<div class='row' id='" + item.FDID + "' >")
+                            //DATA START
+                            foreach (var filed in fileds)
+                            {
+                                var fid = filed.FiledID;
+                                if (fid == 6) //经停城市
+                                {
+                                    string via_Chinese = string.Empty;
+                                    string via_English = string.Empty;
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT1))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT1).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT2))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT2).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT3))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT3).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT4))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT4).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+
+                                    via_Chinese = via_Chinese.Trim('/');
+                                    via_English = via_English.Trim('/');
+                                    <div class="col-2" id="fid_6_@item.FDID">@via_Chinese</div>
+                                    <script>$(function () { Global.TransSferAlternately("fid_6_@item.FDID", '@via_Chinese', '@via_English'); });</script>
+                                }
+                                else if (fid == 8)//航空公司
+                                {
+                                    @Html.Raw("<div class='col-2 airportCompany'>")
+                                    var airLine = airLineList.Where(p => p.Airline_IATA.Trim() == item.AIRLINE_IATA).FirstOrDefault();
+                                    if (airLine != null)
+                                    {
+                                        <div class="img-airportCompany"><img src="@airLine.MinLogo" alt="" /></div>
+                                        <div class="airportCompany-name" id="fid_8_@item.FDID">@airLine.NAME_CHINESE</div>
+                                        <script>$(function () { Global.TransSferAlternately("fid_8_@item.FDID", '@airLine.NAME_CHINESE', '@airLine.NAME_ENGLISH'); });</script>
+                                    }
+                                    @Html.Raw("</div>")
+                                }
+                                else if (fid == 11)//航班号
+                                {
+                                    <div class="col-2">@item.FLIGHT_NO</div>
+                                }
+                                else if (fid == 13)//备注 or 状态
+                                {
+                                    string color = "#fff";
+                                    string statusName_Chinese = string.Empty;
+                                    string statusName_English = string.Empty;
+                                    var newStatus = newStatusList.Where(p => p.Code == item.Status_Code).FirstOrDefault();
+                                    if (newStatus != null)
+                                    {
+                                        color = newStatus.Color;
+                                        statusName_Chinese = newStatus.CHINESE_NAME;
+                                        statusName_English = newStatus.ENGLISH_NAME;
+                                    }
+
+                                    <div class="col-2">
+                                        @if (newStatus != null)
+                                        {
+                                            <div class="status-flag" id="fid_13_@item.ID" style="border-radius: 4px;background-color:@color;color:#fff">
+                                                @statusName_Chinese
+                                            </div>
+                                            <script>$(function () { Global.TransSferAlternately("fid_13_@item.ID", '@statusName_Chinese', '@statusName_English'); });</script>
+                                        }
+                                    </div>
+                                }
+                                else if (fid == 15)//共享航班
+                                {
+                                    string codeShare = string.Empty;
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE1))
+                                    {
+                                        codeShare += item.CODE_SHARE1 + "/";
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE2))
+                                    {
+                                        codeShare += item.CODE_SHARE2 + "/";
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE3))
+                                    {
+                                        codeShare += item.CODE_SHARE3 + "/";
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE4))
+                                    {
+                                        codeShare += item.CODE_SHARE4 + "/";
+                                    }
+                                    codeShare = codeShare.TrimEnd('/');
+                                    <div class="col-2">@codeShare</div>
+                                }
+                                else if (fid == 17)//实际时间
+                                {
+                                    <div class="col-2">@Utils.Get24Hours(item.ATA.Value)</div>
+                                }
+                                else if (fid == 18)//实际时间
+                                {
+                                    <div class="col-2">@Utils.Get24Hours(item.STA.Value)</div>
+                                }
+                                else if (fid == 19)//行李转盘
+                                {
+                                    var resource = baggageList.Where(p => p.FLIGHT_NO == item.FLIGHT_NO).FirstOrDefault();
+                                    //行从[ACTUAL_ID] ->[ESTIMATE_ID] ->[SCHED_ID] 进行查找行李转盘
+                                    if (resource == null)
+                                    {
+                                        <div class="col-2 " id="fid_19_@item.FDID">等待分配</div>
+                                        <script>$(function () { Global.TransSferAlternately("fid_19_@item.FDID", '等待分配', 'Wait Baggage'); });</script>
+                                    }
+                                    else
+                                    {
+                                        //优先级:实际->预计->计划->无
+                                        if (resource.R_Facility != null)//实际分配的行李转盘
+                                        {
+                                            <div class="col-2 checkInCounter">@resource.R_Facility.Description</div>
+                                        }
+                                        else if (resource.R_Facility1 != null)//预计分配的行李转盘
+                                        {
+                                            <div class="col-2 checkInCounter">@resource.R_Facility1.Description</div>
+                                        }
+                                        else if (resource.R_Facility2 != null)//计划分配的行李转盘
+                                        {
+                                            <div class="col-2 checkInCounter">@resource.R_Facility2.Description</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-2 " id="fid_19_@item.FDID">等待分配</div>
+                                            <script>$(function () { Global.TransSferAlternately("fid_19_@item.FDID", '等待分配', 'Wait Baggage'); });</script>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="col-2"></div>
+                                }
+                            }
+                            //DATA END
+                            @Html.Raw("</div>")
+                        }
+                    }
+                </div>
+                <!-- 内容主体部分 end -->
+            </div>
+        </div>
+    </div>
+    <!-- 国内进港航班 end -->
+    <!-- 国内进港航班 start -->
+    <div class="col-6 domesticFlights">
+        <div class="main">
+            <div class="mainCon">
+                @Html.Raw(ViewBag.tableStrB)
+                <!-- 内容主体部分 start -->
+                <div class="mainCon-bd">
+                    <input type="hidden" value="@ViewBag.pageIndex" id="pageIndex">
+                    <input type="hidden" value="@ViewBag.totalPageCount" id="totalPageCount">
+                    <input type="hidden" value="@ViewBag.minTime" id="hid_minTime">
+                    <input type="hidden" value="@ViewBag.maxTime" id="hid_maxTime">
+                    <input type="hidden" value="@ViewBag.fdids" id="fdids">
+
+                    @if (Model != null)
+                    {
+                        var fileds = (List<TemplateTD>)ViewBag.sf;
+                        var airportList = (List<CATC.FIDS.Models.F_Airport>)ViewBag.airportList;
+                        var airLineList = (List<CATC.FIDS.Models.F_Airline>)ViewBag.airLineList;
+                        var baggageList = (List<CATC.FIDS.Models.Flight_Resource_Allocation>)ViewBag.baggageList;
+                        var newStatusList = (List<CATC.FIDS.Models.F_Status>)ViewBag.newStatusList;
+                        int pagesize = (int)ViewBag.pageSize;
+                        var lastModel = Model.Skip(pagesize).Take(Model.Count).ToList();
+                        foreach (var item in lastModel)
+                        {
+                            @Html.Raw("<div class='row' id='" + item.FDID + "' >")
+                            //DATA START
+                            foreach (var filed in fileds)
+                            {
+                                var fid = filed.FiledID;
+                                if (fid == 6) //经停城市
+                                {
+                                    string via_Chinese = string.Empty;
+                                    string via_English = string.Empty;
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT1))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT1).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT2))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT2).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT3))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT3).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.AIRPORT4))
+                                    {
+                                        var airport = airportList.Where(p => p.AIRPORT_IATA == item.AIRPORT4).FirstOrDefault();
+                                        if (airport != null)
+                                        {
+                                            via_Chinese += airport.NAME_CHINESE + "/";
+                                            via_English += airport.NAME_ENGLISH + "/";
+                                        }
+                                    }
+
+                                    via_Chinese = via_Chinese.Trim('/');
+                                    via_English = via_English.Trim('/');
+                                    <div class="col-2" id="fid_6_@item.FDID">@via_Chinese</div>
+                                    <script>$(function () { Global.TransSferAlternately("fid_6_@item.FDID", '@via_Chinese', '@via_English'); });</script>
+                                }
+                                else if (fid == 8)//航空公司
+                                {
+                                    @Html.Raw("<div class='col-2 airportCompany'>")
+                                    var airLine = airLineList.Where(p => p.Airline_IATA.Trim() == item.AIRLINE_IATA).FirstOrDefault();
+                                    if (airLine != null)
+                                    {
+                                        <div class="img-airportCompany"><img src="@airLine.MinLogo" alt="" /></div>
+                                        <div class="airportCompany-name" id="fid_8_@item.FDID">@airLine.NAME_CHINESE</div>
+                                        <script>$(function () { Global.TransSferAlternately("fid_8_@item.FDID", '@airLine.NAME_CHINESE', '@airLine.NAME_ENGLISH'); });</script>
+                                    }
+                                    @Html.Raw("</div>")
+                                }
+                                else if (fid == 11)//航班号
+                                {
+                                    <div class="col-2">@item.FLIGHT_NO</div>
+                                }
+                                else if (fid == 13)//备注 or 状态
+                                {
+                                    string color = "#fff";
+                                    string statusName_Chinese = string.Empty;
+                                    string statusName_English = string.Empty;
+                                    var newStatus = newStatusList.Where(p => p.Code == item.Status_Code).FirstOrDefault();
+                                    if (newStatus != null)
+                                    {
+                                        color = newStatus.Color;
+                                        statusName_Chinese = newStatus.CHINESE_NAME;
+                                        statusName_English = newStatus.ENGLISH_NAME;
+                                    }
+
+                                    <div class="col-2">
+                                        @if (newStatus != null)
+                                        {
+                                            <div class="status-flag" id="fid_13_@item.ID" style="border-radius: 4px;background-color:@color;color:#fff">
+                                                @statusName_Chinese
+                                            </div>
+                                            <script>$(function () { Global.TransSferAlternately("fid_13_@item.ID", '@statusName_Chinese', '@statusName_English'); });</script>
+                                        }
+                                    </div>
+                                }
+                                else if (fid == 15)//共享航班
+                                {
+                                    string codeShare = string.Empty;
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE1))
+                                    {
+                                        codeShare += item.CODE_SHARE1 + "/";
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE2))
+                                    {
+                                        codeShare += item.CODE_SHARE2 + "/";
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE3))
+                                    {
+                                        codeShare += item.CODE_SHARE3 + "/";
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.CODE_SHARE4))
+                                    {
+                                        codeShare += item.CODE_SHARE4 + "/";
+                                    }
+                                    codeShare = codeShare.TrimEnd('/');
+                                    <div class="col-2">@codeShare</div>
+                                }
+                                else if (fid == 17)//实际时间
+                                {
+                                    <div class="col-2">@Utils.Get24Hours(item.ATA.Value)</div>
+                                }
+                                else if (fid == 18)//实际时间
+                                {
+                                    <div class="col-2">@Utils.Get24Hours(item.STA.Value)</div>
+                                }
+                                else if (fid == 19)//行李转盘
+                                {
+                                    var resource = baggageList.Where(p => p.FLIGHT_NO == item.FLIGHT_NO).FirstOrDefault();
+                                    //行从[ACTUAL_ID] ->[ESTIMATE_ID] ->[SCHED_ID] 进行查找行李转盘
+                                    if (resource == null)
+                                    {
+                                        <div class="col-2 " id="fid_19_@item.FDID">等待分配</div>
+                                        <script>$(function () { Global.TransSferAlternately("fid_19_@item.FDID", '等待分配', 'Wait Baggage'); });</script>
+                                    }
+                                    else
+                                    {
+                                        //优先级:实际->预计->计划->无
+                                        if (resource.R_Facility != null)//实际分配的行李转盘
+                                        {
+                                            <div class="col-2 checkInCounter">@resource.R_Facility.Description</div>
+                                        }
+                                        else if (resource.R_Facility1 != null)//预计分配的行李转盘
+                                        {
+                                            <div class="col-2 checkInCounter">@resource.R_Facility1.Description</div>
+                                        }
+                                        else if (resource.R_Facility2 != null)//计划分配的行李转盘
+                                        {
+                                            <div class="col-2 checkInCounter">@resource.R_Facility2.Description</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-2 " id="fid_19_@item.FDID">等待分配</div>
+                                            <script>$(function () { Global.TransSferAlternately("fid_19_@item.FDID", '等待分配', 'Wait Baggage'); });</script>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="col-2"></div>
+                                }
+                            }
+                            //DATA END
+                            @Html.Raw("</div>")
+                        }
+                    }
+                </div>
+                <!-- 内容主体部分 end -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 国内进港航班 end -->
+    <div class="text-center" style="display: none;">
+        @Ajax.Pager(Model, new PagerOptions { PageIndexParameterName = "page", PagerItemTemplate = "{0}&nbsp;" }
+                    , new MvcAjaxOptions { UpdateTargetId = "dataModels" })
+    </div>
+</div>

@@ -1,0 +1,142 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登机口信息页面</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/boardingGateInfo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/deparAirport-tab.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/boardingGateInfo.js"></script>
+    <script>
+        $(function () {
+            //跑马灯效果
+            util.dynamicCalcRem(1920);
+            util.marquee('.flightRoute', 80);
+            util.marquee('.flightRouteSpell', 80);
+            BoardingGateInfo.Init();
+        });
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <div class="menuGroup-1">
+            <div class="menu-time">
+                <i class="icon-time"></i>
+                <span>时间</span>
+            </div>
+            <div class="menu-text">
+                <i class="icon-text"></i>
+                <span>文本</span>
+            </div>
+            <div class="menu-pic">
+                <i class="icon-pic"></i>
+                <span>图片</span>
+            </div>
+            <div class="menu-weather">
+                <i class="icon-weather"></i>
+                <span>气象</span>
+            </div>
+            <div class="menu-bg">
+                <i class="icon-bg"></i>
+                <span>背景</span>
+            </div>
+            <div class="menu-video">
+                <i class="icon-video"></i>
+                <span>视频</span>
+            </div>
+            <div class="menu-msg">
+                <i class="icon-msg"></i>
+                <span>消息</span>
+            </div>
+        </div>
+        <div class="menuGroup-3">
+            <div class="menu-save">
+                <i class="icon-save"></i>
+                <span>保存</span>
+            </div>
+            <div class="menu-pub">
+                <i class="icon-pub"></i>
+                <span>发布</span>
+            </div>
+        </div>
+        <div class="menuGroup-2">
+            <div class="menu-clear">
+                <i class="icon-clear"></i>
+                <span>重置</span>
+            </div>
+            <div class="menu-view">
+                <i class="icon-view"></i>
+                <span>预览</span>
+            </div>
+        </div>
+    </div>
+    <!-- 头部 start -->
+    <div class="header clearfix">
+        @Html.Raw(ViewBag.hstr)
+    </div>
+    <!-- 头部 end -->
+    <!-- 主体显示区域 start -->
+    <div class="main clearfix">
+        <!-- 左半部分 start -->
+        <div class="main-left">
+            <div class="flightNum">CA1304</div>
+            <div class="flightRoute">
+                北京/乌鲁木齐
+            </div>
+            <div class="flightRouteSpell">Beijing/Wulumuqi</div>
+        </div>
+        <!-- 左半部分 end -->
+        <div class="ext-line"></div>
+        <!-- 右半部分 start -->
+        <div class="main-right">
+            <div class="planInfo">
+                <div class="planInfo-name">计划/STD:</div>
+                <div class="planInfo-con">11:30</div>
+            </div>
+            <div class="planInfo">
+                <div class="planInfo-name">预计/ETD:</div>
+                <div class="planInfo-con">-----</div>
+            </div>
+            <div class="planInfo">
+                <div class="planInfo-name">关闭/CLOSED:</div>
+                <div class="planInfo-con">11:30</div>
+            </div>
+            <div class="planInfo">
+                <div class="planInfo-name">状态/STATUS:</div>
+                <div class="planInfo-con">正在登机</div>
+            </div>
+            <div class="planInfo">
+                <div class="planInfo-name">
+                    <div>下一站航班:</div>
+                    <div>NEXT FLIGHT</div>
+                </div>
+                <div class="planInfo-con">CA1256</div>
+            </div>
+        </div>
+        <!-- 右半部分 end -->
+    </div>
+    <!-- 主体显示区域 end -->
+
+</body>
+</html>

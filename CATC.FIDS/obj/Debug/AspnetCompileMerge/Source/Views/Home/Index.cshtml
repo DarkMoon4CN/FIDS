@@ -1,0 +1,216 @@
+﻿@using CATC.FIDS.Models;
+@using CATC.FIDS.Model;
+@{
+    ViewBag.Title = "编辑页面";
+    List<DailySchedule_ExtFileds> list = (List<DailySchedule_ExtFileds>)ViewBag.fildes;
+    List<TemplateTD> sf = (List<TemplateTD>)ViewBag.sf;
+    string ak =(string)ViewBag.ak;
+}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>@ak  编辑页面</title>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/Content/reset.css" />
+    <link rel="stylesheet" href="~/Content/edit.css" />
+    <link rel="stylesheet" href="~/Content/departureAirportEdit.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script>
+        util.dynamicCalcRem(1920);
+        var sortArr = new Array();
+        $(function () {
+            var flag = false, mark = false;
+            $('.tmplTitle').on('click', function (e) {
+                if (!flag) {
+                    $(e.target).next().slideDown("slow");
+                } else {
+                    $(e.target).next().slideUp("slow");
+                }
+                flag = !flag;
+            });
+            $('.cusList').on('click', function (e) {
+                if (!mark) {
+                    $(e.target).next().slideDown("slow");
+                } else {
+                    $(e.target).next().slideUp("slow");
+                }
+                mark = !mark;
+            });
+            $(function () {
+                util.accordionPanel('.option h3');
+                if ($("#sortString").val().length > 0)
+                {
+                    var sortString = $("#sortString").val().split(',');
+                    for (var i = 0; i < sortString.length; i++) {
+                        sortArr.push(sortString[i]);
+                    }
+                }
+                
+                //template区域：离港信息显示点击效果
+                $('.js-template').children().each(function (index, item) {
+                    //设置可拖拽
+                    $(item).attr({
+                        "draggable": "true"
+                    });
+                    $(item).on('dragstart', function (e) {
+                        console.log(1);
+                    })
+                });
+
+                $(".js-customList li").on("click", function () {
+                    //查找已选中列
+                    var arr = new Array();
+                    var temp = new Array();
+                    var check = $(".icon-check");
+                    for (var i = 0; i < check.length; i++) {
+                        if (!$(check[i]).hasClass('is-uncheck')) {
+                            arr.push($(check[i]).parent().parent().attr("id"));
+                        }
+                    }
+                    var div = $(this).children('div').eq(1);
+                    if (div.children().hasClass('is-uncheck'))
+                    {
+                        if (arr.length > 5) {
+                            $(".actionKey")[0].contentWindow.layer.alert("离港自定义列表不可超出6列!");
+                            return;
+                        }
+                        div.children().removeClass('is-uncheck');
+                        sortArr.push(div.parent().attr("id"));
+                    }
+                    else
+                    {
+                        div.children().addClass('is-uncheck');
+                        var id = div.parent().attr("id");
+                        for (var i = 0; i < sortArr.length; i++) {
+                            if (sortArr[i] == id)
+                            {
+                                sortArr.splice(i,1);
+                            }
+                        }
+                    }
+                    $(".actionKey")[0].contentWindow.Global.SetTableColumn(sortArr);
+                });
+            });
+        });
+        //给子窗体使用，子窗体在加载完毕以后获取初始化列
+        function GetTableColumn()
+        {
+            return sortArr;
+        }
+   </script>
+</head>
+<body>
+    <div id="header">
+        <div class="logo clearfix">
+            <h1>
+                <div><img src="~/Images/catc.png" alt="民航电信" /></div>
+                <span>民航电信</span>
+            </h1>
+            <p>FIDS编辑系统</p>
+        </div>
+        <div class="admin">
+            <span><i class="icon-admin"></i>管理员</span>
+            <span>退出</span>
+        </div>
+    </div>
+    <div id="main">
+        <!-- 左侧边栏 start-->
+        <ul class="leftSildeBar" id="dep">
+            <li class="option">
+                <h3 class="tmplTitle">@(ak)</h3>
+                <ol class="template js-template">
+                    @if (ak == "BSDepartureAndArrival" || ak == "BSArrivalAndArrival" || ak == "BSDepartureAndDeparture")
+                    {
+                        <li class="">
+                            <a href="/Home/index?ak=BSDepartureAndArrival"><div>到港离港</div></a>
+                        </li>
+                         <li class="">
+                             <a href="/Home/index?ak=BSArrivalAndArrival"><div>双到港</div></a>
+                        </li>
+                        <li class="">
+                            <a href="/Home/index?ak=BSDepartureAndDeparture"><div>双离港</div></a>
+                        </li>
+                    }
+                    else if (ak.Contains("BoardingGate"))
+                    {
+                        <li class="">
+                            <a href="/Home/index?ak=BoardingGate"><div>竖版(含气象)</div></a>
+                        </li>
+                        <li class="">
+                            <a href="/Home/index?ak=VNWBoardingGate"><div>竖版(无气象)</div></a>
+                        </li>
+                        <li class="">
+                            <a href="/Home/index?ak=BoardingGateHoriz"><div>横版(含气象)</div></a>
+                        </li>
+                        <li class="">
+                            <a href="/Home/index?ak=BoardingGateInfo"><div>横版(无气象)</div></a>
+                        </li>
+                    }
+                    else if (ak.Contains("Bulletin"))
+                    {
+                        <li class="">
+                            <a href="/Home/index?ak=Bulletin"><div>普通公告</div></a>
+                        </li>
+                        <li class="">
+                            <a href="/Home/index?ak=SecurityBulletin"><div>安全公告</div></a>
+                        </li>
+                    }
+                    else if (ak == "SpecialService" || ak == "VipService")
+                    {
+                        <li class="">
+                            <a href="/Home/index?ak=SpecialService"><div>特殊旅客</div></a>
+                        </li>
+                        <li class="">
+                            <a href="/Home/index?ak=VipService"><div>VIP旅客</div></a>
+                        </li>
+                    }
+                </ol>
+            </li>
+            <li class="option">
+                @if ((bool)ViewBag.isShowLeft)
+                {
+                <h3 class="cusList">自定义列表</h3>
+                <ol class="customList js-customList">
+                    @if (list != null)
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            var entity = list[i];
+                            if (entity.filedID == 10)
+                            {
+                                continue;//排除航徽 
+                            }
+                            var t = sf.Where(s => s.FiledID == entity.filedID).FirstOrDefault();
+                            <li id="@entity.filedID">
+                                <div>@entity.chineseName</div>
+                                @if (t != null)
+                                {
+                                   <div><i class="icon-check" index="@t.Index"></i></div>
+                                }
+                                else
+                                {
+                                    <div><i class="icon-check is-uncheck"></i></div>
+                                }
+                            </li>
+                        }
+                    }
+                </ol>
+                }
+                <input type="hidden" id="sortString" value="@ViewBag.sortString" />
+            </li>
+        </ul>
+        <!--左侧边栏 end-->
+        <!-- 主要编辑部分 start -->
+        <div class="mainContent">
+            <div class="tmplHtml">
+                <iframe class="actionKey" id="@ak" src="/Template/@ak" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!-- 主要编辑部分 end -->
+    </div>
+</body>
+</html>

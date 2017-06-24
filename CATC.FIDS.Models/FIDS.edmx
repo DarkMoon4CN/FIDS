@@ -1,0 +1,2258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CATC_FIDS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DailySchedule">
+          <Key>
+            <PropertyRef Name="dailyID" />
+          </Key>
+          <Property Name="dailyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="scheduleID" Type="int" Nullable="false" />
+          <Property Name="scheduleTime" Type="datetime" Nullable="false" />
+          <Property Name="actualTime" Type="datetime" Nullable="false" />
+          <Property Name="flightKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="flightID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DailySchedule_Extension">
+          <Key>
+            <PropertyRef Name="extensionID" />
+          </Key>
+          <Property Name="extensionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dailyID" Type="int" Nullable="false" />
+          <Property Name="fieldID" Type="int" Nullable="false" />
+          <Property Name="instance" Type="tinyint" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="255" />
+          <Property Name="attributes" Type="nvarchar" MaxLength="255" />
+          <Property Name="override" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="DailySchedule_ExtFileds">
+          <Key>
+            <PropertyRef Name="filedID" />
+          </Key>
+          <Property Name="filedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="field" Type="nvarchar" MaxLength="50" />
+          <Property Name="chineseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="englishName" Type="nvarchar" MaxLength="100" />
+          <Property Name="OtherName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="EventItem">
+          <Key>
+            <PropertyRef Name="eventItemID" />
+          </Key>
+          <Property Name="eventItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="creationtime" Type="datetime" />
+          <Property Name="dataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="dataValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventMessage">
+          <Key>
+            <PropertyRef Name="emid" />
+          </Key>
+          <Property Name="emid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strartTime" Type="datetime" Nullable="false" />
+          <Property Name="endTime" Type="datetime" Nullable="false" />
+          <Property Name="createTime" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="level" Type="int" Nullable="false" />
+          <Property Name="dataType" Type="int" Nullable="false" />
+          <Property Name="chineseContent" Type="nvarchar" MaxLength="2000" />
+          <Property Name="englishContent" Type="nvarchar" MaxLength="2000" />
+          <Property Name="otherContent" Type="nvarchar" MaxLength="2000" />
+          <Property Name="actionKeys" Type="nvarchar" MaxLength="50" />
+          <Property Name="fontColor" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="F_Aircraft">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AC_REG_NO" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AC_REG_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AC_TYPE_IATA" Type="nvarchar" MaxLength="10" />
+          <Property Name="AIRLINE_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="SUBAIRLINE_ID" Type="int" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+          <Property Name="EXT_CODE" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="F_AircraftType">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="iataCode" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iataCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="icaoCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="name_english" Type="nvarchar" MaxLength="30" />
+          <Property Name="name_chinese" Type="nvarchar" MaxLength="100" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_Airline">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Airline_IATA" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Airline_IATA" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="Airline_ICAO" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Short_Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Host_AirPort_IATA" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaxLogo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinLogo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DORI" Type="nchar" MaxLength="1" />
+          <Property Name="NAME_ENGLISH" Type="nvarchar" MaxLength="30" />
+          <Property Name="NAME_CHINESE" Type="nvarchar" MaxLength="30" />
+          <Property Name="ALLIANCE_CODE" Type="nchar" MaxLength="4" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_Airline_Sub">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Parent_Airline" Type="nchar" MaxLength="2" />
+          <Property Name="Subairline_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_Airport">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AIRPORT_IATA" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AIRPORT_IATA" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="AIRPORT_ICAO" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="SHORT_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="CITY_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="DORI" Type="nchar" MaxLength="1" />
+          <Property Name="NAME_CHINESE" Type="nvarchar" MaxLength="30" />
+          <Property Name="NAME_ENGLISH" Type="nvarchar" MaxLength="30" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+          <Property Name="REGION_CODE" Type="nchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="F_Alliance">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ALLIANCE_NAME" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ALLIANCE_NAME" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="NAME_CHINESE" Type="nvarchar" MaxLength="30" />
+          <Property Name="NAME_ENGLISH" Type="nvarchar" MaxLength="30" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="50" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_City">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="City_IATA" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City_IATA" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Country_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="City_ICAO" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="Name_Chinese" Type="nvarchar" MaxLength="30" />
+          <Property Name="Name_English" Type="nvarchar" MaxLength="30" />
+          <Property Name="Short_Chinese" Type="nvarchar" MaxLength="2" />
+          <Property Name="Province_IS" Type="int" />
+          <Property Name="FLG_Deleted" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_Country">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Country_IATA" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country_IATA" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Country_ICAO" Type="nchar" MaxLength="4" />
+          <Property Name="Name_Chinese" Type="nvarchar" MaxLength="32" />
+          <Property Name="Name_English" Type="nvarchar" MaxLength="32" />
+          <Property Name="FLG_Deleted" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_DelayCode">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Delay_Code" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Delay_Code" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Code_Chinese" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code_English" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="FLG_Deleted" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_Province">
+          <Key>
+            <PropertyRef Name="Province_ID" />
+          </Key>
+          <Property Name="Province_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Chinese" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_English" Type="nvarchar" MaxLength="50" />
+          <Property Name="Short_Name" Type="nvarchar" MaxLength="2" />
+          <Property Name="DORI" Type="nchar" MaxLength="1" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CHINESE_NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ENGLISH_NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="150" />
+          <Property Name="StatusLevel" Type="int" Nullable="false" />
+          <Property Name="FLG_DELETED" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="F_TaskCode">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Task_Code" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Task_Code" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Name_Chinese" Type="nvarchar" MaxLength="60" />
+          <Property Name="Name_English" Type="nvarchar" MaxLength="60" />
+          <Property Name="Description" Type="nchar" MaxLength="100" />
+          <Property Name="Is_Civil" Type="nchar" MaxLength="1" />
+          <Property Name="FLG_Deleted" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="FIDS_Parameter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paraName" Type="nvarchar" MaxLength="50" />
+          <Property Name="paraType" Type="nvarchar" MaxLength="50" />
+          <Property Name="paraValue" Type="nvarchar" MaxLength="200" />
+          <Property Name="paraUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="paraDescription" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Flight_Dynamic">
+          <Key>
+            <PropertyRef Name="FDID" />
+          </Key>
+          <Property Name="FDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FLG_IDU" Type="nchar" MaxLength="1" />
+          <Property Name="OPERATION_DATE" Type="date" />
+          <Property Name="FLIGHT_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="AORD" Type="nvarchar" MaxLength="2" />
+          <Property Name="DORI" Type="nchar" MaxLength="1" />
+          <Property Name="TASK_CODE" Type="nchar" MaxLength="3" />
+          <Property Name="TERMINAL_NO" Type="nchar" MaxLength="1" />
+          <Property Name="AIRLINE_IATA" Type="nchar" MaxLength="2" />
+          <Property Name="AIRCRAFT_TYPE_IATA" Type="nvarchar" MaxLength="10" />
+          <Property Name="AC_REG_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="SERVICE_CLASS" Type="nvarchar" MaxLength="3" />
+          <Property Name="FLG_VIP" Type="nchar" MaxLength="1" />
+          <Property Name="ORIGIN_AIRPORT_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="STD" Type="datetime" />
+          <Property Name="ETD" Type="datetime" />
+          <Property Name="ATD" Type="datetime" />
+          <Property Name="DEST_AIRPORT_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="STA" Type="datetime" />
+          <Property Name="ETA" Type="datetime" />
+          <Property Name="ATA" Type="datetime" />
+          <Property Name="PREVIOUS_FLIGHT" Type="nvarchar" MaxLength="10" />
+          <Property Name="NEXT_FLIGHT" Type="nvarchar" MaxLength="10" />
+          <Property Name="ABNORMAL_STATUS" Type="nchar" MaxLength="1" />
+          <Property Name="AIRPORT1" Type="nchar" MaxLength="3" />
+          <Property Name="DORI1" Type="nchar" MaxLength="1" />
+          <Property Name="STD1" Type="datetime" />
+          <Property Name="AIRPORT2" Type="nchar" MaxLength="3" />
+          <Property Name="DORI2" Type="nchar" MaxLength="1" />
+          <Property Name="STA2" Type="datetime" />
+          <Property Name="STD2" Type="datetime" />
+          <Property Name="AIRPORT3" Type="nchar" MaxLength="3" />
+          <Property Name="DORI3" Type="nchar" MaxLength="1" />
+          <Property Name="STA3" Type="datetime" />
+          <Property Name="STD3" Type="datetime" />
+          <Property Name="AIRPORT4" Type="nchar" MaxLength="3" />
+          <Property Name="DORI4" Type="nchar" MaxLength="1" />
+          <Property Name="STA4" Type="datetime" />
+          <Property Name="CODE_SHARE1" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE2" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE3" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE4" Type="nvarchar" MaxLength="10" />
+          <Property Name="ADD_TYPE" Type="int" Nullable="false" />
+          <Property Name="Status_Code" Type="nchar" MaxLength="1" />
+          <Property Name="Modify_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Flight_Resource_Allocation">
+          <Key>
+            <PropertyRef Name="FRID" />
+          </Key>
+          <Property Name="FRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="OPERATION_DATE" Type="date" />
+          <Property Name="FacilityType" Type="int" />
+          <Property Name="FLIGHT_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AORD" Type="nvarchar" MaxLength="2" />
+          <Property Name="SCHED_ID" Type="int" />
+          <Property Name="SCHED_START" Type="datetime" />
+          <Property Name="SCHED_END" Type="datetime" />
+          <Property Name="ESTIMATE_ID" Type="int" />
+          <Property Name="ESTIMATE_START" Type="datetime" />
+          <Property Name="ESTIMATE_END" Type="datetime" />
+          <Property Name="ACTUAL_ID" Type="int" />
+          <Property Name="ACTUAL_START" Type="datetime" />
+          <Property Name="ACTUAL_END" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Flight_Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FLIGHT_ID" Type="int" />
+          <Property Name="OPERATION_DATTE" Type="date" />
+          <Property Name="FLIGHT_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="AORD" Type="nvarchar" MaxLength="2" />
+          <Property Name="DORI" Type="nchar" MaxLength="1" />
+          <Property Name="TASK_CODE" Type="nchar" MaxLength="3" />
+          <Property Name="TERMINAL_NO" Type="nchar" MaxLength="1" />
+          <Property Name="AIRLINE_IATA" Type="nchar" MaxLength="2" />
+          <Property Name="AIRCRAFT_TYPE_IATA" Type="nvarchar" MaxLength="10" />
+          <Property Name="AC_REG_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="SERVICE_CLASS" Type="nvarchar" MaxLength="3" />
+          <Property Name="FLG_VIP" Type="nchar" MaxLength="1" />
+          <Property Name="ORIGIN_AIRPORT_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="STD" Type="date" />
+          <Property Name="DEST_AIRPORT_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="STA" Type="date" />
+          <Property Name="PREVIOUS_FLIGHT" Type="nvarchar" MaxLength="10" />
+          <Property Name="NEXT_FLIGHT" Type="nvarchar" MaxLength="10" />
+          <Property Name="AIRPORT1" Type="nchar" MaxLength="3" />
+          <Property Name="DORI1" Type="nchar" MaxLength="1" />
+          <Property Name="STD1" Type="date" />
+          <Property Name="AIRPORT2" Type="nchar" MaxLength="3" />
+          <Property Name="DORI2" Type="nchar" MaxLength="1" />
+          <Property Name="STD2" Type="date" />
+          <Property Name="AIRPORT3" Type="nchar" MaxLength="3" />
+          <Property Name="DORI3" Type="nchar" MaxLength="1" />
+          <Property Name="STD3" Type="date" />
+          <Property Name="AIRPORT4" Type="nchar" MaxLength="3" />
+          <Property Name="DORI4" Type="nchar" MaxLength="1" />
+          <Property Name="STD4" Type="date" />
+          <Property Name="CODE_SHARE1" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE2" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE3" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE4" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Flight_Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="OPERATION_DATE" Type="date" Nullable="false" />
+          <Property Name="FLIGHT_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AORD" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SCHED_ID" Type="bigint" Nullable="false" />
+          <Property Name="SERVICE_NO" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="SERVICE_NAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SCHED_START_TIME" Type="date" />
+          <Property Name="SCHED_END_TIME" Type="date" />
+          <Property Name="EST_START_TIME" Type="date" />
+          <Property Name="EST_END_TIME" Type="date" />
+          <Property Name="ACTUAL_START_TIME" Type="date" />
+          <Property Name="ACTUAL_END_TIME" Type="date" />
+          <Property Name="FROM_DEVICE" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="History_Flight_Dynamic">
+          <Key>
+            <PropertyRef Name="FDID" />
+          </Key>
+          <Property Name="FDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FLG_IDU" Type="nchar" MaxLength="1" />
+          <Property Name="OPERATION_DATE" Type="date" />
+          <Property Name="FLIGHT_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="AORD" Type="nvarchar" MaxLength="2" />
+          <Property Name="DORI" Type="nchar" MaxLength="1" />
+          <Property Name="TASK_CODE" Type="nchar" MaxLength="3" />
+          <Property Name="TERMINAL_NO" Type="nchar" MaxLength="1" />
+          <Property Name="AIRLINE_IATA" Type="nchar" MaxLength="2" />
+          <Property Name="AIRCRAFT_TYPE_IATA" Type="nvarchar" MaxLength="10" />
+          <Property Name="AC_REG_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="SERVICE_CLASS" Type="nvarchar" MaxLength="3" />
+          <Property Name="FLG_VIP" Type="nchar" MaxLength="1" />
+          <Property Name="ORIGIN_AIRPORT_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="STD" Type="datetime" />
+          <Property Name="ETD" Type="datetime" />
+          <Property Name="ATD" Type="datetime" />
+          <Property Name="DEST_AIRPORT_IATA" Type="nchar" MaxLength="3" />
+          <Property Name="STA" Type="datetime" />
+          <Property Name="ETA" Type="datetime" />
+          <Property Name="ATA" Type="datetime" />
+          <Property Name="PREVIOUS_FLIGHT" Type="nvarchar" MaxLength="10" />
+          <Property Name="NEXT_FLIGHT" Type="nvarchar" MaxLength="10" />
+          <Property Name="ABNORMAL_STATUS" Type="nchar" MaxLength="1" />
+          <Property Name="AIRPORT1" Type="nchar" MaxLength="3" />
+          <Property Name="DORI1" Type="nchar" MaxLength="1" />
+          <Property Name="STD1" Type="datetime" />
+          <Property Name="AIRPORT2" Type="nchar" MaxLength="3" />
+          <Property Name="DORI2" Type="nchar" MaxLength="1" />
+          <Property Name="STA2" Type="datetime" />
+          <Property Name="STD2" Type="datetime" />
+          <Property Name="AIRPORT3" Type="nchar" MaxLength="3" />
+          <Property Name="DORI3" Type="nchar" MaxLength="1" />
+          <Property Name="STA3" Type="datetime" />
+          <Property Name="STD3" Type="datetime" />
+          <Property Name="AIRPORT4" Type="nchar" MaxLength="3" />
+          <Property Name="DORI4" Type="nchar" MaxLength="1" />
+          <Property Name="STA4" Type="datetime" />
+          <Property Name="CODE_SHARE1" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE2" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE3" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE_SHARE4" Type="nvarchar" MaxLength="10" />
+          <Property Name="ADD_TYPE" Type="int" Nullable="false" />
+          <Property Name="Status_Code" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="L_Operation_Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogTime" Type="datetime" Nullable="false" />
+          <Property Name="LogType" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Stataus" Type="nchar" MaxLength="10" />
+          <Property Name="ModuleType" Type="int" Nullable="false" />
+          <Property Name="ModuleValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LogLevel" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="R_DeviceGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="nchar" MaxLength="20" />
+          <Property Name="name" Type="nchar" MaxLength="20" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="R_DeviceMonitoring">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pk_DeviceID" Type="int" Nullable="false" />
+          <Property Name="pk_DeviceStatusID" Type="int" />
+          <Property Name="connectedTime" Type="datetime" />
+          <Property Name="ExceptionMsg" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="R_DeviceStatus">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="R_DisplayInfo">
+          <Key>
+            <PropertyRef Name="displayID" />
+          </Key>
+          <Property Name="displayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ip" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="displayName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="x" Type="int" Nullable="false" />
+          <Property Name="y" Type="int" Nullable="false" />
+          <Property Name="width" Type="int" Nullable="false" />
+          <Property Name="height" Type="int" Nullable="false" />
+          <Property Name="index" Type="int" Nullable="false" />
+          <Property Name="isPrimary" Type="int" Nullable="false" />
+          <Property Name="url" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="createTime" Type="datetime" Nullable="false" />
+          <Property Name="displayLuminance" Type="int" />
+          <Property Name="displayState" Type="int" />
+          <Property Name="displayGroup" Type="int" />
+          <Property Name="displayMAC" Type="varchar" MaxLength="50" />
+          <Property Name="displayMark" Type="varchar" MaxLength="200" />
+          <Property Name="displayConnectTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R_Facility">
+          <Key>
+            <PropertyRef Name="Facility_ID" />
+          </Key>
+          <Property Name="Facility_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aodb_Facility_ID" Type="nchar" MaxLength="10" />
+          <Property Name="Display_Symbol" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Terminal_NO" Type="nchar" MaxLength="1" />
+          <Property Name="DORI" Type="nvarchar" MaxLength="2" />
+          <Property Name="Description" Type="nchar" MaxLength="100" />
+          <Property Name="Status" Type="nchar" MaxLength="1" />
+          <Property Name="Status_Timestamp" Type="datetime" />
+          <Property Name="Status_Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="Recorder_ID" Type="int" />
+          <Property Name="FacilityType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R_FacilityType">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="scheduleTime" Type="datetime" Nullable="false" />
+          <Property Name="flightID" Type="int" Nullable="false" />
+          <Property Name="siteID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="1024" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sy_Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="role_desc" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="role_status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="8" />
+          <Property Name="create_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sy_UserInfo">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="login_status" Type="char" MaxLength="1" />
+          <Property Name="login_id" Type="varchar" MaxLength="30" />
+          <Property Name="login_password" Type="varchar" MaxLength="64" />
+          <Property Name="login_password_wage" Type="varchar" MaxLength="64" />
+          <Property Name="login_remark" Type="nvarchar" MaxLength="30" />
+          <Property Name="create_user" Type="varchar" MaxLength="8" />
+          <Property Name="create_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sy_UserRole">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="role_id" Type="smallint" Nullable="false" />
+          <Property Name="is_effective" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="8" />
+          <Property Name="create_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Template">
+          <Key>
+            <PropertyRef Name="templateID" />
+          </Key>
+          <Property Name="templateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="creationtime" Type="datetime" Nullable="false" />
+          <Property Name="modifier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modifytime" Type="datetime" Nullable="false" />
+          <Property Name="isValid" Type="smallint" Nullable="false" />
+          <Property Name="definition" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Template_DisplayInfo_Rel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemplateID" Type="int" Nullable="false" />
+          <Property Name="DisplayID" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Weeks" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCover" Type="smallint" Nullable="false" />
+          <Property Name="IsAdvert" Type="smallint" Nullable="false" />
+          <Property Name="AdvertUrl" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sort" Type="smallint" Nullable="false" />
+          <Property Name="SpaceStartTime" Type="datetime" Nullable="false" />
+          <Property Name="SpaceEndTime" Type="datetime" Nullable="false" />
+          <Property Name="IntervalSecond" Type="int" Nullable="false" />
+          <Property Name="Index" Type="int" Nullable="false" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TopScreenCode" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="DataValue" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsSend" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“CATC_FIDS_DB.dbo.TemplateDisplayInfoView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="TemplateDisplayInfoView">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="TemplateID" />
+            <PropertyRef Name="DisplayID" />
+            <PropertyRef Name="StartTime" />
+            <PropertyRef Name="EndTime" />
+            <PropertyRef Name="IsCover" />
+            <PropertyRef Name="IsAdvert" />
+            <PropertyRef Name="Sort" />
+            <PropertyRef Name="SpaceStartTime" />
+            <PropertyRef Name="SpaceEndTime" />
+            <PropertyRef Name="IntervalSecond" />
+            <PropertyRef Name="Index" />
+            <PropertyRef Name="PageName" />
+            <PropertyRef Name="TopScreenCode" />
+            <PropertyRef Name="Count" />
+            <PropertyRef Name="CreateTime" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TemplateID" Type="int" Nullable="false" />
+          <Property Name="DisplayID" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Weeks" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCover" Type="smallint" Nullable="false" />
+          <Property Name="IsAdvert" Type="smallint" Nullable="false" />
+          <Property Name="AdvertUrl" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sort" Type="smallint" Nullable="false" />
+          <Property Name="SpaceStartTime" Type="datetime" Nullable="false" />
+          <Property Name="SpaceEndTime" Type="datetime" Nullable="false" />
+          <Property Name="IntervalSecond" Type="int" Nullable="false" />
+          <Property Name="Index" Type="int" Nullable="false" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TopScreenCode" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="TemplateName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsSend" Type="int" />
+          <Property Name="ip" Type="nvarchar" MaxLength="100" />
+          <Property Name="DataValue" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_DailySchedule_Extension_DailySchedule">
+          <End Role="DailySchedule_ExtFileds" Type="Self.DailySchedule_ExtFileds" Multiplicity="1" />
+          <End Role="DailySchedule_Extension" Type="Self.DailySchedule_Extension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailySchedule_ExtFileds">
+              <PropertyRef Name="filedID" />
+            </Principal>
+            <Dependent Role="DailySchedule_Extension">
+              <PropertyRef Name="fieldID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DailySchedule_Extension_DailySchedule1">
+          <End Role="DailySchedule" Type="Self.DailySchedule" Multiplicity="1" />
+          <End Role="DailySchedule_Extension" Type="Self.DailySchedule_Extension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailySchedule">
+              <PropertyRef Name="dailyID" />
+            </Principal>
+            <Dependent Role="DailySchedule_Extension">
+              <PropertyRef Name="dailyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flight_ResAllocation_ActualGate">
+          <End Role="R_Facility" Type="Self.R_Facility" Multiplicity="0..1" />
+          <End Role="Flight_Resource_Allocation" Type="Self.Flight_Resource_Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R_Facility">
+              <PropertyRef Name="Facility_ID" />
+            </Principal>
+            <Dependent Role="Flight_Resource_Allocation">
+              <PropertyRef Name="ACTUAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flight_ResAllocation_EstimateGate">
+          <End Role="R_Facility" Type="Self.R_Facility" Multiplicity="0..1" />
+          <End Role="Flight_Resource_Allocation" Type="Self.Flight_Resource_Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R_Facility">
+              <PropertyRef Name="Facility_ID" />
+            </Principal>
+            <Dependent Role="Flight_Resource_Allocation">
+              <PropertyRef Name="ESTIMATE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flight_ResAllocation_SchedGate">
+          <End Role="R_Facility" Type="Self.R_Facility" Multiplicity="0..1" />
+          <End Role="Flight_Resource_Allocation" Type="Self.Flight_Resource_Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R_Facility">
+              <PropertyRef Name="Facility_ID" />
+            </Principal>
+            <Dependent Role="Flight_Resource_Allocation">
+              <PropertyRef Name="SCHED_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CATC_FIDS_DBModelStoreContainer">
+          <EntitySet Name="DailySchedule" EntityType="Self.DailySchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailySchedule_Extension" EntityType="Self.DailySchedule_Extension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailySchedule_ExtFileds" EntityType="Self.DailySchedule_ExtFileds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventItem" EntityType="Self.EventItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventMessage" EntityType="Self.EventMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Aircraft" EntityType="Self.F_Aircraft" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_AircraftType" EntityType="Self.F_AircraftType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Airline" EntityType="Self.F_Airline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Airline_Sub" EntityType="Self.F_Airline_Sub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Airport" EntityType="Self.F_Airport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Alliance" EntityType="Self.F_Alliance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_City" EntityType="Self.F_City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Country" EntityType="Self.F_Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_DelayCode" EntityType="Self.F_DelayCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Province" EntityType="Self.F_Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_Status" EntityType="Self.F_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_TaskCode" EntityType="Self.F_TaskCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FIDS_Parameter" EntityType="Self.FIDS_Parameter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flight_Dynamic" EntityType="Self.Flight_Dynamic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flight_Resource_Allocation" EntityType="Self.Flight_Resource_Allocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flight_Schedule" EntityType="Self.Flight_Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flight_Service" EntityType="Self.Flight_Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="History_Flight_Dynamic" EntityType="Self.History_Flight_Dynamic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="L_Operation_Log" EntityType="Self.L_Operation_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R_DeviceGroup" EntityType="Self.R_DeviceGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R_DeviceMonitoring" EntityType="Self.R_DeviceMonitoring" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R_DeviceStatus" EntityType="Self.R_DeviceStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R_DisplayInfo" EntityType="Self.R_DisplayInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R_Facility" EntityType="Self.R_Facility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R_FacilityType" EntityType="Self.R_FacilityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sy_Role" EntityType="Self.Sy_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sy_UserInfo" EntityType="Self.Sy_UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sy_UserRole" EntityType="Self.Sy_UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Template" EntityType="Self.Template" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Template_DisplayInfo_Rel" EntityType="Self.Template_DisplayInfo_Rel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemplateDisplayInfoView" EntityType="Self.TemplateDisplayInfoView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TemplateDisplayInfoView].[ID] AS [ID], 
+    [TemplateDisplayInfoView].[TemplateID] AS [TemplateID], 
+    [TemplateDisplayInfoView].[DisplayID] AS [DisplayID], 
+    [TemplateDisplayInfoView].[StartTime] AS [StartTime], 
+    [TemplateDisplayInfoView].[EndTime] AS [EndTime], 
+    [TemplateDisplayInfoView].[Weeks] AS [Weeks], 
+    [TemplateDisplayInfoView].[IsCover] AS [IsCover], 
+    [TemplateDisplayInfoView].[IsAdvert] AS [IsAdvert], 
+    [TemplateDisplayInfoView].[AdvertUrl] AS [AdvertUrl], 
+    [TemplateDisplayInfoView].[Sort] AS [Sort], 
+    [TemplateDisplayInfoView].[SpaceStartTime] AS [SpaceStartTime], 
+    [TemplateDisplayInfoView].[SpaceEndTime] AS [SpaceEndTime], 
+    [TemplateDisplayInfoView].[IntervalSecond] AS [IntervalSecond], 
+    [TemplateDisplayInfoView].[Index] AS [Index], 
+    [TemplateDisplayInfoView].[PageName] AS [PageName], 
+    [TemplateDisplayInfoView].[TopScreenCode] AS [TopScreenCode], 
+    [TemplateDisplayInfoView].[Count] AS [Count], 
+    [TemplateDisplayInfoView].[CreateTime] AS [CreateTime], 
+    [TemplateDisplayInfoView].[TemplateName] AS [TemplateName], 
+    [TemplateDisplayInfoView].[DisplayName] AS [DisplayName], 
+    [TemplateDisplayInfoView].[IsSend] AS [IsSend], 
+    [TemplateDisplayInfoView].[ip] AS [ip], 
+    [TemplateDisplayInfoView].[DataValue] AS [DataValue]
+    FROM [dbo].[TemplateDisplayInfoView] AS [TemplateDisplayInfoView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DailySchedule_Extension_DailySchedule" Association="Self.FK_DailySchedule_Extension_DailySchedule">
+            <End Role="DailySchedule_ExtFileds" EntitySet="DailySchedule_ExtFileds" />
+            <End Role="DailySchedule_Extension" EntitySet="DailySchedule_Extension" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DailySchedule_Extension_DailySchedule1" Association="Self.FK_DailySchedule_Extension_DailySchedule1">
+            <End Role="DailySchedule" EntitySet="DailySchedule" />
+            <End Role="DailySchedule_Extension" EntitySet="DailySchedule_Extension" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flight_ResAllocation_ActualGate" Association="Self.FK_Flight_ResAllocation_ActualGate">
+            <End Role="R_Facility" EntitySet="R_Facility" />
+            <End Role="Flight_Resource_Allocation" EntitySet="Flight_Resource_Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flight_ResAllocation_EstimateGate" Association="Self.FK_Flight_ResAllocation_EstimateGate">
+            <End Role="R_Facility" EntitySet="R_Facility" />
+            <End Role="Flight_Resource_Allocation" EntitySet="Flight_Resource_Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flight_ResAllocation_SchedGate" Association="Self.FK_Flight_ResAllocation_SchedGate">
+            <End Role="R_Facility" EntitySet="R_Facility" />
+            <End Role="Flight_Resource_Allocation" EntitySet="Flight_Resource_Allocation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CATC_FIDS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CATC_FIDS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DailySchedule" EntityType="CATC_FIDS_DBModel.DailySchedule" />
+          <EntitySet Name="DailySchedule_Extension" EntityType="CATC_FIDS_DBModel.DailySchedule_Extension" />
+          <EntitySet Name="DailySchedule_ExtFileds" EntityType="CATC_FIDS_DBModel.DailySchedule_ExtFileds" />
+          <EntitySet Name="EventItem" EntityType="CATC_FIDS_DBModel.EventItem" />
+          <EntitySet Name="EventMessage" EntityType="CATC_FIDS_DBModel.EventMessage" />
+          <EntitySet Name="F_Aircraft" EntityType="CATC_FIDS_DBModel.F_Aircraft" />
+          <EntitySet Name="F_AircraftType" EntityType="CATC_FIDS_DBModel.F_AircraftType" />
+          <EntitySet Name="F_Airline" EntityType="CATC_FIDS_DBModel.F_Airline" />
+          <EntitySet Name="F_Airline_Sub" EntityType="CATC_FIDS_DBModel.F_Airline_Sub" />
+          <EntitySet Name="F_Airport" EntityType="CATC_FIDS_DBModel.F_Airport" />
+          <EntitySet Name="F_Alliance" EntityType="CATC_FIDS_DBModel.F_Alliance" />
+          <EntitySet Name="F_City" EntityType="CATC_FIDS_DBModel.F_City" />
+          <EntitySet Name="F_Country" EntityType="CATC_FIDS_DBModel.F_Country" />
+          <EntitySet Name="F_DelayCode" EntityType="CATC_FIDS_DBModel.F_DelayCode" />
+          <EntitySet Name="F_Province" EntityType="CATC_FIDS_DBModel.F_Province" />
+          <EntitySet Name="F_Status" EntityType="CATC_FIDS_DBModel.F_Status" />
+          <EntitySet Name="F_TaskCode" EntityType="CATC_FIDS_DBModel.F_TaskCode" />
+          <EntitySet Name="FIDS_Parameter" EntityType="CATC_FIDS_DBModel.FIDS_Parameter" />
+          <EntitySet Name="Flight_Dynamic" EntityType="CATC_FIDS_DBModel.Flight_Dynamic" />
+          <EntitySet Name="Flight_Schedule" EntityType="CATC_FIDS_DBModel.Flight_Schedule" />
+          <EntitySet Name="Flight_Service" EntityType="CATC_FIDS_DBModel.Flight_Service" />
+          <EntitySet Name="History_Flight_Dynamic" EntityType="CATC_FIDS_DBModel.History_Flight_Dynamic" />
+          <EntitySet Name="L_Operation_Log" EntityType="CATC_FIDS_DBModel.L_Operation_Log" />
+          <EntitySet Name="R_DeviceGroup" EntityType="CATC_FIDS_DBModel.R_DeviceGroup" />
+          <EntitySet Name="R_DeviceMonitoring" EntityType="CATC_FIDS_DBModel.R_DeviceMonitoring" />
+          <EntitySet Name="R_DeviceStatus" EntityType="CATC_FIDS_DBModel.R_DeviceStatus" />
+          <EntitySet Name="R_DisplayInfo" EntityType="CATC_FIDS_DBModel.R_DisplayInfo" />
+          <EntitySet Name="R_Facility" EntityType="CATC_FIDS_DBModel.R_Facility" />
+          <EntitySet Name="R_FacilityType" EntityType="CATC_FIDS_DBModel.R_FacilityType" />
+          <EntitySet Name="Schedule" EntityType="CATC_FIDS_DBModel.Schedule" />
+          <EntitySet Name="Sy_Role" EntityType="CATC_FIDS_DBModel.Sy_Role" />
+          <EntitySet Name="Sy_UserInfo" EntityType="CATC_FIDS_DBModel.Sy_UserInfo" />
+          <EntitySet Name="Sy_UserRole" EntityType="CATC_FIDS_DBModel.Sy_UserRole" />
+          <EntitySet Name="sysdiagrams" EntityType="CATC_FIDS_DBModel.sysdiagrams" />
+          <EntitySet Name="Template" EntityType="CATC_FIDS_DBModel.Template" />
+          <EntitySet Name="Template_DisplayInfo_Rel" EntityType="CATC_FIDS_DBModel.Template_DisplayInfo_Rel" />
+          <EntitySet Name="TemplateDisplayInfoView" EntityType="CATC_FIDS_DBModel.TemplateDisplayInfoView" />
+          <AssociationSet Name="FK_DailySchedule_Extension_DailySchedule1" Association="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule1">
+            <End Role="DailySchedule" EntitySet="DailySchedule" />
+            <End Role="DailySchedule_Extension" EntitySet="DailySchedule_Extension" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DailySchedule_Extension_DailySchedule" Association="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule">
+            <End Role="DailySchedule_ExtFileds" EntitySet="DailySchedule_ExtFileds" />
+            <End Role="DailySchedule_Extension" EntitySet="DailySchedule_Extension" />
+          </AssociationSet>
+          <EntitySet Name="Status" EntityType="CATC_FIDS_DBModel.Status" />
+          <EntitySet Name="Flight_Resource_Allocation" EntityType="CATC_FIDS_DBModel.Flight_Resource_Allocation" />
+          <AssociationSet Name="FK_Flight_ResAllocation_ActualGate" Association="CATC_FIDS_DBModel.FK_Flight_ResAllocation_ActualGate">
+            <End Role="R_Facility" EntitySet="R_Facility" />
+            <End Role="Flight_Resource_Allocation" EntitySet="Flight_Resource_Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flight_ResAllocation_EstimateGate" Association="CATC_FIDS_DBModel.FK_Flight_ResAllocation_EstimateGate">
+            <End Role="R_Facility" EntitySet="R_Facility" />
+            <End Role="Flight_Resource_Allocation" EntitySet="Flight_Resource_Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flight_ResAllocation_SchedGate" Association="CATC_FIDS_DBModel.FK_Flight_ResAllocation_SchedGate">
+            <End Role="R_Facility" EntitySet="R_Facility" />
+            <End Role="Flight_Resource_Allocation" EntitySet="Flight_Resource_Allocation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DailySchedule">
+          <Key>
+            <PropertyRef Name="dailyID" />
+          </Key>
+          <Property Name="dailyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="scheduleID" Type="Int32" Nullable="false" />
+          <Property Name="scheduleTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="actualTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="flightKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flightID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DailySchedule_Extension" Relationship="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule1" FromRole="DailySchedule" ToRole="DailySchedule_Extension" />
+        </EntityType>
+        <EntityType Name="DailySchedule_Extension">
+          <Key>
+            <PropertyRef Name="extensionID" />
+          </Key>
+          <Property Name="extensionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dailyID" Type="Int32" Nullable="false" />
+          <Property Name="fieldID" Type="Int32" Nullable="false" />
+          <Property Name="instance" Type="Byte" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="attributes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="override" Type="Byte" />
+          <NavigationProperty Name="DailySchedule" Relationship="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule1" FromRole="DailySchedule_Extension" ToRole="DailySchedule" />
+          <NavigationProperty Name="DailySchedule_ExtFileds" Relationship="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule" FromRole="DailySchedule_Extension" ToRole="DailySchedule_ExtFileds" />
+        </EntityType>
+        <EntityType Name="DailySchedule_ExtFileds">
+          <Key>
+            <PropertyRef Name="filedID" />
+          </Key>
+          <Property Name="filedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="field" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chineseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="englishName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OtherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DailySchedule_Extension" Relationship="CATC_FIDS_DBModel.FK_DailySchedule_Extension_DailySchedule" FromRole="DailySchedule_ExtFileds" ToRole="DailySchedule_Extension" />
+        </EntityType>
+        <EntityType Name="EventItem">
+          <Key>
+            <PropertyRef Name="eventItemID" />
+          </Key>
+          <Property Name="eventItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creationtime" Type="DateTime" Precision="3" />
+          <Property Name="dataID" Type="Guid" Nullable="false" />
+          <Property Name="dataValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EventMessage">
+          <Key>
+            <PropertyRef Name="emid" />
+          </Key>
+          <Property Name="emid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="endTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="createTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="level" Type="Int32" Nullable="false" />
+          <Property Name="dataType" Type="Int32" Nullable="false" />
+          <Property Name="chineseContent" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="englishContent" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="otherContent" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="actionKeys" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fontColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Aircraft">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AC_REG_NO" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AC_REG_NO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AC_TYPE_IATA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AIRLINE_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="SUBAIRLINE_ID" Type="Int32" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EXT_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_AircraftType">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="iataCode" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iataCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="icaoCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="name_english" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="name_chinese" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Airline">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Airline_IATA" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Airline_IATA" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="Airline_ICAO" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Short_Name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Host_AirPort_IATA" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaxLogo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinLogo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DORI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="NAME_ENGLISH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_CHINESE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ALLIANCE_CODE" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Airline_Sub">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Parent_Airline" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Subairline_Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Airport">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AIRPORT_IATA" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AIRPORT_IATA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="AIRPORT_ICAO" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CITY_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="NAME_CHINESE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_ENGLISH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="REGION_CODE" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Alliance">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ALLIANCE_NAME" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ALLIANCE_NAME" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="NAME_CHINESE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_ENGLISH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="REMARK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_City">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="City_IATA" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_IATA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Country_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="City_ICAO" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="Name_Chinese" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Name_English" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Short_Chinese" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Province_IS" Type="Int32" />
+          <Property Name="FLG_Deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Country">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Country_IATA" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country_IATA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Country_ICAO" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="Name_Chinese" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Name_English" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_Deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_DelayCode">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Delay_Code" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Delay_Code" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Code_Chinese" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code_English" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_Deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Province">
+          <Key>
+            <PropertyRef Name="Province_ID" />
+          </Key>
+          <Property Name="Province_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Chinese" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_English" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Short_Name" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DORI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CHINESE_NAME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ENGLISH_NAME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StatusLevel" Type="Int32" Nullable="false" />
+          <Property Name="FLG_DELETED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="F_TaskCode">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Task_Code" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Task_Code" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Name_Chinese" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Name_English" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Is_Civil" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="FLG_Deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FIDS_Parameter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paraName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paraType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paraValue" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="paraUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paraDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Flight_Dynamic">
+          <Key>
+            <PropertyRef Name="FDID" />
+          </Key>
+          <Property Name="FDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FLG_IDU" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="OPERATION_DATE" Type="DateTime" Precision="0" />
+          <Property Name="FLIGHT_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AORD" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DORI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="TASK_CODE" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="TERMINAL_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AIRLINE_IATA" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="AIRCRAFT_TYPE_IATA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AC_REG_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SERVICE_CLASS" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_VIP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ORIGIN_AIRPORT_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="STD" Type="DateTime" Precision="3" />
+          <Property Name="ETD" Type="DateTime" Precision="3" />
+          <Property Name="ATD" Type="DateTime" Precision="3" />
+          <Property Name="DEST_AIRPORT_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="STA" Type="DateTime" Precision="3" />
+          <Property Name="ETA" Type="DateTime" Precision="3" />
+          <Property Name="ATA" Type="DateTime" Precision="3" />
+          <Property Name="PREVIOUS_FLIGHT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NEXT_FLIGHT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ABNORMAL_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AIRPORT1" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI1" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STD1" Type="DateTime" Precision="3" />
+          <Property Name="AIRPORT2" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI2" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STA2" Type="DateTime" Precision="3" />
+          <Property Name="STD2" Type="DateTime" Precision="3" />
+          <Property Name="AIRPORT3" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI3" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STA3" Type="DateTime" Precision="3" />
+          <Property Name="STD3" Type="DateTime" Precision="3" />
+          <Property Name="AIRPORT4" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI4" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STA4" Type="DateTime" Precision="3" />
+          <Property Name="CODE_SHARE1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE4" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ADD_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="Status_Code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Flight_Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FLIGHT_ID" Type="Int32" />
+          <Property Name="OPERATION_DATTE" Type="DateTime" Precision="0" />
+          <Property Name="FLIGHT_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AORD" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DORI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="TASK_CODE" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="TERMINAL_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AIRLINE_IATA" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="AIRCRAFT_TYPE_IATA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AC_REG_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SERVICE_CLASS" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_VIP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ORIGIN_AIRPORT_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="STD" Type="DateTime" Precision="0" />
+          <Property Name="DEST_AIRPORT_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="STA" Type="DateTime" Precision="0" />
+          <Property Name="PREVIOUS_FLIGHT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NEXT_FLIGHT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AIRPORT1" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI1" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STD1" Type="DateTime" Precision="0" />
+          <Property Name="AIRPORT2" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI2" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STD2" Type="DateTime" Precision="0" />
+          <Property Name="AIRPORT3" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI3" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STD3" Type="DateTime" Precision="0" />
+          <Property Name="AIRPORT4" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI4" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STD4" Type="DateTime" Precision="0" />
+          <Property Name="CODE_SHARE1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE4" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Flight_Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="OPERATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FLIGHT_NO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AORD" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SCHED_ID" Type="Int64" Nullable="false" />
+          <Property Name="SERVICE_NO" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="SERVICE_NAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SCHED_START_TIME" Type="DateTime" Precision="0" />
+          <Property Name="SCHED_END_TIME" Type="DateTime" Precision="0" />
+          <Property Name="EST_START_TIME" Type="DateTime" Precision="0" />
+          <Property Name="EST_END_TIME" Type="DateTime" Precision="0" />
+          <Property Name="ACTUAL_START_TIME" Type="DateTime" Precision="0" />
+          <Property Name="ACTUAL_END_TIME" Type="DateTime" Precision="0" />
+          <Property Name="FROM_DEVICE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="History_Flight_Dynamic">
+          <Key>
+            <PropertyRef Name="FDID" />
+          </Key>
+          <Property Name="FDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FLG_IDU" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="OPERATION_DATE" Type="DateTime" Precision="0" />
+          <Property Name="FLIGHT_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AORD" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DORI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="TASK_CODE" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="TERMINAL_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AIRLINE_IATA" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="AIRCRAFT_TYPE_IATA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AC_REG_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SERVICE_CLASS" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="FLG_VIP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ORIGIN_AIRPORT_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="STD" Type="DateTime" Precision="3" />
+          <Property Name="ETD" Type="DateTime" Precision="3" />
+          <Property Name="ATD" Type="DateTime" Precision="3" />
+          <Property Name="DEST_AIRPORT_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="STA" Type="DateTime" Precision="3" />
+          <Property Name="ETA" Type="DateTime" Precision="3" />
+          <Property Name="ATA" Type="DateTime" Precision="3" />
+          <Property Name="PREVIOUS_FLIGHT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NEXT_FLIGHT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ABNORMAL_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AIRPORT1" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI1" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STD1" Type="DateTime" Precision="3" />
+          <Property Name="AIRPORT2" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI2" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STA2" Type="DateTime" Precision="3" />
+          <Property Name="STD2" Type="DateTime" Precision="3" />
+          <Property Name="AIRPORT3" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI3" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STA3" Type="DateTime" Precision="3" />
+          <Property Name="STD3" Type="DateTime" Precision="3" />
+          <Property Name="AIRPORT4" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="DORI4" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STA4" Type="DateTime" Precision="3" />
+          <Property Name="CODE_SHARE1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_SHARE4" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ADD_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="Status_Code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="L_Operation_Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogType" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Stataus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ModuleType" Type="Int32" Nullable="false" />
+          <Property Name="ModuleValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogLevel" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="R_DeviceGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="R_DeviceMonitoring">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pk_DeviceID" Type="Int32" Nullable="false" />
+          <Property Name="pk_DeviceStatusID" Type="Int32" />
+          <Property Name="connectedTime" Type="DateTime" Precision="3" />
+          <Property Name="ExceptionMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="R_DeviceStatus">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="R_DisplayInfo">
+          <Key>
+            <PropertyRef Name="displayID" />
+          </Key>
+          <Property Name="displayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ip" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="displayName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="x" Type="Int32" Nullable="false" />
+          <Property Name="y" Type="Int32" Nullable="false" />
+          <Property Name="width" Type="Int32" Nullable="false" />
+          <Property Name="height" Type="Int32" Nullable="false" />
+          <Property Name="index" Type="Int32" Nullable="false" />
+          <Property Name="isPrimary" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="displayLuminance" Type="Int32" />
+          <Property Name="displayState" Type="Int32" />
+          <Property Name="displayGroup" Type="Int32" />
+          <Property Name="displayMAC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="displayMark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="displayConnectTime" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R_Facility">
+          <Key>
+            <PropertyRef Name="Facility_ID" />
+          </Key>
+          <Property Name="Facility_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aodb_Facility_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Display_Symbol" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Terminal_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DORI" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Status_Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="Status_Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Recorder_ID" Type="Int32" />
+          <Property Name="FacilityType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Flight_Resource_Allocation" Relationship="CATC_FIDS_DBModel.FK_Flight_ResAllocation_ActualGate" FromRole="R_Facility" ToRole="Flight_Resource_Allocation" />
+          <NavigationProperty Name="Flight_Resource_Allocation1" Relationship="CATC_FIDS_DBModel.FK_Flight_ResAllocation_EstimateGate" FromRole="R_Facility" ToRole="Flight_Resource_Allocation" />
+          <NavigationProperty Name="Flight_Resource_Allocation2" Relationship="CATC_FIDS_DBModel.FK_Flight_ResAllocation_SchedGate" FromRole="R_Facility" ToRole="Flight_Resource_Allocation" />
+          </EntityType>
+        <EntityType Name="R_FacilityType">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="scheduleTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="flightID" Type="Int32" Nullable="false" />
+          <Property Name="siteID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sy_Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="role_desc" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="role_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="create_user" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sy_UserInfo">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="login_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="login_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="login_password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="login_password_wage" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="login_remark" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="create_user" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sy_UserRole">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="role_id" Type="Int16" Nullable="false" />
+          <Property Name="is_effective" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="create_user" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Template">
+          <Key>
+            <PropertyRef Name="templateID" />
+          </Key>
+          <Property Name="templateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="creator" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="creationtime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifier" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modifytime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isValid" Type="Int16" Nullable="false" />
+          <Property Name="definition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Template_DisplayInfo_Rel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayID" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Weeks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCover" Type="Int16" Nullable="false" />
+          <Property Name="IsAdvert" Type="Int16" Nullable="false" />
+          <Property Name="AdvertUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int16" Nullable="false" />
+          <Property Name="SpaceStartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SpaceEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IntervalSecond" Type="Int32" Nullable="false" />
+          <Property Name="Index" Type="Int32" Nullable="false" />
+          <Property Name="PageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TopScreenCode" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataValue" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsSend" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TemplateDisplayInfoView">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="TemplateID" />
+            <PropertyRef Name="DisplayID" />
+            <PropertyRef Name="StartTime" />
+            <PropertyRef Name="EndTime" />
+            <PropertyRef Name="IsCover" />
+            <PropertyRef Name="IsAdvert" />
+            <PropertyRef Name="Sort" />
+            <PropertyRef Name="SpaceStartTime" />
+            <PropertyRef Name="SpaceEndTime" />
+            <PropertyRef Name="IntervalSecond" />
+            <PropertyRef Name="Index" />
+            <PropertyRef Name="PageName" />
+            <PropertyRef Name="TopScreenCode" />
+            <PropertyRef Name="Count" />
+            <PropertyRef Name="CreateTime" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TemplateID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayID" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Weeks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCover" Type="Int16" Nullable="false" />
+          <Property Name="IsAdvert" Type="Int16" Nullable="false" />
+          <Property Name="AdvertUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int16" Nullable="false" />
+          <Property Name="SpaceStartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SpaceEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IntervalSecond" Type="Int32" Nullable="false" />
+          <Property Name="Index" Type="Int32" Nullable="false" />
+          <Property Name="PageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TopScreenCode" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TemplateName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsSend" Type="Int32" />
+          <Property Name="ip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DataValue" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_DailySchedule_Extension_DailySchedule1">
+          <End Type="CATC_FIDS_DBModel.DailySchedule" Role="DailySchedule" Multiplicity="1" />
+          <End Type="CATC_FIDS_DBModel.DailySchedule_Extension" Role="DailySchedule_Extension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailySchedule">
+              <PropertyRef Name="dailyID" />
+            </Principal>
+            <Dependent Role="DailySchedule_Extension">
+              <PropertyRef Name="dailyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DailySchedule_Extension_DailySchedule">
+          <End Type="CATC_FIDS_DBModel.DailySchedule_ExtFileds" Role="DailySchedule_ExtFileds" Multiplicity="1" />
+          <End Type="CATC_FIDS_DBModel.DailySchedule_Extension" Role="DailySchedule_Extension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailySchedule_ExtFileds">
+              <PropertyRef Name="filedID" />
+            </Principal>
+            <Dependent Role="DailySchedule_Extension">
+              <PropertyRef Name="fieldID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="status1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Flight_Resource_Allocation">
+          <Key>
+            <PropertyRef Name="FRID" />
+          </Key>
+          <Property Name="FRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="OPERATION_DATE" Type="DateTime" Precision="0" />
+          <Property Name="FacilityType" Type="Int32" />
+          <Property Name="FLIGHT_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AORD" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SCHED_ID" Type="Int32" />
+          <Property Name="SCHED_START" Type="DateTime" Precision="3" />
+          <Property Name="SCHED_END" Type="DateTime" Precision="3" />
+          <Property Name="ESTIMATE_ID" Type="Int32" />
+          <Property Name="ESTIMATE_START" Type="DateTime" Precision="3" />
+          <Property Name="ESTIMATE_END" Type="DateTime" Precision="3" />
+          <Property Name="ACTUAL_ID" Type="Int32" />
+          <Property Name="ACTUAL_START" Type="DateTime" Precision="3" />
+          <Property Name="ACTUAL_END" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="R_Facility" Relationship="CATC_FIDS_DBModel.FK_Flight_ResAllocation_ActualGate" FromRole="Flight_Resource_Allocation" ToRole="R_Facility" />
+          <NavigationProperty Name="R_Facility1" Relationship="CATC_FIDS_DBModel.FK_Flight_ResAllocation_EstimateGate" FromRole="Flight_Resource_Allocation" ToRole="R_Facility" />
+          <NavigationProperty Name="R_Facility2" Relationship="CATC_FIDS_DBModel.FK_Flight_ResAllocation_SchedGate" FromRole="Flight_Resource_Allocation" ToRole="R_Facility" />
+        </EntityType>
+        <Association Name="FK_Flight_ResAllocation_ActualGate">
+          <End Type="CATC_FIDS_DBModel.R_Facility" Role="R_Facility" Multiplicity="0..1" />
+          <End Type="CATC_FIDS_DBModel.Flight_Resource_Allocation" Role="Flight_Resource_Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R_Facility">
+              <PropertyRef Name="Facility_ID" />
+            </Principal>
+            <Dependent Role="Flight_Resource_Allocation">
+              <PropertyRef Name="ACTUAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flight_ResAllocation_EstimateGate">
+          <End Type="CATC_FIDS_DBModel.R_Facility" Role="R_Facility" Multiplicity="0..1" />
+          <End Type="CATC_FIDS_DBModel.Flight_Resource_Allocation" Role="Flight_Resource_Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R_Facility">
+              <PropertyRef Name="Facility_ID" />
+            </Principal>
+            <Dependent Role="Flight_Resource_Allocation">
+              <PropertyRef Name="ESTIMATE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flight_ResAllocation_SchedGate">
+          <End Type="CATC_FIDS_DBModel.R_Facility" Role="R_Facility" Multiplicity="0..1" />
+          <End Type="CATC_FIDS_DBModel.Flight_Resource_Allocation" Role="Flight_Resource_Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R_Facility">
+              <PropertyRef Name="Facility_ID" />
+            </Principal>
+            <Dependent Role="Flight_Resource_Allocation">
+              <PropertyRef Name="SCHED_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CATC_FIDS_DBModelStoreContainer" CdmEntityContainer="CATC_FIDS_DBEntities">
+          <EntitySetMapping Name="DailySchedule">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.DailySchedule">
+              <MappingFragment StoreEntitySet="DailySchedule">
+                <ScalarProperty Name="flightID" ColumnName="flightID" />
+                <ScalarProperty Name="flightKey" ColumnName="flightKey" />
+                <ScalarProperty Name="actualTime" ColumnName="actualTime" />
+                <ScalarProperty Name="scheduleTime" ColumnName="scheduleTime" />
+                <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+                <ScalarProperty Name="dailyID" ColumnName="dailyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailySchedule_Extension">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.DailySchedule_Extension">
+              <MappingFragment StoreEntitySet="DailySchedule_Extension">
+                <ScalarProperty Name="override" ColumnName="override" />
+                <ScalarProperty Name="attributes" ColumnName="attributes" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="instance" ColumnName="instance" />
+                <ScalarProperty Name="fieldID" ColumnName="fieldID" />
+                <ScalarProperty Name="dailyID" ColumnName="dailyID" />
+                <ScalarProperty Name="extensionID" ColumnName="extensionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailySchedule_ExtFileds">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.DailySchedule_ExtFileds">
+              <MappingFragment StoreEntitySet="DailySchedule_ExtFileds">
+                <ScalarProperty Name="OtherName" ColumnName="OtherName" />
+                <ScalarProperty Name="englishName" ColumnName="englishName" />
+                <ScalarProperty Name="chineseName" ColumnName="chineseName" />
+                <ScalarProperty Name="field" ColumnName="field" />
+                <ScalarProperty Name="filedID" ColumnName="filedID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventItem">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.EventItem">
+              <MappingFragment StoreEntitySet="EventItem">
+                <ScalarProperty Name="dataValue" ColumnName="dataValue" />
+                <ScalarProperty Name="dataID" ColumnName="dataID" />
+                <ScalarProperty Name="creationtime" ColumnName="creationtime" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="eventItemID" ColumnName="eventItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventMessage">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.EventMessage">
+              <MappingFragment StoreEntitySet="EventMessage">
+                <ScalarProperty Name="fontColor" ColumnName="fontColor" />
+                <ScalarProperty Name="actionKeys" ColumnName="actionKeys" />
+                <ScalarProperty Name="otherContent" ColumnName="otherContent" />
+                <ScalarProperty Name="englishContent" ColumnName="englishContent" />
+                <ScalarProperty Name="chineseContent" ColumnName="chineseContent" />
+                <ScalarProperty Name="dataType" ColumnName="dataType" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="strartTime" ColumnName="strartTime" />
+                <ScalarProperty Name="emid" ColumnName="emid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Aircraft">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Aircraft">
+              <MappingFragment StoreEntitySet="F_Aircraft">
+                <ScalarProperty Name="EXT_CODE" ColumnName="EXT_CODE" />
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="SUBAIRLINE_ID" ColumnName="SUBAIRLINE_ID" />
+                <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+                <ScalarProperty Name="AC_TYPE_IATA" ColumnName="AC_TYPE_IATA" />
+                <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_AircraftType">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_AircraftType">
+              <MappingFragment StoreEntitySet="F_AircraftType">
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="name_chinese" ColumnName="name_chinese" />
+                <ScalarProperty Name="name_english" ColumnName="name_english" />
+                <ScalarProperty Name="icaoCode" ColumnName="icaoCode" />
+                <ScalarProperty Name="iataCode" ColumnName="iataCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Airline">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Airline">
+              <MappingFragment StoreEntitySet="F_Airline">
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="ALLIANCE_CODE" ColumnName="ALLIANCE_CODE" />
+                <ScalarProperty Name="NAME_CHINESE" ColumnName="NAME_CHINESE" />
+                <ScalarProperty Name="NAME_ENGLISH" ColumnName="NAME_ENGLISH" />
+                <ScalarProperty Name="DORI" ColumnName="DORI" />
+                <ScalarProperty Name="MinLogo" ColumnName="MinLogo" />
+                <ScalarProperty Name="MaxLogo" ColumnName="MaxLogo" />
+                <ScalarProperty Name="Host_AirPort_IATA" ColumnName="Host_AirPort_IATA" />
+                <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+                <ScalarProperty Name="Airline_ICAO" ColumnName="Airline_ICAO" />
+                <ScalarProperty Name="Airline_IATA" ColumnName="Airline_IATA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Airline_Sub">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Airline_Sub">
+              <MappingFragment StoreEntitySet="F_Airline_Sub">
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="Subairline_Name" ColumnName="Subairline_Name" />
+                <ScalarProperty Name="Parent_Airline" ColumnName="Parent_Airline" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Airport">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Airport">
+              <MappingFragment StoreEntitySet="F_Airport">
+                <ScalarProperty Name="REGION_CODE" ColumnName="REGION_CODE" />
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="NAME_ENGLISH" ColumnName="NAME_ENGLISH" />
+                <ScalarProperty Name="NAME_CHINESE" ColumnName="NAME_CHINESE" />
+                <ScalarProperty Name="DORI" ColumnName="DORI" />
+                <ScalarProperty Name="CITY_IATA" ColumnName="CITY_IATA" />
+                <ScalarProperty Name="SHORT_NAME" ColumnName="SHORT_NAME" />
+                <ScalarProperty Name="AIRPORT_ICAO" ColumnName="AIRPORT_ICAO" />
+                <ScalarProperty Name="AIRPORT_IATA" ColumnName="AIRPORT_IATA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Alliance">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Alliance">
+              <MappingFragment StoreEntitySet="F_Alliance">
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="NAME_ENGLISH" ColumnName="NAME_ENGLISH" />
+                <ScalarProperty Name="NAME_CHINESE" ColumnName="NAME_CHINESE" />
+                <ScalarProperty Name="ALLIANCE_NAME" ColumnName="ALLIANCE_NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_City">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_City">
+              <MappingFragment StoreEntitySet="F_City">
+                <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+                <ScalarProperty Name="Province_IS" ColumnName="Province_IS" />
+                <ScalarProperty Name="Short_Chinese" ColumnName="Short_Chinese" />
+                <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+                <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+                <ScalarProperty Name="City_ICAO" ColumnName="City_ICAO" />
+                <ScalarProperty Name="Country_IATA" ColumnName="Country_IATA" />
+                <ScalarProperty Name="City_IATA" ColumnName="City_IATA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Country">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Country">
+              <MappingFragment StoreEntitySet="F_Country">
+                <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+                <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+                <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+                <ScalarProperty Name="Country_ICAO" ColumnName="Country_ICAO" />
+                <ScalarProperty Name="Country_IATA" ColumnName="Country_IATA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_DelayCode">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_DelayCode">
+              <MappingFragment StoreEntitySet="F_DelayCode">
+                <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code_English" ColumnName="Code_English" />
+                <ScalarProperty Name="Code_Chinese" ColumnName="Code_Chinese" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Delay_Code" ColumnName="Delay_Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Province">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Province">
+              <MappingFragment StoreEntitySet="F_Province">
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="DORI" ColumnName="DORI" />
+                <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+                <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+                <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+                <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_Status">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Status">
+              <MappingFragment StoreEntitySet="F_Status">
+                <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+                <ScalarProperty Name="StatusLevel" ColumnName="StatusLevel" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ENGLISH_NAME" ColumnName="ENGLISH_NAME" />
+                <ScalarProperty Name="CHINESE_NAME" ColumnName="CHINESE_NAME" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_TaskCode">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_TaskCode">
+              <MappingFragment StoreEntitySet="F_TaskCode">
+                <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+                <ScalarProperty Name="Is_Civil" ColumnName="Is_Civil" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+                <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+                <ScalarProperty Name="Task_Code" ColumnName="Task_Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FIDS_Parameter">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.FIDS_Parameter">
+              <MappingFragment StoreEntitySet="FIDS_Parameter">
+                <ScalarProperty Name="paraDescription" ColumnName="paraDescription" />
+                <ScalarProperty Name="paraUnit" ColumnName="paraUnit" />
+                <ScalarProperty Name="paraValue" ColumnName="paraValue" />
+                <ScalarProperty Name="paraType" ColumnName="paraType" />
+                <ScalarProperty Name="paraName" ColumnName="paraName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flight_Dynamic">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Dynamic">
+              <MappingFragment StoreEntitySet="Flight_Dynamic">
+                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+                <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
+                <ScalarProperty Name="ADD_TYPE" ColumnName="ADD_TYPE" />
+                <ScalarProperty Name="CODE_SHARE4" ColumnName="CODE_SHARE4" />
+                <ScalarProperty Name="CODE_SHARE3" ColumnName="CODE_SHARE3" />
+                <ScalarProperty Name="CODE_SHARE2" ColumnName="CODE_SHARE2" />
+                <ScalarProperty Name="CODE_SHARE1" ColumnName="CODE_SHARE1" />
+                <ScalarProperty Name="STA4" ColumnName="STA4" />
+                <ScalarProperty Name="DORI4" ColumnName="DORI4" />
+                <ScalarProperty Name="AIRPORT4" ColumnName="AIRPORT4" />
+                <ScalarProperty Name="STD3" ColumnName="STD3" />
+                <ScalarProperty Name="STA3" ColumnName="STA3" />
+                <ScalarProperty Name="DORI3" ColumnName="DORI3" />
+                <ScalarProperty Name="AIRPORT3" ColumnName="AIRPORT3" />
+                <ScalarProperty Name="STD2" ColumnName="STD2" />
+                <ScalarProperty Name="STA2" ColumnName="STA2" />
+                <ScalarProperty Name="DORI2" ColumnName="DORI2" />
+                <ScalarProperty Name="AIRPORT2" ColumnName="AIRPORT2" />
+                <ScalarProperty Name="STD1" ColumnName="STD1" />
+                <ScalarProperty Name="DORI1" ColumnName="DORI1" />
+                <ScalarProperty Name="AIRPORT1" ColumnName="AIRPORT1" />
+                <ScalarProperty Name="ABNORMAL_STATUS" ColumnName="ABNORMAL_STATUS" />
+                <ScalarProperty Name="NEXT_FLIGHT" ColumnName="NEXT_FLIGHT" />
+                <ScalarProperty Name="PREVIOUS_FLIGHT" ColumnName="PREVIOUS_FLIGHT" />
+                <ScalarProperty Name="ATA" ColumnName="ATA" />
+                <ScalarProperty Name="ETA" ColumnName="ETA" />
+                <ScalarProperty Name="STA" ColumnName="STA" />
+                <ScalarProperty Name="DEST_AIRPORT_IATA" ColumnName="DEST_AIRPORT_IATA" />
+                <ScalarProperty Name="ATD" ColumnName="ATD" />
+                <ScalarProperty Name="ETD" ColumnName="ETD" />
+                <ScalarProperty Name="STD" ColumnName="STD" />
+                <ScalarProperty Name="ORIGIN_AIRPORT_IATA" ColumnName="ORIGIN_AIRPORT_IATA" />
+                <ScalarProperty Name="FLG_VIP" ColumnName="FLG_VIP" />
+                <ScalarProperty Name="SERVICE_CLASS" ColumnName="SERVICE_CLASS" />
+                <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+                <ScalarProperty Name="AIRCRAFT_TYPE_IATA" ColumnName="AIRCRAFT_TYPE_IATA" />
+                <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+                <ScalarProperty Name="TERMINAL_NO" ColumnName="TERMINAL_NO" />
+                <ScalarProperty Name="TASK_CODE" ColumnName="TASK_CODE" />
+                <ScalarProperty Name="DORI" ColumnName="DORI" />
+                <ScalarProperty Name="AORD" ColumnName="AORD" />
+                <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+                <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+                <ScalarProperty Name="FLG_IDU" ColumnName="FLG_IDU" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FDID" ColumnName="FDID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flight_Schedule">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Schedule">
+              <MappingFragment StoreEntitySet="Flight_Schedule">
+                <ScalarProperty Name="CODE_SHARE4" ColumnName="CODE_SHARE4" />
+                <ScalarProperty Name="CODE_SHARE3" ColumnName="CODE_SHARE3" />
+                <ScalarProperty Name="CODE_SHARE2" ColumnName="CODE_SHARE2" />
+                <ScalarProperty Name="CODE_SHARE1" ColumnName="CODE_SHARE1" />
+                <ScalarProperty Name="STD4" ColumnName="STD4" />
+                <ScalarProperty Name="DORI4" ColumnName="DORI4" />
+                <ScalarProperty Name="AIRPORT4" ColumnName="AIRPORT4" />
+                <ScalarProperty Name="STD3" ColumnName="STD3" />
+                <ScalarProperty Name="DORI3" ColumnName="DORI3" />
+                <ScalarProperty Name="AIRPORT3" ColumnName="AIRPORT3" />
+                <ScalarProperty Name="STD2" ColumnName="STD2" />
+                <ScalarProperty Name="DORI2" ColumnName="DORI2" />
+                <ScalarProperty Name="AIRPORT2" ColumnName="AIRPORT2" />
+                <ScalarProperty Name="STD1" ColumnName="STD1" />
+                <ScalarProperty Name="DORI1" ColumnName="DORI1" />
+                <ScalarProperty Name="AIRPORT1" ColumnName="AIRPORT1" />
+                <ScalarProperty Name="NEXT_FLIGHT" ColumnName="NEXT_FLIGHT" />
+                <ScalarProperty Name="PREVIOUS_FLIGHT" ColumnName="PREVIOUS_FLIGHT" />
+                <ScalarProperty Name="STA" ColumnName="STA" />
+                <ScalarProperty Name="DEST_AIRPORT_IATA" ColumnName="DEST_AIRPORT_IATA" />
+                <ScalarProperty Name="STD" ColumnName="STD" />
+                <ScalarProperty Name="ORIGIN_AIRPORT_IATA" ColumnName="ORIGIN_AIRPORT_IATA" />
+                <ScalarProperty Name="FLG_VIP" ColumnName="FLG_VIP" />
+                <ScalarProperty Name="SERVICE_CLASS" ColumnName="SERVICE_CLASS" />
+                <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+                <ScalarProperty Name="AIRCRAFT_TYPE_IATA" ColumnName="AIRCRAFT_TYPE_IATA" />
+                <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+                <ScalarProperty Name="TERMINAL_NO" ColumnName="TERMINAL_NO" />
+                <ScalarProperty Name="TASK_CODE" ColumnName="TASK_CODE" />
+                <ScalarProperty Name="DORI" ColumnName="DORI" />
+                <ScalarProperty Name="AORD" ColumnName="AORD" />
+                <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+                <ScalarProperty Name="OPERATION_DATTE" ColumnName="OPERATION_DATTE" />
+                <ScalarProperty Name="FLIGHT_ID" ColumnName="FLIGHT_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flight_Service">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Service">
+              <MappingFragment StoreEntitySet="Flight_Service">
+                <ScalarProperty Name="FROM_DEVICE" ColumnName="FROM_DEVICE" />
+                <ScalarProperty Name="ACTUAL_END_TIME" ColumnName="ACTUAL_END_TIME" />
+                <ScalarProperty Name="ACTUAL_START_TIME" ColumnName="ACTUAL_START_TIME" />
+                <ScalarProperty Name="EST_END_TIME" ColumnName="EST_END_TIME" />
+                <ScalarProperty Name="EST_START_TIME" ColumnName="EST_START_TIME" />
+                <ScalarProperty Name="SCHED_END_TIME" ColumnName="SCHED_END_TIME" />
+                <ScalarProperty Name="SCHED_START_TIME" ColumnName="SCHED_START_TIME" />
+                <ScalarProperty Name="SERVICE_NAME" ColumnName="SERVICE_NAME" />
+                <ScalarProperty Name="SERVICE_NO" ColumnName="SERVICE_NO" />
+                <ScalarProperty Name="SCHED_ID" ColumnName="SCHED_ID" />
+                <ScalarProperty Name="AORD" ColumnName="AORD" />
+                <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+                <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="History_Flight_Dynamic">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.History_Flight_Dynamic">
+              <MappingFragment StoreEntitySet="History_Flight_Dynamic">
+                <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
+                <ScalarProperty Name="ADD_TYPE" ColumnName="ADD_TYPE" />
+                <ScalarProperty Name="CODE_SHARE4" ColumnName="CODE_SHARE4" />
+                <ScalarProperty Name="CODE_SHARE3" ColumnName="CODE_SHARE3" />
+                <ScalarProperty Name="CODE_SHARE2" ColumnName="CODE_SHARE2" />
+                <ScalarProperty Name="CODE_SHARE1" ColumnName="CODE_SHARE1" />
+                <ScalarProperty Name="STA4" ColumnName="STA4" />
+                <ScalarProperty Name="DORI4" ColumnName="DORI4" />
+                <ScalarProperty Name="AIRPORT4" ColumnName="AIRPORT4" />
+                <ScalarProperty Name="STD3" ColumnName="STD3" />
+                <ScalarProperty Name="STA3" ColumnName="STA3" />
+                <ScalarProperty Name="DORI3" ColumnName="DORI3" />
+                <ScalarProperty Name="AIRPORT3" ColumnName="AIRPORT3" />
+                <ScalarProperty Name="STD2" ColumnName="STD2" />
+                <ScalarProperty Name="STA2" ColumnName="STA2" />
+                <ScalarProperty Name="DORI2" ColumnName="DORI2" />
+                <ScalarProperty Name="AIRPORT2" ColumnName="AIRPORT2" />
+                <ScalarProperty Name="STD1" ColumnName="STD1" />
+                <ScalarProperty Name="DORI1" ColumnName="DORI1" />
+                <ScalarProperty Name="AIRPORT1" ColumnName="AIRPORT1" />
+                <ScalarProperty Name="ABNORMAL_STATUS" ColumnName="ABNORMAL_STATUS" />
+                <ScalarProperty Name="NEXT_FLIGHT" ColumnName="NEXT_FLIGHT" />
+                <ScalarProperty Name="PREVIOUS_FLIGHT" ColumnName="PREVIOUS_FLIGHT" />
+                <ScalarProperty Name="ATA" ColumnName="ATA" />
+                <ScalarProperty Name="ETA" ColumnName="ETA" />
+                <ScalarProperty Name="STA" ColumnName="STA" />
+                <ScalarProperty Name="DEST_AIRPORT_IATA" ColumnName="DEST_AIRPORT_IATA" />
+                <ScalarProperty Name="ATD" ColumnName="ATD" />
+                <ScalarProperty Name="ETD" ColumnName="ETD" />
+                <ScalarProperty Name="STD" ColumnName="STD" />
+                <ScalarProperty Name="ORIGIN_AIRPORT_IATA" ColumnName="ORIGIN_AIRPORT_IATA" />
+                <ScalarProperty Name="FLG_VIP" ColumnName="FLG_VIP" />
+                <ScalarProperty Name="SERVICE_CLASS" ColumnName="SERVICE_CLASS" />
+                <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+                <ScalarProperty Name="AIRCRAFT_TYPE_IATA" ColumnName="AIRCRAFT_TYPE_IATA" />
+                <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+                <ScalarProperty Name="TERMINAL_NO" ColumnName="TERMINAL_NO" />
+                <ScalarProperty Name="TASK_CODE" ColumnName="TASK_CODE" />
+                <ScalarProperty Name="DORI" ColumnName="DORI" />
+                <ScalarProperty Name="AORD" ColumnName="AORD" />
+                <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+                <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+                <ScalarProperty Name="FLG_IDU" ColumnName="FLG_IDU" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FDID" ColumnName="FDID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="L_Operation_Log">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.L_Operation_Log">
+              <MappingFragment StoreEntitySet="L_Operation_Log">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="LogLevel" ColumnName="LogLevel" />
+                <ScalarProperty Name="ModuleValue" ColumnName="ModuleValue" />
+                <ScalarProperty Name="ModuleType" ColumnName="ModuleType" />
+                <ScalarProperty Name="Stataus" ColumnName="Stataus" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LogType" ColumnName="LogType" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_DeviceGroup">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DeviceGroup">
+              <MappingFragment StoreEntitySet="R_DeviceGroup">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_DeviceMonitoring">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DeviceMonitoring">
+              <MappingFragment StoreEntitySet="R_DeviceMonitoring">
+                <ScalarProperty Name="ExceptionMsg" ColumnName="ExceptionMsg" />
+                <ScalarProperty Name="connectedTime" ColumnName="connectedTime" />
+                <ScalarProperty Name="pk_DeviceStatusID" ColumnName="pk_DeviceStatusID" />
+                <ScalarProperty Name="pk_DeviceID" ColumnName="pk_DeviceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_DeviceStatus">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DeviceStatus">
+              <MappingFragment StoreEntitySet="R_DeviceStatus">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_DisplayInfo">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DisplayInfo">
+              <MappingFragment StoreEntitySet="R_DisplayInfo">
+                <ScalarProperty Name="displayConnectTime" ColumnName="displayConnectTime" />
+                <ScalarProperty Name="displayMark" ColumnName="displayMark" />
+                <ScalarProperty Name="displayMAC" ColumnName="displayMAC" />
+                <ScalarProperty Name="displayGroup" ColumnName="displayGroup" />
+                <ScalarProperty Name="displayState" ColumnName="displayState" />
+                <ScalarProperty Name="displayLuminance" ColumnName="displayLuminance" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+                <ScalarProperty Name="index" ColumnName="index" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="y" ColumnName="y" />
+                <ScalarProperty Name="x" ColumnName="x" />
+                <ScalarProperty Name="displayName" ColumnName="displayName" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="displayID" ColumnName="displayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_Facility">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_Facility">
+              <MappingFragment StoreEntitySet="R_Facility">
+                <ScalarProperty Name="FacilityType" ColumnName="FacilityType" />
+                <ScalarProperty Name="Recorder_ID" ColumnName="Recorder_ID" />
+                <ScalarProperty Name="Status_Remark" ColumnName="Status_Remark" />
+                <ScalarProperty Name="Status_Timestamp" ColumnName="Status_Timestamp" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DORI" ColumnName="DORI" />
+                <ScalarProperty Name="Terminal_NO" ColumnName="Terminal_NO" />
+                <ScalarProperty Name="Display_Symbol" ColumnName="Display_Symbol" />
+                <ScalarProperty Name="Aodb_Facility_ID" ColumnName="Aodb_Facility_ID" />
+                <ScalarProperty Name="Facility_ID" ColumnName="Facility_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_FacilityType">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_FacilityType">
+              <MappingFragment StoreEntitySet="R_FacilityType">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="siteID" ColumnName="siteID" />
+                <ScalarProperty Name="flightID" ColumnName="flightID" />
+                <ScalarProperty Name="scheduleTime" ColumnName="scheduleTime" />
+                <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sy_Role">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Sy_Role">
+              <MappingFragment StoreEntitySet="Sy_Role">
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="role_status" ColumnName="role_status" />
+                <ScalarProperty Name="role_desc" ColumnName="role_desc" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sy_UserInfo">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Sy_UserInfo">
+              <MappingFragment StoreEntitySet="Sy_UserInfo">
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="login_remark" ColumnName="login_remark" />
+                <ScalarProperty Name="login_password_wage" ColumnName="login_password_wage" />
+                <ScalarProperty Name="login_password" ColumnName="login_password" />
+                <ScalarProperty Name="login_id" ColumnName="login_id" />
+                <ScalarProperty Name="login_status" ColumnName="login_status" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sy_UserRole">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Sy_UserRole">
+              <MappingFragment StoreEntitySet="Sy_UserRole">
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="is_effective" ColumnName="is_effective" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Template">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Template">
+              <MappingFragment StoreEntitySet="Template">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="isValid" ColumnName="isValid" />
+                <ScalarProperty Name="modifytime" ColumnName="modifytime" />
+                <ScalarProperty Name="modifier" ColumnName="modifier" />
+                <ScalarProperty Name="creationtime" ColumnName="creationtime" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="templateID" ColumnName="templateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Template_DisplayInfo_Rel">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Template_DisplayInfo_Rel">
+              <MappingFragment StoreEntitySet="Template_DisplayInfo_Rel">
+                <ScalarProperty Name="IsSend" ColumnName="IsSend" />
+                <ScalarProperty Name="DataValue" ColumnName="DataValue" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="TopScreenCode" ColumnName="TopScreenCode" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="IntervalSecond" ColumnName="IntervalSecond" />
+                <ScalarProperty Name="SpaceEndTime" ColumnName="SpaceEndTime" />
+                <ScalarProperty Name="SpaceStartTime" ColumnName="SpaceStartTime" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="AdvertUrl" ColumnName="AdvertUrl" />
+                <ScalarProperty Name="IsAdvert" ColumnName="IsAdvert" />
+                <ScalarProperty Name="IsCover" ColumnName="IsCover" />
+                <ScalarProperty Name="Weeks" ColumnName="Weeks" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="DisplayID" ColumnName="DisplayID" />
+                <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TemplateDisplayInfoView">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.TemplateDisplayInfoView">
+              <MappingFragment StoreEntitySet="TemplateDisplayInfoView">
+                <ScalarProperty Name="DataValue" ColumnName="DataValue" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="IsSend" ColumnName="IsSend" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="TopScreenCode" ColumnName="TopScreenCode" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="IntervalSecond" ColumnName="IntervalSecond" />
+                <ScalarProperty Name="SpaceEndTime" ColumnName="SpaceEndTime" />
+                <ScalarProperty Name="SpaceStartTime" ColumnName="SpaceStartTime" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="AdvertUrl" ColumnName="AdvertUrl" />
+                <ScalarProperty Name="IsAdvert" ColumnName="IsAdvert" />
+                <ScalarProperty Name="IsCover" ColumnName="IsCover" />
+                <ScalarProperty Name="Weeks" ColumnName="Weeks" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="DisplayID" ColumnName="DisplayID" />
+                <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status1" ColumnName="status" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flight_Resource_Allocation">
+            <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Resource_Allocation">
+              <MappingFragment StoreEntitySet="Flight_Resource_Allocation">
+                <ScalarProperty Name="ACTUAL_END" ColumnName="ACTUAL_END" />
+                <ScalarProperty Name="ACTUAL_START" ColumnName="ACTUAL_START" />
+                <ScalarProperty Name="ACTUAL_ID" ColumnName="ACTUAL_ID" />
+                <ScalarProperty Name="ESTIMATE_END" ColumnName="ESTIMATE_END" />
+                <ScalarProperty Name="ESTIMATE_START" ColumnName="ESTIMATE_START" />
+                <ScalarProperty Name="ESTIMATE_ID" ColumnName="ESTIMATE_ID" />
+                <ScalarProperty Name="SCHED_END" ColumnName="SCHED_END" />
+                <ScalarProperty Name="SCHED_START" ColumnName="SCHED_START" />
+                <ScalarProperty Name="SCHED_ID" ColumnName="SCHED_ID" />
+                <ScalarProperty Name="AORD" ColumnName="AORD" />
+                <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+                <ScalarProperty Name="FacilityType" ColumnName="FacilityType" />
+                <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FRID" ColumnName="FRID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

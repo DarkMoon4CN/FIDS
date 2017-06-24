@@ -1,0 +1,90 @@
+﻿@using CATC.FIDS.Utils;
+@using CATC.FIDS.Model;
+@using Webdiyer.WebControls.Mvc;
+@using CATC.FIDS.Controllers;
+@model PagedList<CATC.FIDS.Models.Flight_Dynamic>
+@{
+    Layout = null;
+    
+}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>到港航班显示页面</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/departureAirport.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/MvcPager.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/arrivalflight.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script>
+        var totalPageCount = 0;
+        var pageIndex = 0;
+        var messageInterval = null; //GetEventMessage 轮询对象
+        var cgInterval = null; //GetDepCheckinsAndGate 轮询对象
+        var nxPageTimeout = null;//翻页轮询对象
+
+        $(function () {
+            util.dynamicCalcRem(1920);
+            pageInterval();
+        });
+        function nextPage() {
+            pageIndex = $("#pageIndex").val();
+            totalPageCount = $("#totalPageCount").val();
+            for (var i = 0; i < intervalList.length; i++) {
+                clearInterval(intervalList[i].value);
+                intervalList[i].value = null;
+            }
+            intervalList.splice(0, timeAxisList.length);
+            timeAxisList.splice(0, timeAxisList.length);
+            var aFlag = $(".text-center").children(0).children();
+            if (pageIndex != totalPageCount) {
+                $(aFlag[aFlag.length - 2]).click();
+            }
+            else {
+                pageIndex = 0;
+                $(aFlag[0]).click();
+            }
+            clearInterval(messageInterval);
+            clearInterval(cgInterval);
+            clearInterval(nxPageTimeout);
+            pageInterval();
+        }
+        function pageInterval()
+        {
+            //轮询获取消息
+            messageInterval = setInterval(function () {
+                Global.GetEventMessage("ArrivalFlight");
+            }, changeTime * 1000);
+
+            //轮询获取值机，登机口和行李转盘数据
+            cgInterval = setInterval(function () {
+                Arrivalflight.GetArrBaggage();
+            }, changeTime * 1000 * 2);
+
+            //轮询进行翻页
+            nxPageTimeout = setTimeout(function () {
+                nextPage();
+            }, changeTime * 1000 * 2);
+        }
+    </script>
+
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    @Html.Partial("_ArrivalFlightList", Model)
+    @{Html.RegisterMvcPagerScriptResource();}
+    <div class="footer">
+        <div class="tips" id="00001"></div>
+    </div>
+</body>
+</html>

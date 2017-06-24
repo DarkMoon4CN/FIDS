@@ -1,0 +1,161 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登机引导显示页面</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/boardingGuide.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/deparAirport-tab.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/boardingGuide.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(1080);
+            //util.marquee('.tips', 80);
+            BoardingGuide.Init();
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <div class="menu">
+        <div class="menuGroup-1">
+            <div class="menu-time">
+                <i class="icon-time"></i>
+                <span>时间</span>
+            </div>
+            <div class="menu-text">
+                <i class="icon-text"></i>
+                <span>文本</span>
+            </div>
+            <div class="menu-pic">
+                <i class="icon-pic"></i>
+                <span>图片</span>
+            </div>
+            <div class="menu-weather">
+                <i class="icon-weather"></i>
+                <span>气象</span>
+            </div>
+            <div class="menu-bg">
+                <i class="icon-bg"></i>
+                <span>背景</span>
+            </div>
+            <div class="menu-video">
+                <i class="icon-video"></i>
+                <span>视频</span>
+            </div>
+            <div class="menu-msg">
+                <i class="icon-msg"></i>
+                <span>消息</span>
+            </div>
+        </div>
+        <div class="menuGroup-3">
+            <div class="menu-save">
+                <i class="icon-save"></i>
+                <span>保存</span>
+            </div>
+            <div class="menu-pub">
+                <i class="icon-pub"></i>
+                <span>发布</span>
+            </div>
+        </div>
+        <div class="menuGroup-2">
+            <div class="menu-clear">
+                <i class="icon-clear"></i>
+                <span>重置</span>
+            </div>
+            <div class="menu-view">
+                <i class="icon-view"></i>
+                <span>预览</span>
+            </div>
+        </div>
+    </div>
+    <!-- 头部 start -->
+    <div class="header">
+        @Html.Raw(ViewBag.hstr)
+    </div>
+    <!-- 头部 end -->
+    <!-- 主体显示区域 start -->
+    <div class="main">
+        <div class="mainCon">
+            <!-- 内容标题部分 start -->
+            <div class="mainCon-hd is-hdColor">
+                <div class="col-3 flightNum">航班号</div>
+                <div class="col-3 place">终点站/经停</div>
+                <div class="col-3 bagPan">登机口</div>
+                <div class="col-3 status">状态</div>
+            </div>
+            <!-- 内容标题部分 end -->
+            <!-- 内容主体部分 start -->
+            <div class="mainCon-bd">
+                <div class="row is-greenMark">
+                    <div class="col-3 flightNum-con">
+                        <div class="flightNum-con-img"><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div>CA1202</div>
+                    </div>
+                    <div class="col-3 place-con">上海/济南</div>
+                    <div class="col-3 bagPan-con">12-01</div>
+                    <div class="col-3 status-con">
+                        <div class="status-flag is-greenActive">登机</div>
+                    </div>
+                </div>
+                <div class="row is-yellowMark">
+                    <div class="col-3 flightNum-con">
+                        <div class="flightNum-con-img"><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div>CA1202</div>
+                    </div>
+                    <div class="col-3 place-con">石家庄</div>
+                    <div class="col-3 bagPan-con">12-01</div>
+                    <div class="col-3 status-con">
+                        <div class="status-flag is-yellowActive">延误</div>
+                    </div>
+                </div>
+                <div class="row is-redMark">
+                    <div class="col-3 flightNum-con">
+                        <div class="flightNum-con-img"><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div>CA1202</div>
+                    </div>
+                    <div class="col-3 place-con">乌鲁木齐</div>
+                    <div class="col-3 bagPan-con">12-01</div>
+                    <div class="col-3 status-con">
+                        <div class="status-flag is-redActive">停止</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 flightNum-con">
+                        <div class="flightNum-con-img"><img src="~/Images/AirLogo/logo_01.png" alt="" /></div>
+                        <div>CA1202</div>
+                    </div>
+                    <div class="col-3 place-con">乌鲁木齐</div>
+                    <div class="col-3 bagPan-con">12-01</div>
+                    <div class="col-3 status-con">
+                        <div class="status-flag">正点</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容主体部分 end -->
+        </div>
+    </div>
+
+    <!-- 主体显示区域 end -->
+</body>
+</html>

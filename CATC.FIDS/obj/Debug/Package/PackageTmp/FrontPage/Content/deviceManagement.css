@@ -1,0 +1,422 @@
+/* common start */
+
+#deviceManage .is-equipError {
+    color: #f26455;
+    /*background-color: #f26455;*/
+}
+
+#deviceManage .is-equipNormal {
+    color: #428bca;
+}
+
+#deviceManage .is-equipOff {
+    color: #999;
+}
+#deviceManage .hide,
+#deviceManage .menuHide {
+    display: none;
+}
+/* common end */
+
+#deviceManage .icon {
+    top: 6px;
+}
+
+
+/* menu start */
+
+#deviceManage .menu {
+    margin: 0.38rem 0 0.12rem 0.32rem;
+    overflow: hidden;
+}
+
+#deviceManage .menu div[class^="menu"] {
+    float: left;
+    height: 0.48rem;
+    padding: 0 0.2rem;
+    line-height: 0.48rem;
+    text-align: center;
+    color: #428bca;
+    border: 1px solid #428bca;
+    cursor: pointer;
+}
+
+#deviceManage .menu div[class^="menu"]:hover {
+    color: #fff;
+    background-color: #428bca;
+}
+
+#deviceManage .menu div.menu-add,
+#deviceManage .menu div.menu-enabled,
+#deviceManage .menu div.menu-disable {
+    margin-right: 0.2rem;
+    border-radius: 4px;
+}
+
+#deviceManage .menu div.menu-boot {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+#deviceManage .menu div.menu-stop {
+    border-left: none;
+    border-right: none;
+}
+
+#deviceManage .menu div.menu-reboot {
+    margin-right: 0.2rem;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+#deviceManage .menu div.menu-monitor,
+#deviceManage .menu div.menu-set {
+    margin-right: .2rem;
+    border-radius: 4px;
+}
+#deviceManage .menu .monitor-count {
+    padding-left: 10px;
+}
+#deviceManage .menu div.menu-set i {
+    top: 6px;
+}
+
+#deviceManage .menu div.menu-enabled:hover i {
+     background-position: 0 -761px;
+}
+
+#deviceManage .menu div.menu-boot:hover i {
+    background-position: 0 -794px;
+}
+
+#deviceManage .menu div.menu-disable:hover i {
+    background-position: 0 -530px;
+}
+
+#deviceManage .menu div.menu-stop:hover i {
+    background-position: 0 -926px;
+}
+#deviceManage .menu div.menu-monitor:hover i,
+#deviceManage .menu div.menu-set:hover i {
+    background-position: 0 -860px;
+}
+
+#deviceManage .menu div.menu-reboot:hover i {
+    background-position: 0 -662px;
+}
+
+/* menu end */
+/* 设备监控 */
+#deviceManage .flightSearch {
+    position: absolute;
+    top: .37rem;
+    right: .28rem;
+    height: .5rem;
+    line-height: .5rem;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    background-color: #428bca;
+    cursor: pointer;
+}
+#deviceManage .flightSearch div:first-child{
+    float: left;
+    padding-left: 5px;
+    
+}
+#deviceManage .flightSearch a {
+    float: left;
+    padding: 0 5px;
+    color: #fff;
+}
+#deviceManage .flightSearch i {
+    top: 3px;
+    right: 0;
+}
+/* euqipTable start */
+
+#deviceManage .equipTable {
+    position: relative;
+    margin: 0 0.31rem;
+}
+
+#deviceManage .equipTable h4 {
+    float: left;
+    padding-left: 0.11rem;
+    line-height: 0.5rem;
+    font-weight: normal;
+    color: #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#deviceManage .tabCheck>div {
+    position: relative;
+    bottom: -1px;
+    float: left;
+    height: .32rem;
+    padding: 0 0.1rem;
+    line-height: .32rem;
+    text-align: center;
+    color: #428bca;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#deviceManage .tabCheck div.is-active {
+    font-weight: 600;
+    z-index: 1;
+    border-bottom-color: #fff;
+    background-color: #fff;
+}
+
+#deviceManage .tabCheck .borderR-none {
+    border-right: none;
+}
+
+#deviceManage .equipTable ul {
+    overflow: hidden;
+    text-align: center;
+    color: #999;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+#deviceManage .equipTable ul>li {
+    float: left;
+    height: 0.44rem;
+    line-height: 0.44rem;
+    white-space: nowrap;
+}
+
+#deviceManage .equipTable ul>li:nth-child(1):after {
+    content: '1';
+    width: 1px;
+    font-size: 0;
+}
+
+#deviceManage .equipTable .tableCon {
+    position: relative;
+    overflow: hidden;
+    height: 70vh;
+    border: 1px solid #ccc;
+    text-align: center;
+    color: #666;
+    font-size: .16rem;
+}
+
+#deviceManage .tableCon ol {
+    overflow: hidden;
+}
+
+#deviceManage .tableCon ol li {
+    height: 0.59rem;
+    line-height: 0.59rem;
+    border-bottom: 1px solid #ccc;
+}
+
+#deviceManage .tableCon ol li:hover {
+    background: #f3f7fc;
+}
+
+#deviceManage .tableCon ol li.is-active {
+    background: #e8e8e8;
+}
+
+/*#deviceManage .tableCon ol li.is-equipError:hover {
+    background: #f26455;
+}
+
+#deviceManage .tableCon ol li.is-active.is-equipError {
+    background: #f26455;
+}*/
+
+#deviceManage .tableCon ol li>p {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#deviceManage .equipTable ul>li:nth-child(1),
+#deviceManage .tableCon ol p:nth-child(1) {
+    width: 0.54rem;
+}
+
+#deviceManage .equipTable ul>li:nth-child(2),
+#deviceManage .tableCon ol p:nth-child(2) {
+    width: 1.9rem;
+}
+
+#deviceManage .equipTable ul>li:nth-child(3),
+#deviceManage .tableCon ol p:nth-child(3) {
+    width: 2rem;
+}
+#deviceManage .equipTable ul>li:nth-child(4),
+#deviceManage .tableCon ol p:nth-child(4) {
+    width: 1.3rem;
+}
+/*设备组*/
+#deviceManage .equipTable ul>li:nth-child(5),
+#deviceManage .tableCon ol p:nth-child(5) {
+    width: 2.4rem;
+}
+
+#deviceManage .equipTable ul>li:nth-child(6),
+#deviceManage .tableCon ol p:nth-child(6) {
+    width: 3.8rem;
+}
+
+#deviceManage .equipTable ul>li:nth-child(7),
+#deviceManage .tableCon ol p:nth-child(7) {
+    width: 2rem;
+}
+
+
+
+#deviceManage .equipTable ul>li:nth-child(8),
+#deviceManage .tableCon ol p:nth-child(8) {
+    width: 3rem;
+}
+
+
+
+/* 监控设备列表样式 */
+#deviceManage ul.ul-monitor >li:nth-child(1),
+#deviceManage .li-monitor p:nth-child(1) {
+    width: 1.9rem;
+}
+
+#deviceManage ul.ul-monitor >li:nth-child(2),
+#deviceManage .li-monitor p:nth-child(2) {
+    width: 2.4rem;
+}
+
+#deviceManage ul.ul-monitor >li:nth-child(3),
+#deviceManage .li-monitor p:nth-child(3) {
+    width: 3rem;
+}
+
+#deviceManage ul.ul-monitor >li:nth-child(4),
+#deviceManage .li-monitor p:nth-child(4) {
+    width: 3rem;
+}
+
+#deviceManage ul.ul-monitor >li:nth-child(5),
+#deviceManage .li-monitor p:nth-child(5) {
+    width: 2.5rem;
+}
+
+#deviceManage ul.ul-monitor >li:nth-child(6),
+#deviceManage .li-monitor p:nth-child(6) {
+    width: 4rem;
+}
+
+
+
+#deviceManage .allEquip {
+    margin-left: 0.14rem;
+    margin-right: 2px;
+}
+
+
+/* euqipTable end */
+
+#deviceManage .checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 23px;
+    margin-top: -3px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    background-color: #fff;
+}
+
+#deviceManage .checkbox-checked {
+    background: url("../Images/sprite.png");
+    background-position: 2px 0;
+    background-color: #f3f7fc;
+}
+
+
+/* 非弹框中的下拉框 */
+
+#deviceManage div.select-style {
+    position: relative;
+    float: left;
+    width: 6rem;
+    margin-top: .1rem;
+}
+
+#deviceManage .label {
+    float: left;
+    height: .4rem;
+    padding-right: .2rem;
+    font-size: .2rem;
+    color: #999;
+}
+
+#deviceManage .ext-yline {
+    position: absolute;
+    right: 1.53rem;
+    z-index: 11;
+    width: 1px;
+    height: 72%;
+    background-color: #ccc;
+}
+
+
+/*layui 下拉框*/
+
+#deviceManage .select-style .layui-form-select {
+    float: left;
+    width: 4rem;
+    font-size: 18px;
+    text-align: center;
+    /*box-shadow: 0 0 4px 0 #ccc inset;*/
+}
+
+#deviceManage .layui-select-title {
+    font-size: 16px;
+}
+
+#deviceManage .layui-select-title .layui-input {
+    height: .3rem;
+    line-height: .3rem;
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+#deviceManage .layui-form-select dl {
+    width: 100%;
+    top: 0.3rem;
+    z-index: 10000;
+    text-align: center;
+    max-height: 2rem;
+    border-radius: 0;
+}
+
+#deviceManage .layui-form-select dl dd {
+    line-height: 0.36rem;
+}
+
+#deviceManage .layui-form-select dl dd.layui-this {
+    background-color: #428bca;
+}
+
+#deviceManage .layui-form-select .layui-edge {
+    right: 0.09rem;
+    margin-top: -3px;
+    border-width: 8px;
+    border-top-color: #428bca;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}

@@ -1,0 +1,93 @@
+/* header start */
+body {
+    position:relative;
+}
+.header {
+    position: relative;
+    font-size:0.48rem;
+    width: 100%;
+    height: 1.4rem;
+    background-color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.35);
+    
+}
+.header .header-pic,
+.header .airport{
+    display: inline-block;
+    vertical-align: middle;
+}
+.header .header-pic {
+    width: 2.18rem;
+    height: 0.77rem;
+}
+.header .header-pic img {
+    width: 100%;
+    height: 100%;
+}
+.header .airport-name {
+    height: 0.9rem;
+    line-height: 0.9rem;
+    font-size: 0.72rem;
+    color: #0f86e1;
+}
+.header .airport .airport-enName {
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.36rem;
+    color: #0f86e1;
+    font-weight: 300;
+}
+/* header end */
+/* main start */
+.main {
+    font-size: 0.72rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.35);
+    color: #fff;
+}
+.main .bulletinCon {
+    width: 18.4rem;
+    height: 7.6rem;
+    overflow: hidden;
+    padding: 0.5rem 0.4rem 0;
+    text-align: left;
+    text-indent: 2em;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+/* main end */
+
+
+.labelBox {
+    position:absolute !important;
+    top:0;
+    left:0;
+    min-width: 3.2rem;
+    max-width: 8.0rem;
+    overflow:hidden;
+    height: 1.4rem;
+    line-height:1.4rem;
+    color:#0f86e1;
+    text-align:center;
+    background-color:#fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size:0.48rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.35);
+}
+ .timeBox {
+    margin-left: 0.86rem;
+    margin-top: 0.26rem;
+    font-size: 0.30rem;
+    font-weight: 300;
+}
+.header .labelBox img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2.18rem;
+    height: 0.77rem;
+    margin-top: -0.385rem;
+    margin-left: -1.09rem;
+}

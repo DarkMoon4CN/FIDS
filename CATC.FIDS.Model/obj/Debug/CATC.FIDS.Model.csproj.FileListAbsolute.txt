@@ -1,0 +1,10 @@
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\bin\Debug\CATC.FIDS.Model.dll
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\bin\Debug\CATC.FIDS.Model.pdb
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\obj\Debug\CATC.FIDS.Model.dll
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\obj\Debug\CATC.FIDS.Model.pdb
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\obj\Debug\CATC.FIDS.Model.csprojResolveAssemblyReference.cache
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\bin\Debug\CATC.FIDS.Model.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\bin\Debug\CATC.FIDS.Model.pdb
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\obj\Debug\CATC.FIDS.Model.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\obj\Debug\CATC.FIDS.Model.pdb
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Model\obj\Debug\CATC.FIDS.Model.csprojResolveAssemblyReference.cache

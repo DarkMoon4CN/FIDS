@@ -1,0 +1,186 @@
+.icon {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    right: 8px;
+    background: url("../Images/sprite.png") no-repeat;
+}
+
+.icon-add-blue{
+    background-position: 0 -240px;
+    width: 24px;
+    height: 24px;
+}
+.icon-add{
+    background-position: 0 -368px;
+    width: 24px;
+    height: 24px;
+}
+.icon-boot-blue{
+    background-position: 0 -728px;
+    width: 25px;
+    height: 25px;
+}
+.icon-boot{
+    background-position: 0 -794px;
+    width: 25px;
+    height: 25px;
+}
+.icon-calendar{
+    background-position: 0 -1029px;
+    width: 28px;
+    height: 28px;
+}
+.icon-clock{
+    background-position: 0 -959px;
+    width: 26px;
+    height: 26px;
+}
+.icon-close{
+    background-position: 0 -1065px;
+    width: 28px;
+    height: 29px;
+}
+.icon-del-black{
+    background-position: 0 -596px;
+    width: 25px;
+    height: 25px;
+}
+.icon-del-blue{
+    background-position: 0 -28px;
+    width: 20px;
+    height: 20px;
+}
+.icon-del{
+    background-position: 0 -56px;
+    width: 20px;
+    height: 20px;
+}
+.icon-disable-blue{
+    background-position: 0 -563px;
+    width: 25px;
+    height: 25px;
+}
+.icon-disable{
+    background-position: 0 -530px;
+    width: 25px;
+    height: 25px;
+}
+.icon-edit-black{
+    background-position: 0 -1102px;
+    width: 30px;
+    height: 30px;
+}
+.icon-edit-blue{
+    background-position: 0 -400px;
+    width: 24px;
+    height: 24px;
+}
+.icon-edit{
+    background-position: 0 -432px;
+    width: 24px;
+    height: 24px;
+}
+.icon-enabled-blue{
+    background-position: 0 -464px;
+    width: 25px;
+    height: 25px;
+}
+.icon-enabled{
+    background-position: 0 -761px;
+    width: 25px;
+    height: 25px;
+}
+.icon-home-blue{
+    background-position: 0 -84px;
+    width: 23px;
+    height: 22px;
+}
+.icon-home{
+    background-position: 0 -114px;
+    width: 23px;
+    height: 22px;
+}
+.icon-printer-blue{
+    background-position: 0 -304px;
+    width: 24px;
+    height: 24px;
+}
+.icon-printer{
+    background-position: 0 -208px;
+    width: 24px;
+    height: 24px;
+}
+.icon-reboot-blue{
+    background-position: 0 -629px;
+    width: 25px;
+    height: 25px;
+}
+.icon-reboot{
+    background-position: 0 -662px;
+    width: 25px;
+    height: 25px;
+}
+.icon-save-blue{
+    background-position: 0 -176px;
+    width: 24px;
+    height: 24px;
+}
+.icon-save{
+    background-position: 0 -144px;
+    width: 24px;
+    height: 24px;
+}
+.icon-send-blue{
+    background-position: 0 -336px;
+    width: 24px;
+    height: 24px;
+}
+.icon-send{
+    background-position: 0 -272px;
+    width: 24px;
+    height: 24px;
+}
+.icon-set-blue{
+    background-position: 0 -827px;
+    width: 25px;
+    height: 25px;
+}
+.icon-set{
+    background-position: 0 -860px;
+    width: 25px;
+    height: 25px;
+}
+.icon-stop-blue{
+    background-position: 0 -893px;
+    width: 25px;
+    height: 25px;
+}
+.icon-stop{
+    background-position: 0 -926px;
+    width: 25px;
+    height: 25px;
+}
+.icon-test-blue{
+    background-position: 0 -497px;
+    width: 25px;
+    height: 25px;
+}
+.icon-test{
+    background-position: 0 -695px;
+    width: 25px;
+    height: 25px;
+}
+.icon-tick{
+    background-position: 0 0;
+    width: 20px;
+    height: 20px;
+}
+.icon-timer{
+    background-position: 0 -993px;
+    width: 26px;
+    height: 28px;
+}
+
+
+

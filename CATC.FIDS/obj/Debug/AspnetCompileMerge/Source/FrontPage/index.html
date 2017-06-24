@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>航显系统主页面</title>
+    <link rel="stylesheet" href="Content/reset.css" />
+    <link rel="stylesheet" href="Scripts/layui/css/layui.css" />
+    <link rel="stylesheet" href="Content/jedate.css" />
+    <link rel="stylesheet" href="Content/publicEdit.css" />
+    <link rel="stylesheet" href="Content/sprite.css" />
+    
+</head>
+
+<body>
+    <div id="header">
+        <div class="logo clearfix">
+            <h1>
+                <div><img src="Images/catc.png" alt="民航电信" /></div>
+                <span>民航电信</span>
+            </h1>
+            <p>FIDS航显系统</p>
+        </div>
+        <div class="admin">
+            <span><i class="icon-admin"></i>admin</span>
+            <span>退出</span>
+        </div>
+    </div>
+    <div id="main">
+        <!-- 左侧边栏 start-->
+        <ul class="leftSildeBar">
+            <li class="option">
+                <ol class="template js-template">
+                    <li class="is-active" data-href="flightData">航班数据</li>
+                    <li data-href="tmplEdit">模版编辑</li>
+                    <li data-href="tmplManage">模版分配</li>
+                    <li data-href="deviceManage">设备管理</li>
+                    <li data-href="msgPub">消息发布</li>
+                    <li data-href="logManage">日志管理</li>
+                    <li class="perManage" data-href="perManage">权限管理</li>
+                </ol>
+            </li>
+        </ul>
+        <!--左侧边栏 end-->
+        <!-- 主要内容部分 start -->
+        <div class="mainContent js-mainContent"></div>
+        <!-- 主要内容部分 end -->
+    </div>
+    
+    <script src="Scripts/jquery-1.11.3.min.js"></script>
+    <script src="Scripts/iscroll-5.1.3.min.js"></script>
+    <script src="Scripts/layui/layui.all.js"></script>
+    <script src="Scripts/jquery.jedate.min.js"></script>
+    <script src="Scripts/ajaxfileupload.js"></script>
+    <script src="Scripts/doT.min.js"></script>
+    <!--<script src="Scripts/loadjs.min.js"></script>-->
+    <script src="Scripts/util.js"></script>
+    <script src="dist/bundle.js"></script>
+</body>
+
+</html>

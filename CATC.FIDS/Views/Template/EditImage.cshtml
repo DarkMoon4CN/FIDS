@@ -1,0 +1,123 @@
+﻿@using CATC.FIDS.Models;
+@{
+    Layout = null;
+    EventItem eventItem = @ViewBag.result;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>修改Image</title>
+    <link href="~/Content/bootstrap2.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <link href="~/Scripts/jquery.cxcolor-1.2/css/jquery.cxcolor.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.cxcolor-1.2/jquery.cxcolor.js"></script>
+    <script src="~/Scripts/departureflight.js"></script>
+    <script src="~/Scripts/ajaxfileupload.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script>
+        var filePath = "";
+        $(function () {
+            if ($("#docPath").val().length > 0) {
+                $("#g3").show();
+            } else
+            {
+                $("#g3").hide();
+            }
+            $("#path").on("change", function () {
+                $("#docPath").val($(":file").val());
+                var mFilePath = $(":file").val();
+                if ($("#docPath").val().length > 0 && filePath !=mFilePath)
+                {
+                    filePath = mFilePath;
+                    ajaxFileUpload();
+                }
+            });
+            $(".btn-info").on("click", function () {
+                _defaultData = null;
+                var url = "/Template/DoEditImage";
+                var dataid = $("#dataId").val();
+                var dataurl = $("#url").attr("src");
+                data = { dataid: dataid, url: dataurl };
+                defaultAjax(url, data, defaultCallback);
+                layer.alert('设置成功！', { icon: 1 }, function () {
+                    var json = $.parseJSON(_defaultData.Data);
+                    parent.Global.FillImage(json);
+                    parent.layer.closeAll();
+                });
+                return false;
+            });
+
+            $(".btn-default").on("click", function () {
+                parent.layer.closeAll();
+            });
+        });
+        function ajaxFileUpload() {
+            $.ajaxFileUpload
+            ({
+                url: "/Template/Upload",
+                secureuri: false,
+                fileElementId: 'path',
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (data, status) {
+                    $("#g3").show();
+                    $("#url").attr("src", data.Data);
+                    $("#url").parent().attr("href", data.Data);
+                },
+                error: function (data, status, e) {
+                    $("#g3").hide();
+                    console.log(e);
+                }
+            });
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" method="post" name="mi" enctype="multipart/form-data">
+        <div class="form-horizontal">
+            <fieldset>
+                <div id="legend">
+                    <legend></legend>
+                </div>
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">默认元素ID</label>
+                    <div class="controls">
+                        <input class="input-xlarge" type="text" id="dataId" value="@eventItem.dataID" readonly>
+                        <p class="help-block">此为默认元素ID</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">图片位置</label>
+                    <div class="controls">
+                        <input id="docPath" type="text" value="@ViewBag.url" readonly="readonly" class="form-control" />
+                        <span id="scan" style="position:relative" class="btn btn-primary input-group-addon">
+                            浏览
+                            <input id="path" name="path" accept=".jpg,.png,.gif,.jpeg" style="width:60px;height:40px;position:absolute;top:-6px;left:-4px;opacity:0;filter:alpha(opacity=0)" class="form-group" type="file" />
+                        </span>
+                    </div>
+                </div>
+                <div id="g3" class="control-group">
+                    <label class="control-label">图片预览</label>
+                    <!-- Button -->
+                    <div class="controls">
+                        <a href="@ViewBag.url" target="_blank">
+                            <img id="url" src="@ViewBag.url" style="padding:3px;border:3px solid #dedede; -moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;width:100%;height:100%;max-height:200px;max-width:300px" />
+                        </a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"></label>
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-info" style="margin-left:20px;">提交</button>
+                        <button class="btn btn-default" style="margin-left:20px;">取消</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>

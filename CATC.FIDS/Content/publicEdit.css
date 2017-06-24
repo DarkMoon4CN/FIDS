@@ -1,0 +1,260 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    /*之所以要加上这个属性，为了抵消离港航班页面的font-size：100%对编辑页的影响*/
+    font-size: 12%;
+}
+/* icon start */
+i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: url("/Images/icon.png") no-repeat;
+}
+.icon-arrow {
+    position: relative;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    margin-left: 3px;
+    background-position: -117px -213px;
+}
+.icon-check {
+    position: relative;
+    top: 6px;
+    width: 0.23rem;
+    height: 0.23rem;
+    margin-left: 0.03rem;
+    background-position: -105px -313px;
+}
+.icon-time {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 23px;
+    height: 23px;
+    background-position: -162px -57px;
+}
+.icon-text {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 23px;
+    height: 23px;
+    background-position: -235px -57px;
+}
+.icon-pic {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 26px;
+    height: 23px;
+    background-position: -310px -57px;
+}
+.icon-weather {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 23px;
+    height: 23px;
+    background-position: -386px -57px;
+}
+.icon-bg {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 23px;
+    height: 23px;
+    background-position: -457px -57px;
+}
+.icon-video {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 23px;
+    height: 23px;
+    background-position: -532px -57px;
+}
+.icon-msg {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 23px;
+    height: 23px;
+    background-position: -606px -57px;
+}
+.icon-save {
+    position: relative;
+    top: 6px;
+    left: 5px;
+    width: 23px;
+    height: 23px;
+    background-position: -1760px -57px;
+}
+.icon-pub {
+    position: relative;
+    top: 6px;
+    left: 3px;
+    width: 23px;
+    height: 23px;
+    background-position: -1830px -57px;
+}
+.icon-clear {
+    position: relative;
+    top: 6px;
+    left: 7px;
+    width: 22px;
+    height: 23px;
+    background-position: -1551px -57px;
+}
+.icon-view {
+    position: relative;
+    top: 6px;
+    left: 4px;
+    width: 26px;
+    height: 23px;
+    background-position: -1619px -57px;
+}
+/* icon end */
+.is-active {
+    background-color: #2f373b;
+}
+.is-uncheck {
+    background-position: -105px -568px;
+}
+
+/* icon end */
+
+/* 编辑页面的公共样式 start */
+/* header部分 start */
+#header {
+    width: 100%;
+    height: 0.4rem;
+    overflow: hidden;
+    line-height: 0.4rem;
+    color: #fff;
+    background-color: #414e53;
+}
+
+#header .logo {
+    float: left;
+}
+
+#header .logo h1,
+#header .logo p {
+    float: left;
+}
+
+#header .logo h1 {
+    margin-left: 0.13rem;
+    font-size: 0.16rem;
+    line-height: 0.17rem;
+}
+
+#header .logo h1 div {
+    width: 0.69rem;
+    height: 0.15rem;
+    margin-top: 0.04rem;
+}
+
+#header .logo h1 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#header .logo h1 span {
+    display: block;
+    margin-top: 1px;
+    text-align: center;
+}
+
+#header .logo p {
+    margin-left: 0.18rem;
+    font-size: 0.28rem;
+    line-height: 0.4rem;
+}
+
+#header .admin {
+    float: right;
+    margin-right: 0.21rem;
+}
+
+#header .admin span {
+    display: inline-block;
+    padding: 0 12px;
+    font-size: 0.2rem;
+    cursor: pointer;
+}
+#header .admin span:hover {
+    background-color: #141f29;
+}
+#header .admin .icon-admin {
+    position: relative;
+    top: 0.05rem;
+    right: 0.04rem;
+    width: 0.23rem;
+    height: 0.23rem;
+    background-position: -1727px -5px;
+}
+
+/* header部分 end */
+
+/* main部分 start */
+#main {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+}
+
+/* 通用左侧边栏 start */
+#main .leftSildeBar {
+    float: left;
+    width: 8.333%;
+    height: 100%;
+    background-color: #242b2e;
+}
+
+#main .leftSildeBar .option {
+    width: 100%;
+    line-height: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    background-color: #2f373b;
+    border-bottom: 1px solid #414e53;
+}
+
+.leftSildeBar .option h3 {
+    width: 100%;
+    font-size: 0.2rem;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px solid #414e53;
+}
+
+.option ol > li {
+    padding-left: 0.09rem;
+}
+
+
+.option ol > li:hover {
+    background-color: #2f373b;
+}
+/* 左侧边栏 end */
+.mainContent {
+    float: left;
+    width: 91.667%;
+    height: 100%;
+}
+/* 编辑页面的公共样式 end */
+
+/* tmplHtml模版网页部分 start */
+.tmplHtml iframe{
+    width: 100%;
+    height: 100vh;
+}
+/* tmplHtml模版网页部分 end */

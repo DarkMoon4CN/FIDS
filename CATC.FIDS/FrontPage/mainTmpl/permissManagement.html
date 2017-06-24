@@ -1,0 +1,220 @@
+<!-- 权限管理内容-->
+<div id="permissManage">
+    <!-- menu start-->
+    <div class="menu">
+
+        <div class="menu-add js-menu-add"><i class="icon icon-add-blue"></i>添加</div>
+        <div class="menu-edit js-menu-edit"><i class="icon icon-edit-blue"></i>编辑</div>
+        <div class="menu-del js-menu-del"><i class="icon icon-del-blue"></i>删除</div>
+
+    </div>
+    <!-- menu end-->
+
+    <div class="js-dataTabs">
+        <!-- data type tab start-->
+        <ul class="dataTabs">
+            <li class="is-active" data-flag="limit-manage">权限管理</li>
+            <li data-flag="user-manage">用户管理</li>
+        </ul>
+        <!-- data type tab end-->
+        <!-- 权限管理 start-->
+        <div class="dataTable hide show js-dataTable">
+             <div class="tabCtrl-con table-col4">
+                <h4 class="h4"><span class="allEquip checkbox js-allEquip" title=""></span>全选</h4>
+                <ul>
+                    <li></li>
+                    <li>序列</li>
+                    <li>权限组名</li>
+                    <li>权限描述</li>
+                    <li>权限内容</li>
+                </ul>
+                <div class="tableCon js-tableCon" data-menu="template">
+                    <ol>
+                        <li class="row">
+                            <p><span class="checkbox"></span></p>
+                            <p>1</p>
+                            <p>张三</p>
+                            <p>zhangsan</p>
+                            <p>系统管理级</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- 权限管理 end-->
+        <!-- 用户管理 start-->
+        <div class="dataTable hide js-dataTable">
+            <div class="tabCtrl-con table-col9">
+                <h4 class="h4"><span class="allEquip checkbox js-allEquip" title=""></span>全选</h4>
+                <ul>
+                    <li></li>
+                    <li>序列</li>
+                    <li>用户姓名</li>
+                    <li>职位</li>
+                    <li>权限级别</li>
+                    <li>账号名称</li>
+                    <li>手机号</li>
+                    <li>邮箱</li>
+                    <li>QQ</li>
+                    <li>最后登录</li>
+                </ul>
+                <div class="tableCon js-tableCon" data-menu="template">
+                    <ol>
+                        <li class="row">
+                            <p><span class="checkbox"></span></p>
+                            <p>1</p>
+                            <p>张三</p>
+                            <p>总经理助理</p>
+                            <p>系统管理级</p>
+                            <p>zhangsan1234</p>
+                            <p>12345678901</p>
+                            <p>123456789@163.com.cn</p>
+                            <p>12345678910</p>
+                            <p>2015/01/01 12:00:00</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- 用户管理 end-->
+    </div>
+</div>
+
+<!-- permissManagement弹框 -->
+<div class="modal-permiss">
+    <div class="mod-boxMask" style="display: none">
+        <div class="mod-popupBox">
+            <!-- 弹框内容 start -->
+            <h3 class="js-modalBigTitle">添加权限</h3>
+            <!--权限管理-->
+            <form class="layui-form js-limit-man">
+                <ul class="dataList clearfix">
+                    <li class="row clearfix">
+                        <label class="label">权限组名</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row msg-textarea clearfix">
+                        <label class="label">权限描述</label>
+                        <div class="spinner">
+                            <textarea name="msgCon" placeholder="请输入" class="textarea-style" id="msgCon" lay-verify="required"></textarea>
+                        </div>
+                    </li>
+                    <li class="row msg-textarea clearfix">
+                        <label class="label">权限内容</label>
+                        <div class="spinner textarea-style device-list js-scroll-device">
+                            <div class="checkbox-list js-checkbox-list">
+                                <div class="checkContain js-checkAll"><span class="checkbox"></span>全选</div>
+                                <div class="checkContain" ><span class="checkbox"></span>航班数据</div>
+                                <div class="checkContain" ><span class="checkbox"></span>模板编辑</div>
+                                <div class="checkContain" ><span class="checkbox"></span>设备管理</div>
+                                <div class="checkContain" ><span class="checkbox"></span>模版分配</div>
+                                <div class="checkContain" ><span class="checkbox"></span>消息发布</div>
+                                <div class="checkContain" ><span class="checkbox"></span>日志管理</div>
+                                <div class="checkContain" ><span class="checkbox"></span>权限管理</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- btn start -->
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <!--用户管理-->
+            <form class="layui-form js-user-man hide">
+                <ul class="dataList floatL clearfix">
+                    <li class="row clearfix">
+                        <label class="label">用户姓名</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">职位</label>
+                        <div class="spinner">
+                             <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">性别</label>
+                        <div class="spinner floatL margin-r">
+                             <input class="layui-input" type="radio" id="endTime" placeholder="请填写" name="endTime" lay-verify="required" title=" ">男    
+                        </div>
+                        <div class="spinner floatL ">
+                            <input class="layui-input" type="radio" id="endTime" placeholder="请填写" name="endTime" lay-verify="required" title=" ">女
+                        </div>
+                    </li>
+                    <li class="row msg-textarea clearfix">
+                        <label class="label">权限内容</label>
+                        <div class="spinner textarea-style device-list js-scroll-device">
+                            <div class="checkbox-list js-checkbox-list">
+                                <div class="checkContain js-checkAll"><span class="checkbox"></span>全选</div>
+                                <div class="checkContain" ><span class="checkbox"></span>超级管理级</div>
+                                <div class="checkContain" ><span class="checkbox"></span>系统管理级</div>
+                                <div class="checkContain" ><span class="checkbox"></span>系统开发级</div>
+                                <div class="checkContain" ><span class="checkbox"></span>工作员级1</div>
+                                <div class="checkContain" ><span class="checkbox"></span>工作员级1</div>
+                                <div class="checkContain" ><span class="checkbox"></span>工作员级1</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="dataList floatL clearfix">
+                    <li class="row clearfix">
+                        <label class="label">账号名称</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">密码</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">确认密码</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">手机号</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">邮箱</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">QQ</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                    <li class="row clearfix">
+                        <label class="label">固定电话</label>
+                        <div class="spinner">
+                            <input class="layui-input" type="text" id="endTime" placeholder="请填写" name="endTime" lay-verify="required">
+                        </div>
+                    </li>
+                </ul>
+                <!-- btn start -->
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <div class="close-btn icon icon-close"></div>
+        </div>
+    </div>
+</div>

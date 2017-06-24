@@ -1,0 +1,102 @@
+﻿@using CATC.FIDS.Models;
+@{
+    Layout = null;
+    EventItem eventItem = @ViewBag.result;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>修改Image</title>
+    <link href="~/Content/bootstrap2.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <link href="~/Scripts/jquery.cxcolor-1.2/css/jquery.cxcolor.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.cxcolor-1.2/jquery.cxcolor.js"></script>
+    <script src="~/Scripts/departureflight.js"></script>
+    <script src="~/Scripts/ajaxfileupload.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script type="text/javascript" src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script>
+        var filePath = "";
+        var ck = null;
+        $(function () {
+            ck=CKEDITOR.replace('textArea',{
+             toolbar:
+             [
+                //加粗     斜体，     下划线      穿过线      下标字        上标字
+                ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+                //文本颜色     背景颜色
+                ['TextColor', 'BGColor'],
+                // 样式       格式      字体    字体大小
+                ['Styles', 'Format', 'Font', 'FontSize'],
+                //全屏           显示区块
+                ['Maximize', 'ShowBlocks', '-'],
+                //'/',
+                //// 数字列表          实体列表            减小缩进    增大缩进
+                //['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+                //左对 齐             居中对齐          右对齐          两端对齐
+                //['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+                ////超链接  取消超链接 锚点
+                //['Link', 'Unlink', 'Anchor'],
+                ////图片    flash    表格       水平线            表情       特殊字符        分页符
+                //['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'],
+             ]
+         });
+            $(".btn-info").on("click", function () {
+                
+                console.log(htmlStr);
+                _defaultData = null;
+                var url = "/Template/DoEditContent";
+                var dataid = $("#dataId").val();
+                var htmlStr = CKEDITOR.instances.textArea.getData();
+                data = { dataid: dataid, htmlStr: htmlStr };
+                defaultAjax(url, data, defaultCallback);
+                layer.alert('设置成功！', { icon: 1 }, function () {
+                    var json = $.parseJSON(_defaultData.Data);
+                    parent.Global.FillContent(json);
+                    parent.layer.closeAll();
+                });
+                return false;
+            });
+
+            $(".btn-default").on("click", function () {
+                parent.layer.closeAll();
+            });
+        });
+       
+    </script>
+</head>
+<body>
+    <form id="form1" method="post" name="mi" enctype="multipart/form-data">
+        <div class="form-horizontal">
+            <fieldset>
+                <div id="legend">
+                    <legend></legend>
+                </div>
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">默认元素ID</label>
+                    <div class="controls">
+                        <input class="input-xlarge" type="text" id="dataId" value="@eventItem.dataID" readonly>
+                        <p class="help-block">此为默认元素ID</p>
+                    </div>
+                </div>
+                
+                <div class="control-group" style="margin-left: 75px;">
+                    <textarea id="textArea" cols="20" rows="2" class="ckeditor">@ViewBag.content</textarea>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"></label>
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-info" style="margin-left:20px;">提交</button>
+                        <button class="btn btn-default" style="margin-left:20px;">取消</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,235 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登机口信息页面（卫星云图）</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/boardingGateHoriz.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <link rel="stylesheet" href="~/Content/deparAirport-tab.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/boardingGateHoriz.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(1920);
+            BoardingGateHoriz.Init();
+
+            ////抓取气象图
+            //var url = "/Message/GetWeatherImageInfo";
+            //var data = {};
+            //Global.Post(url, data, Global.PostCallback);
+            //$("#cloudAtlasImg").attr("src", Global.PostData[0].CONTENT);
+            //setInterval(function () {
+            //    Global.Post(url, data, Global.PostCallback);
+            //    $("#cloudAtlasImg").attr("src", Global.PostData[0].CONTENT);
+            //}, 3600 * 1000);
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <div class="menu">
+        <div class="menuGroup-1">
+            <div class="menu-time">
+                <i class="icon-time"></i>
+                <span>时间</span>
+            </div>
+            <div class="menu-text">
+                <i class="icon-text"></i>
+                <span>文本</span>
+            </div>
+            <div class="menu-pic">
+                <i class="icon-pic"></i>
+                <span>图片</span>
+            </div>
+            <div class="menu-weather">
+                <i class="icon-weather"></i>
+                <span>气象</span>
+            </div>
+            <div class="menu-bg">
+                <i class="icon-bg"></i>
+                <span>背景</span>
+            </div>
+            <div class="menu-video">
+                <i class="icon-video"></i>
+                <span>视频</span>
+            </div>
+            <div class="menu-msg">
+                <i class="icon-msg"></i>
+                <span>消息</span>
+            </div>
+        </div>
+        <div class="menuGroup-3">
+            <div class="menu-save">
+                <i class="icon-save"></i>
+                <span>保存</span>
+            </div>
+            <div class="menu-pub">
+                <i class="icon-pub"></i>
+                <span>发布</span>
+            </div>
+        </div>
+        <div class="menuGroup-2">
+            <div class="menu-clear">
+                <i class="icon-clear"></i>
+                <span>重置</span>
+            </div>
+            <div class="menu-view">
+                <i class="icon-view"></i>
+                <span>预览</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 头部 start -->
+    <div class="header clearfix">
+        <div class="header-logo">
+            <img src="@ViewBag.logo" alt="" />
+        </div>
+        <div class="airportTime col-7">@(ViewBag.gateid)号登机口</div>
+        @Html.Raw(ViewBag.hstr)
+    </div>
+    <!-- 头部 end -->
+    <!-- 主体显示区域 start -->
+    <div class="main">
+        <div class="mainCon">
+            <div class="mainCon_left">
+                <div class="flightNum">
+                    <span>航班号</span>
+                    <span>CA1234</span>
+                </div>
+                <div class="ext-xline"></div>
+                <div class="flightCon">
+                    <div class="flightCon-left">
+                        <dl>
+                            <dt>终点站/途经</dt>
+                            <dd>乌鲁木齐</dd>
+                        </dl>
+                    </div>
+                    <div class="ext-yline"></div>
+                    <div class="flightCon-right">
+                        <dl>
+                            <dt>起飞时间</dt>
+                            <dd>09:30</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="ext-xline"></div>
+                <div class="boarding is-greenActive">
+                    正在登机
+                </div>
+                <div class="nextFlight">
+                    <div class="nextFlight_title">下一航班</div>
+                    <div class="ext-xline">
+                        <div class="r-xline"></div>
+                    </div>
+                    <div class="nextFlight_con">
+                        <div>CA1234</div>
+                        <div>预计12:20起飞</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainCon_right">
+                <div class="cloudAtlas-title">卫星云图</div>
+                <div class="cloudAtlas-img">
+                    <img id="cloudAtlasImg" src="~/Images/cloudAtlas_01.jpg" alt="卫星云图">
+                </div>
+                <div class="weatherInfo_left">
+                    <div class="weatherInfo_flight">始发机场</div>
+                    <dl class="weatherInfo_title">
+                        <dt>晴转多云</dt>
+                        <dd>北京</dd>
+                    </dl>
+                    <div class="weatherInfo_img">
+                        <img src="~/Images/img-weather_04.png" alt="">
+                    </div>
+                    <div class="weatherInfo_con">
+                        <div>
+                            <dl>
+                                <dt><img src="~/Images/img-12.png" /></dt>
+                                <dd>-12°C</dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <dl>
+                                <dt><img src="~/Images/img-13.png" /></dt>
+                                <dd>西南</dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <dl>
+                                <dt><img src="~/Images/img-14.png" /></dt>
+                                <dd>8m/s</dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <dl>
+                                <dt class="visibility"><img src="~/Images/img-11.png" /></dt>
+                                <dd>>10km</dd>
+                            </dl>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="weatherInfo_right">
+                    <div class="weatherInfo_flight">终点机场</div>
+                    <dl class="weatherInfo_title">
+                        <dt>晴转多云</dt>
+                        <dd>北京</dd>
+                    </dl>
+                    <div class="weatherInfo_img">
+                        <img src="~/Images/img-weather_04.png" alt="">
+                    </div>
+                    <div class="weatherInfo_con">
+                        <div class="temperature">
+                            <dl>
+                                <dt><img src="~/Images/img-12.png" /></dt>
+                                <dd>-12°C</dd>
+                            </dl>
+                        </div>
+                        <div class="windDirect">
+                            <dl>
+                                <dt><img src="~/Images/img-13.png" /></dt>
+                                <dd>西南</dd>
+                            </dl>
+                        </div>
+                        <div class="windSpeed">
+                            <dl>
+                                <dt><img src="~/Images/img-14.png" /></dt>
+                                <dd>8m/s</dd>
+                            </dl>
+                        </div>
+                        <div class="weather">
+                            <dl>
+                                <dt><img src="~/Images/img-11.png" /></dt>
+                                <dd>>10km</dd>
+                            </dl>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体显示区域 end -->
+</body>
+</html>

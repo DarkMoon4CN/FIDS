@@ -1,0 +1,51 @@
+﻿@using CATC.FIDS.Utils;
+@using CATC.FIDS.Model;
+@using CATC.FIDS.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登机口信息页面（卫星云图）</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.min.css" />
+    @*<link rel="stylesheet" href="~/Content/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/boardingGateHoriz.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/toastr.css" />
+    <link rel="stylesheet" href="~/Content/deparAirport-tab.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/BootstrapMenu.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/boardingGateHoriz.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(function () {
+            util.dynamicCalcRem(1920);
+            BoardingGateHoriz.Init();
+            setInterval(function () {
+                $("form").submit();
+            }, 300 * 1000);//5分钟
+        });
+    </script>
+</head>
+@Html.Raw(ViewBag.cstr)
+<body>
+    <div style="display:none;">
+        @using (Ajax.BeginForm("BoardingGateHoriz", "Actual", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "dataModels", InsertionMode = InsertionMode.Replace }))
+        {
+            <input type="text" name="ds" value="@ViewBag.displaySymbol" />
+            <button type="submit" name="submit" id="submit" style="width:80px; height:30px;">click</button>
+        }
+    </div>
+
+    @Html.Partial("_BoardingGateHorizData")
+</body>
+</html>

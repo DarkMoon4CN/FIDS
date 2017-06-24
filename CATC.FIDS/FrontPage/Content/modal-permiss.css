@@ -1,0 +1,299 @@
+/* 公共样式 start */
+.modal-permiss .floatL {
+    float: left;
+}
+
+.modal-permiss .margin-r {
+    margin-right: 0.3rem;
+}
+.modal-permiss .hide {
+    display: none;
+}
+.modal-permiss .show {
+    display: block;
+}
+.modal-permiss .checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 22px;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    background-color: #fff;
+}
+.modal-permiss .checkbox-checked {
+    background: url("../Images/sprite.png");
+    background-position: 2px 0;
+    background-color: #f3f7fc;
+}
+.modal-permiss .bigWidth {
+    width: 12rem;
+}
+/* 公共样式 end */
+
+/* 弹出窗口 start */
+.modal-permiss .mod-boxMask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 1000;
+}
+
+.modal-permiss .mod-popupBox {
+    position: relative;
+    width: 6.4rem;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 6px rgba(0, 0, 0, .08);
+}
+.modal-permiss .bigWidth {
+    width: 12rem;
+}
+/* 弹出窗口 end */
+
+/* 弹框内容 start */
+.modal-permiss h3 {
+    width: 100%;
+    height: .6rem;
+    padding-bottom: .3rem;
+    line-height: .6rem;
+    font-size: .3rem;
+    text-align: center;
+    color: #333c54;
+}
+
+.modal-permiss .label {
+    float: left;
+    width: 1.48rem;
+    height: 0.6rem;
+    margin-right: .18rem;
+    font-size: 0.18rem;
+    color: #666;
+    text-align: right;
+}
+.modal-permiss .input-style,
+.modal-permiss .select-style {
+    float: left;
+    position: relative;
+    width: 159px;
+    font-size: 16px;
+}
+.modal-permiss .row {
+    position: relative;
+    height: .4rem;
+    line-height: .4rem;
+    margin-bottom: 0.25rem;
+    overflow: visible;
+}
+.modal-permiss .msg-textarea {
+    height:1.4rem;
+    
+}
+.modal-permiss .row .spinner {
+    float: left;
+    position: relative;
+}
+.modal-permiss .textarea-style {
+    width: 3.83rem;
+    height: .4rem;
+    padding-left: .1rem;
+    font-size: .16rem;
+    text-align: left;
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+}
+.modal-permiss .textarea-style {
+    width: 3.83rem;
+    height: 1.4rem;
+    padding-top: .05rem;
+    padding-right: .1rem;
+}
+.modal-permiss .textarea-h {
+    height: 3rem;
+    margin-bottom: 10px;
+}
+.modal-permiss .device-list{
+    width: 3.93rem;
+    height: 2.35rem;
+    padding-left:0; 
+    overflow: hidden;
+}
+.modal-permiss .checkContain {
+    border-bottom: 1px solid transparent; 
+    padding-left: .1rem;
+}
+.modal-permiss .checkContain.is-active {
+    background-color: #ececec;
+    border-top: 1px solid #ccc; 
+    border-bottom: 1px solid #ccc; 
+    margin-top: -1px;
+}
+
+/* 弹框内容 end */
+
+
+/* btn start */
+.modal-permiss .btnBox {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+.modal-permiss .ensure-btn,
+.modal-permiss .cancel-btn {
+    position: absolute;
+    bottom: 0.18rem;
+    width: 1.65rem;
+    height: 0.54rem;
+    line-height: 0.54rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1px;
+}
+
+.modal-permiss .cancel-btn {
+    background: #ebebeb;
+    color: #333;
+    left: 1rem;
+}
+.modal-permiss .ensure-btn {
+    right: 0.8rem;
+    z-index: 11;
+    border-radius: 2px;
+    background-color: #428bca;
+}
+
+.modal-permiss .close-btn {
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+}
+
+/* btn end */
+
+/* layui组件样式覆盖 */
+.modal-permiss .layui-input {
+    width: 4.05rem;
+    height: 0.4rem;
+    padding-left: 0.15rem;
+    line-height: 0.4rem;
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+/* 下拉框 */
+.modal-permiss .layui-form-select {
+    float: left;
+    width: 159px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.modal-permiss .layui-select-title {
+    font-size: 16px;
+}
+
+.modal-permiss .layui-form-select dl {
+    top: 21px;
+    text-align: center;
+    max-height: 200px;
+}
+
+.modal-permiss .layui-icon {
+    position: absolute;
+    top: 19px;
+    left: 40px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 50%;
+}
+
+/* 单选框覆盖样式 */
+.modal-permiss .layui-form-radio {
+    margin: 0;
+    padding: 0;
+    width: 23px;
+    height: 23px;
+    margin-right: 5px;
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.modal-permiss .layui-form-radio i {
+    display: none;
+    font-size: 0;
+    /*color: #427fff;*/
+    /*box-shadow: 0 0 0 5px rgba(61, 124, 255, .08);*/
+}
+
+.modal-permiss .layui-form-radioed i {
+    background-color: #427fff;
+}
+
+.modal-permiss .layui-form-radio i:hover {
+    border-color: #427fff;
+}
+
+.modal-permiss .layui-form-radio span {
+    font-size: 12px;
+}
+.modal-permiss .layui-form-radio.layui-form-radioed {
+    background: url(../Images/sprite.png) 2px 0px rgb(243, 247, 252);
+    background-position: 2px 0px;
+}
+/* 多选框覆盖样式 */
+.modal-permiss .layui-form-checkbox i {
+    left: 63px;
+    top: 10px;
+    width: 16px;
+    color: #fb931a;
+    font-size: 0;
+    border-color: #fb931a;
+    box-shadow: 0 0 0 5px rgba(251, 145, 21, .08);
+}
+
+.modal-permiss .layui-form-checkbox span {
+    background: #fff;
+    color: inherit;
+}
+
+.modal-permiss .layui-form-checked,
+.modal-permiss .layui-form-checked:hover {
+    border: none;
+
+}
+
+.modal-permiss .layui-form-checked i,
+.modal-permiss .layui-form-checked:hover i {
+    background-color: #fb931a;
+}
+
+.modal-permiss .layui-unselect.layui-form-checkbox:hover {
+    background-color: #fff;
+    border: none;
+}
+
+
+

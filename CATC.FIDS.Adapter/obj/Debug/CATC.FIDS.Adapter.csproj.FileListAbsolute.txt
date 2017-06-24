@@ -1,0 +1,4 @@
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Adapter\bin\Debug\CATC.FIDS.Adapter.dll
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Adapter\bin\Debug\CATC.FIDS.Adapter.pdb
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Adapter\obj\Debug\CATC.FIDS.Adapter.dll
+E:\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Adapter\obj\Debug\CATC.FIDS.Adapter.pdb

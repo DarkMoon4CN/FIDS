@@ -1,0 +1,286 @@
+/* common start */
+#msgRelease .menuHide,
+#msgRelease .hide {
+    display: none;
+}
+#msgRelease .show {
+    display: block;
+}
+/* common end */
+
+/* main部分 start */
+
+/* menu start */
+#msgRelease .menu {
+    margin: 0.38rem 0 0.12rem 0.32rem;
+    height: 0.5rem;
+    overflow: hidden;
+}
+#msgRelease .menu div[class^="menu"] {
+    float: left;
+    height: 0.48rem;
+    padding: 0 0.2rem;
+    line-height: 0.48rem;
+    text-align: center;
+    color: #428bca;
+    border: 1px solid #428bca;
+}
+#msgRelease .menu div[class^="menu"]:hover {
+    color: #fff;
+    background-color: #428bca;
+}
+
+#msgRelease .menu div.menu-add,
+#msgRelease .menu div.menu-edit,
+#msgRelease .menu div.menu-del,
+#msgRelease .menu div.menu-send{
+    margin-right: 0.2rem;
+    border-radius: 4px;
+}
+
+#msgRelease .menu div.menu-send:hover i{
+    background-position: 0 -272px;
+}
+
+#msgRelease .menu div.menu-del i {
+    position: relative;
+    top: 3px;
+}
+#msgRelease .menu div.menu-del:hover {
+    border-color: #f26455;
+    background-color: #f26455;
+}
+#msgRelease .menu div.menu-add:hover i{
+    background-position: 0 -368px;
+}
+#msgRelease .menu div.menu-edit:hover i {
+    background-position: 0 -432px;
+}
+#msgRelease .menu div.menu-del:hover i{
+    background-position: 0 -56px;
+}
+/* menu end */
+
+#msgRelease .dataTabs {
+    position: absolute;
+    top: 1.06rem;
+    left: .3rem;
+    font-size: .2rem;
+    color: #428bca;
+    z-index: 1;
+}
+#msgRelease .dataTabs > li {
+    display: inline-block;
+    margin-right: .2rem;
+    padding: .05rem;
+}
+#msgRelease .dataTabs > li.is-active {
+
+    color: #fff;
+    background-color: #428bca;
+}
+
+
+
+/* euqipTable start */
+#msgRelease .dataTable{
+    position: relative;
+    float: left;
+    margin: 0.56rem 0.31rem 0.15rem ;
+}
+
+#msgRelease .allEquip {
+    margin-left: 0.04rem;
+    margin-right: 0.05rem;
+}
+#msgRelease .h4 {
+    position: absolute;
+    top: .1rem;
+    left: .08rem;
+    z-index: 1;
+    font-weight: normal;
+    color: #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#msgRelease .tabCtrl {
+    width:100%;
+}
+#msgRelease .tabCtrl > div {
+    position: relative;
+    bottom: -1px;
+    float: left;
+    height: .37rem;
+    padding: 0 0.1rem;
+    line-height: .37rem;
+    text-align: center;
+    color: #428bca;
+    border: 1px solid #ccc;
+}
+#msgRelease .tabCtrl .borderR-none {
+    border-right: none;
+}
+#msgRelease .tabCtrl div.is-click {
+    font-weight: 600;
+    z-index: 1;
+    border-bottom-color: #fff;
+}
+
+#msgRelease .tabCtrl-con {
+    width: 16.96rem;
+}
+#msgRelease .tabCtrl-con ul {
+    width: 100%;
+    height: 0.44rem;
+    overflow: hidden;
+    text-align: center;
+    color: #999;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+#msgRelease .tabCtrl-con ul > li {
+    float: left;
+    line-height: 0.44rem;
+    white-space: nowrap;
+}
+#msgRelease .tabCtrl-con ul > li:nth-child(1):after,
+#msgRelease .tableCon ol li > p:nth-child(1):after {
+    content: '.';
+    width: 1px;
+    font-size: 0;
+}
+
+#msgRelease .tableCon {
+    position: relative;
+    width: 100%;
+    height: 73vh;
+    font-size: 0.24rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    overflow: hidden;
+}
+#msgRelease .logLimit .tableCon {
+    height: 73vh;
+}
+#msgRelease .tableCon ol {
+    overflow: hidden;
+    color: #666;
+}
+#msgRelease .tableCon ol li {
+    height: 0.59rem;
+    line-height: 0.59rem;
+    border-bottom: 1px solid #ccc;
+}
+#msgRelease .tableCon ol li:hover,
+#msgRelease .tableCon ol li.is-active{
+    background: #ececec;
+}
+#msgRelease .tableCon ol li.is-equipError:hover{
+    background: #f26455;
+}
+#msgRelease .tableCon ol li.is-active.is-equipError{
+    background: #f26455;
+}
+
+#msgRelease .tableCon ol li>p {
+    float: left;
+    font-size: 0.16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#msgRelease .tabCtrl-con ul > li:nth-child(1),
+#msgRelease .tableCon ol p:nth-child(1){
+    width: 0.45rem;
+}
+
+/* table-col7 start*/
+#msgRelease .table-col7 ul > li:nth-child(2),
+#msgRelease .table-col7 ol p:nth-child(2){
+    width: 6rem;
+}
+
+#msgRelease .table-col7 ul > li:nth-child(3),
+#msgRelease .table-col7 ol p:nth-child(3){
+    width: 1.5rem;
+}
+
+
+#msgRelease .table-col7 ul > li:nth-child(4),
+#msgRelease .table-col7 ol p:nth-child(4){
+    width: 2.5rem;
+}
+
+#msgRelease .table-col7 ul > li:nth-child(5),
+#msgRelease .table-col7 ol p:nth-child(5) {
+    width: 2.5rem;
+}
+#msgRelease .table-col7 ul > li:nth-child(6),
+#msgRelease .table-col7 ol p:nth-child(6){
+    width: 1rem;
+}
+
+#msgRelease .table-col7 ul > li:nth-child(7),
+#msgRelease .table-col7 ol p:nth-child(7){
+    width: 1.4rem;
+}
+#msgRelease .table-col7 ul > li:nth-child(8),
+#msgRelease .table-col7 ol p:nth-child(8){
+    width: 1.6rem;
+}
+/* table-col7 end*/
+
+/* table-col3 start*/
+#msgRelease .table-col3 ul > li:nth-child(2),
+#msgRelease .table-col3 ol p:nth-child(2){
+    width: 2.5rem;
+}
+
+#msgRelease .table-col3 ul > li:nth-child(3),
+#msgRelease .table-col3 ol p:nth-child(3){
+    width: 12.8rem;
+}
+
+#msgRelease .table-col3 ul > li:nth-child(4),
+#msgRelease .table-col3 ol p:nth-child(4){
+    width: 1.2rem;
+}
+/* table-col3 end*/
+
+/* table-col2 start*/
+#msgRelease .table-col2 ul > li:nth-child(2),
+#msgRelease .table-col2 ol p:nth-child(2){
+    width: 2.5rem;
+}
+
+#msgRelease .table-col2 ul > li:nth-child(3),
+#msgRelease .table-col2 ol p:nth-child(3){
+    width: 14rem;
+}
+
+/* table-col2 end*/
+
+/* euqipTable end */
+
+
+#msgRelease .checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 23px;
+    margin-top: -3px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 0 2px 0 #ccc inset;
+    background-color: #fff;
+}
+#msgRelease .checkbox-checked {
+    background: url("../Images/sprite.png");
+    background-position: 2px 0;
+    background-color: #f3f7fc;
+}
+

@@ -1,0 +1,442 @@
+/* 公共样式 start */
+.modal-tmplManage-big .ext-yline {
+    position: absolute;
+    top: 0;
+    right: 0.73rem;
+    z-index: 11;
+    width: 1px;
+    height: 100%;
+    background-color: #ccc;
+}
+.modal-tmplManage-big .float {
+    float: left;
+}
+.modal-tmplManage-big .marginRight {
+    margin-right: 0.45rem;
+}
+
+.modal-tmplManage-big .checkContain {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-right: 13px;
+    font-size: .18rem;
+    color: #666;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.modal-tmplManage-big .checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 22px;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    background-color: #fff;
+}
+.modal-tmplManage-big .checkbox-checked {
+    background: url("../Images/sprite.png");
+    background-position: 2px 0;
+    background-color: #f3f7fc;
+}
+.modal-tmplManage-big .input-tips {
+    position: absolute;
+    display: none;
+    width: 100%;
+    padding-top: .05rem;
+    padding-left: .55rem;
+    text-align: center;
+    color: #f00
+}
+.modal-tmplManage-big .child-tmpl {
+    display: none;
+}
+.modal-tmplManage-big .jedateblue{
+    width: 357px;
+}
+/* 公共样式 end */
+
+/* icon start */
+.modal-tmplManage-big .icon {
+    position: absolute;
+}
+
+/* icon end */
+
+/* iscroll 局部滚动条样式 */
+.modal-tmplManage-big .iScrollVerticalScrollbar {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    width: 0.3rem;
+    height: 100%;
+    overflow: hidden;
+    background-color: #e8e8e8;
+    border-left: 1px solid #ccc;
+}
+
+.modal-tmplManage-big .iScrollIndicator {
+    position: absolute;
+    background: rgba(0, 0, 0, .7);
+    /*opacity: 0.7;*/
+}
+
+.modal-tmplManage-big .iScrollVerticalScrollbar.iScrollBothScrollbars {
+    bottom: 18px;
+    background-color: #e8e8e8;
+}
+
+.modal-tmplManage-big .iScrollVerticalScrollbar .iScrollIndicator {
+    width: 0.3rem;
+    border-radius: 0;
+
+}
+
+.modal-tmplManage-big .radio-type .iScrollVerticalScrollbar .iScrollIndicator {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* 区域广播弹出窗口 start */
+.modal-tmplManage-big .mod-boxMask {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 1000;
+}
+
+.modal-tmplManage-big .mod-popupBox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 12rem;
+    height: 6.2rem;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 6px rgba(0, 0, 0, .08);
+}
+/* 区域广播弹出窗口 end */
+
+/* 弹框内容 start */
+.modal-tmplManage-big .mod-popupBox .modalLeft,
+.modal-tmplManage-big .mod-popupBox .modalRight {
+    float: left;
+}
+.modal-tmplManage-big .mod-popupBox .modalLeft {
+    width: 6rem;
+    margin-left: .12rem;
+}
+
+/* 弹框内容 start */
+.modal-tmplManage-big h3 {
+    width: 100%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.24rem;
+    /*font-weight: 300;*/
+    text-align: center;
+    color: #333c54;
+}
+
+.modal-tmplManage-big .label {
+    float: left;
+    width: 1.25rem;
+    height: .4rem;
+    padding-right: .1rem;
+    line-height: .4rem;
+    font-size: .2rem;
+    color: #999;
+    text-align: right;
+}
+.modal-tmplManage-big .label.padding-r {
+    padding-right: .1rem;
+}
+.modal-tmplManage-big .choice {
+    margin-top: 0.35rem;
+    margin-bottom: 0.65rem;
+    overflow: hidden;
+}
+
+.modal-tmplManage-big .radio-type {
+    width: 3.98rem;
+    height: 4rem;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+}
+
+.modal-tmplManage-big .radio-type  ul {
+    width: 100%;
+    float: left;
+    text-align: left;
+
+}
+
+.modal-tmplManage-big .radio-type  ul li {
+    position: relative;
+    height: 0.38rem;
+    line-height: 0.38rem;
+    margin: 2px;
+}
+
+
+.modal-tmplManage-big .row {
+    position: relative;
+    margin-bottom: .18rem;
+}
+/* 区域广播弹框内容 end */
+
+/* time-box start*/
+.modal-tmplManage-big .row {
+    position: relative;
+    margin-bottom: 0.28rem;
+    overflow: visible;
+}
+.modal-tmplManage-big .row > div {
+    float: left;
+}
+.modal-tmplManage-big .row .ext-yline {
+    right: 0.95rem;
+    height: 0.4rem;
+}
+.modal-tmplManage-big .text-box {
+    width: 1rem;
+    height: 0.42rem;
+    margin-right: .2rem;
+    line-height: .42rem;
+    font-size: .2rem;
+    text-align: right;
+    color: #999;
+}
+
+.modal-tmplManage-big .checkbox-list {
+    position: relative;
+    margin-top: .07rem;
+}
+.modal-tmplManage-big .checkbox-list >div {
+    margin: 0 0.1rem 0.1rem 0;
+}
+.modal-tmplManage-big .spinner {
+    position: relative;
+    /*width: 2rem;*/
+}
+.modal-tmplManage-big .spinL {
+    margin-left: 45px
+}
+.modal-tmplManage-big .spinner .ext-yline {
+    right: 0.4rem;
+}
+.modal-tmplManage-big .spinner .input-text {
+    width: 3.87rem;
+    height: .4rem;
+    padding-left: .1rem;
+    font-size: .2rem;
+    text-align: left;
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+}
+.modal-tmplManage-big .modalRight .layui-input {
+    width: 2rem;
+}
+.modal-tmplManage-big .tmplSpace {
+    margin-left: .46rem;
+}
+
+
+
+.modal-tmplManage-big .modalRight h4 {
+    margin-bottom: .2rem;
+    font-size: .22rem;
+    color: #666;
+}
+.modal-tmplManage-big .modalRight .layui-form-checkbox {
+    width: auto;
+    padding-right: 0;
+}
+.modal-tmplManage-big .modalRight .layui-form-checkbox i {
+    left: 0;
+}
+.modal-tmplManage-big .modalRight .layui-form-checkbox:hover,
+.modal-tmplManage-big .modalRight .layui-form-checkbox span:hover{
+    background-color: #fff;
+}
+.modal-tmplManage-big .modalRight .layui-form-checkbox span {
+    padding-left: 30px;
+}
+.modal-tmplManage-big .modalRight .layui-form-checked,
+.modal-tmplManage-big .modalRight .layui-form-checked:hover {
+    border-right: 1px solid transparent;
+    background-color: #fff;
+}
+.modal-tmplManage-big .modalRight .layui-form-checkbox:hover span,
+.modal-tmplManage-big .modalRight .layui-form-checkbox span:hover,
+.modal-tmplManage-big .modalRight .layui-form-checked span{
+    background-color: #fff;
+}
+
+.modal-tmplManage-big .spinner .icon {
+    width: 28px;
+    left: inherit;
+    top: 8px;
+    right: 6px;
+}
+
+/* time-box end*/
+
+/* btn start */
+.modal-tmplManage-big .ensure-btn,
+.modal-tmplManage-big .cancel-btn {
+    position: absolute;
+    bottom: 0.18rem;
+    width: 1.65rem;
+    height: 0.54rem;
+    line-height: 0.54rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #fff;
+    cursor: pointer;
+}
+.modal-tmplManage-big .ensure-btn {
+    right: .9rem;
+    z-index: 11;
+    border-radius: 2px;
+    background-color: #428bca;
+}
+.modal-tmplManage-big .cancel-btn {
+    right: 3rem;
+    border-radius: 1px;
+    background: #ccc;
+}
+.modal-tmplManage-big .close-btn {
+    right: 0.1rem;
+    top: 0.1rem;
+}
+/* btn end */
+
+
+
+/* layui组件样式覆盖 */
+/* 文本框 */
+.modal-tmplManage-big .layui-input {
+    width: 4rem;
+    height: 0.4rem;
+    padding-left: 0.15rem;
+    line-height: 0.4rem;
+    font-size: 0.18rem;
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    border-radius: 0;
+    cursor: pointer;
+}
+/* 下拉框 */
+.modal-tmplManage-big .layui-form-select {
+    float: left;
+    width: auto;
+    font-size: 18px;
+    text-align: center;
+}
+
+.modal-tmplManage-big .layui-select-title {
+    font-size: 16px;
+}
+
+.modal-tmplManage-big .layui-form-select dl {
+    width: 100%;
+    top: 0.4rem;
+    z-index: 10000;
+    text-align: center;
+    max-height: 2rem;
+}
+.modal-tmplManage-big .layui-form-select dl dd {
+    line-height: 0.36rem;
+}
+.modal-tmplManage-big .layui-form-select dl dd.layui-this {
+    background-color: #428bca;
+}
+.modal-tmplManage-big .layui-form-select .layui-edge {
+    right: 0.12rem;
+    margin-top: -3px;
+    border-width: 9px;
+    border-top-color: #428bca;
+    -webkit-transform:rotate(0deg);
+    transform: rotate(0deg);
+}
+
+/* 多选框覆盖样式 */
+.modal-tmplManage-big .layui-form-checkbox {
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+    /*border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;*/
+    border-radius: 0;
+    border: 1px solid transparent;
+    transition: none;
+}
+.modal-tmplManage-big .layui-form-checkbox:hover {
+    border: 1px solid transparent;
+    background-color: #ebf4fb;
+}
+
+.modal-tmplManage-big .layui-form-checkbox i {
+    left: 3.25rem;
+    top: 0.08rem;
+    width: 23px;
+    height: 22px;
+    font-size: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0 #ccc inset;
+    border-radius: 0;
+}
+
+.modal-tmplManage-big .layui-form-checkbox span {
+    padding-left: 15px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #666;
+}
+
+.modal-tmplManage-big .layui-form-checkbox:hover span,
+.modal-tmplManage-big .layui-form-checkbox span:hover,
+.modal-tmplManage-big .layui-form-checked span{
+    border: none;
+    background-color: #ebf4fb;
+}
+
+.modal-tmplManage-big .layui-form-checked,
+.modal-tmplManage-big .layui-form-checked:hover {
+    border-right: none;
+    border-radius: 0;
+    background-color: #ebf4fb;
+}
+
+.modal-tmplManage-big .layui-form-checked i{
+    background: url(../Images/sprite.png);
+    background-position: 2px 0;
+    background-color: #fff;
+}
+
+
+

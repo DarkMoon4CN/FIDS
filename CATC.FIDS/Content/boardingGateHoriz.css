@@ -1,0 +1,332 @@
+/* common style */
+body {
+    background: url("../../Images/bg-gatehoriz.jpg") no-repeat ;
+    background-size:100% 100%;
+}
+.ext-yline {
+    margin: 0.2rem 0;
+    width: 3px;
+    height: 2.8rem;
+    background-color: rgba(255,255,255,.3);
+}
+.ext-xline {
+    position: relative;
+    height: 3px;
+    background-color: rgba(255,255,255,.3);
+}
+/* header start */
+.header {
+    position:relative;
+    height: 1rem;
+    overflow: hidden;
+    font-size: 48px;
+    background-color: #fff;
+    color: #0f86e1;
+    box-shadow: 2px 2px 8px 0 rgba(0,0,0,.35);
+}
+.header > div {
+    float: left;
+}
+.header .header-logo {
+    position: relative;
+    width: 3.2rem;
+    height: 1rem;
+}
+
+.header .header-logo img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+.header .airportTime {
+    line-height: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.header .curTime {
+    float: right;
+    padding-right: 0.4rem;
+    line-height: 1rem;
+    font-size: 0.30rem;
+    font-weight: 300;
+}
+
+/* header end */
+/* main start */
+.main {
+    position: relative;
+    width: 100%;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.35);
+}
+.mainCon_left,
+.mainCon_right {
+    float: left;
+}
+/* mainCon_left start */
+.mainCon_left {
+    width: 8rem;
+    margin: 0.1rem 0 0 0.15rem;
+    background-color: #09f;
+    box-shadow: 1px 1px 7px 4px rgba(0,0,0,.2);
+}
+.mainCon_left .flightNum,
+.mainCon_left .flightCon{
+
+    overflow: hidden;
+}
+.mainCon_left .ext-xline,
+.mainCon_left .flightNum {
+    margin: 0 0.3rem;
+}
+
+.mainCon_left .flightNum span{
+    float: left;
+}
+.mainCon_left .flightNum span:first-child{
+    width:2rem;
+    overflow: hidden;
+    font-size: 0.36rem;
+    line-height: 1.6rem;
+    opacity: .5;
+}
+.mainCon_left .flightNum span:last-child {
+    margin-left: 0.14rem;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+}
+
+.mainCon_left .flightCon > div{
+    float: left;
+}
+.flightCon-left>dl {
+    text-align: center;
+    width: 375px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.flightCon-left > dl dt {
+    width: 3.7rem;
+}
+.flightCon-left>dl dt,
+.flightCon-right>dl dt,
+.nextFlight span:first-child{
+    margin-top: 0.4rem;
+    font-size: 0.32rem;
+    color: #fff;
+    opacity: .5;
+}
+
+.flightCon-left>dl dd {
+    margin: 0.6rem 0 0.75rem 0;
+    padding: 0 0.15rem;
+    font-size: 0.98rem;
+}
+
+
+.flightCon-right dl{
+    text-align: center;
+}
+.flightCon-right dl dt {
+    margin-bottom: 0.42rem;
+    min-width:3.7rem;
+}
+.flightCon-right dl dd {
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+}
+.flightCon-right dl:last-child dd {
+    margin: 0.53rem 0 0 0.4rem;
+}
+
+.mainCon_left .boarding {
+    width: 100%;
+    height: 1.2rem;
+    margin-top: 0.7rem;
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+    text-align: center;
+    background-color: #3ad748;
+}
+.boarding.is-greenActive{
+    border-radius: inherit;
+    text-shadow: none;
+}
+
+.nextFlight {
+    padding-left: 0.36rem;
+    color: #666;
+    background-color: #e7e8e8;
+    text-shadow: none;
+}
+.nextFlight .nextFlight_title{
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.36rem;
+    color: #b1b2b2;
+}
+.nextFlight .ext-xline {
+    margin-left: 0;
+}
+.nextFlight .nextFlight_con {
+    height:1.95rem;
+    line-height: 1.7rem;
+}
+
+.nextFlight .nextFlight_con .nextFlight_con_first {
+    float: left;
+    font-size: 0.72rem;
+}
+.nextFlight .nextFlight_con .nextFlight_con_last{
+    float: right;
+    padding-right: 0.6rem;
+    font-size: 0.3rem;
+}
+.r-xline {
+    position: absolute;
+    left: 0;
+    height:0.03rem;
+    width: 1.46rem;
+    background-color: #f30;
+}
+/* mainCon_left end */
+
+/* mainCon_right start */
+.mainCon_right {
+    width: 10.70rem;
+    margin-left: .2rem;
+    overflow: hidden;
+}
+.mainCon_right .cloudAtlas-title{
+    font-size: .48rem;
+    width: 100%;
+    padding-bottom: .1rem;
+    line-height: .65rem;
+    text-align: center;
+}
+.mainCon_right .cloudAtlas-img {
+    width: 100%;
+    height: 5.2rem;
+    border-radius: 1px;
+    box-shadow: 0 0 0 4px #fff;
+}
+.mainCon_right .cloudAtlas-img img {
+   max-width: 100%;
+   width:100%;
+   height: 100%;
+}
+
+.weatherInfo_left,
+.weatherInfo_right{
+    position: relative;
+    float: left;
+    width: 5rem;
+    height: 3.4rem;
+    margin-top: .2rem;
+    background-color: rgba(255, 255, 255, .2);
+}
+.weatherInfo_right {
+    float: right;
+}
+.weatherInfo_flight {
+    position: absolute;
+    bottom: .35rem;
+    left:.12rem;
+    font-size: .32rem;
+}
+.weatherInfo_title {
+    position: absolute;
+    top: 0.1rem;
+    left:.12rem;
+
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: .48rem;
+}
+.weatherInfo_img {
+    position: absolute;
+    right: .3rem;
+    top: .15rem;
+
+}
+.weatherInfo_title > dt {
+    font-size: .2rem;
+    height: .3rem;
+}
+.weatherInfo_title >dd {
+    line-height: .7rem;
+}
+.weatherInfo_con {
+    position: absolute;
+    right: .1rem;
+    bottom: 0;
+}
+
+.weatherInfo_con > div {
+    float: left;
+    margin-right: 0.1rem;
+}
+.weatherInfo_con dl {
+    text-align: center;
+    font-size: 0.18rem;
+}
+.weatherInfo_con dl dt {
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.weatherInfo_con dl dd {
+    width:.55rem;
+    line-height: .5rem;
+}
+.weatherInfo_con dt img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+.weatherInfo_con .visibility {
+    margin-left: .06rem;
+}
+/* mainCon-right end */
+/* main end */
+
+
+.labelBox {
+    position:absolute;
+    top:0;
+    left:0;
+    min-width: 3.2rem;
+    max-width: 8.0rem;
+    overflow:hidden;
+    height: 1rem;
+    line-height:1rem;
+    color:#0f86e1;
+    text-align:center;
+    background-color:#fff;
+    white-space: nowrap;
+}
+ .timeBox {
+    margin-left: 0.86rem;
+    margin-top: 0.26rem;
+    font-size: 0.30rem;
+    font-weight: 300;
+}
+.header .labelBox img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2.18rem;
+    height: 0.77rem;
+    margin-top: -0.385rem;
+    margin-left: -1.09rem;
+}

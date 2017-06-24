@@ -1,0 +1,491 @@
+/* common start */
+#flightData .is-equipError {
+    color: #fff;
+    background-color: #f26455
+}
+#flightData .is-equipNormal {
+    color: #428bca;
+}
+#flightData .is-equipOff {
+    color: #999;
+}
+#flightData .menuHide,
+#flightData .hide {
+    display: none;
+}
+#flightData .show {
+    display: block;
+}
+
+/* common end */
+/* 滚动条样式 */
+#flightData .iScrollIndicator {
+    position: absolute;
+    background: rgba(0,0,0,.7);
+    /*opacity: 0.7;*/
+}
+#flightData .iScrollHorizontalScrollbar {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    left: 1px;
+    overflow: hidden;
+}
+#flightData .iScrollHorizontalScrollbar .iScrollIndicator {
+    height: 8px;
+    border-radius: 10px;
+}
+#flightData .iScrollVerticalScrollbar {
+    position: absolute;
+    z-index: 9999;
+    width: 8px;
+    bottom: 0;
+    top: 0;
+    right: 1px;
+    overflow: hidden;
+}
+
+#flightData .iScrollVerticalScrollbar.iScrollBothScrollbars {
+    bottom: 18px;
+}
+#flightData .iScrollVerticalScrollbar .iScrollIndicator {
+    width: 8px;
+    border-radius: 10px;
+}
+.lr-border {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.l-border {
+    border-left: 1px solid #ccc;
+}
+/* main部分 start */
+
+/* menu start */
+#flightData .menu {
+    margin: 0.38rem 0 0.12rem 0.32rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+#flightData .menu div[class^="menu"] {
+    float: left;
+    height: 0.48rem;
+    padding: 0 0.2rem;
+    line-height: 0.48rem;
+    text-align: center;
+    color: #428bca;
+    border: 1px solid #428bca;
+}
+#flightData .menu div[class^="menu"]:hover {
+    color: #fff;
+    background-color: #428bca;
+}
+#flightData .menu div.menu-add{
+    margin-right: 0.2rem;
+    border-radius: 4px;
+}
+#flightData .menu div.menu-edit {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-right: none;
+}
+#flightData .menu div.menu-save {
+    /*border-left: none;*/
+    border-right: none;
+}
+#flightData .menu div.menu-send {
+    margin-right: 0.2rem;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+#flightData .menu div.menu-del {
+    border-radius: 4px;
+}
+#flightData .menu div.menu-del i {
+    position: relative;
+    top: 3px;
+}
+#flightData .menu div.menu-del:hover {
+    border-color: #f26455;
+    background-color: #f26455;
+}
+#flightData .menu div.menu-add:hover i{
+    background-position: 0 -368px;
+}
+#flightData .menu div.menu-edit:hover i {
+    background-position: 0 -432px;
+}
+#flightData .menu div.menu-save:hover i {
+    background-position: 0 -144px;
+}
+#flightData .menu div.menu-send:hover i {
+    background-position: 0 -272px;
+}
+#flightData .menu div.menu-del:hover i{
+    background-position: 0 -56px;
+}
+
+/* menu end */
+#flightData .dataTabs {
+    position: absolute;
+    top: 1.06rem;
+    left: .31rem;
+    font-size: .2rem;
+    color: #428bca;
+    z-index: 1;
+    cursor: pointer;
+}
+#flightData .dataTabs > li {
+    display: inline-block;
+    margin-right: .1rem;
+    padding: .05rem .2rem;  
+}
+#flightData .dataTabs > li.is-active {
+
+    color: #fff;
+    background-color: #428bca;
+}
+#flightData .flightSearch {
+    position: absolute;
+    top: .37rem;
+    right: .28rem;
+    height: .5rem;
+    line-height: .5rem;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    background-color: #428bca;
+    cursor: pointer;
+}
+#flightData .flightSearch div:first-child{
+    float: left;
+    padding-left: 5px;
+    
+}
+#flightData .flightSearch div:last-child {
+    float: left;
+    padding: 0 5px;
+    color: #fff;
+}
+#flightData .flightSearch i {
+    top: 3px;
+    right: 0;
+}
+/* euqipTable start */
+#flightData .dataTable{
+    position: relative;
+    float: left;
+    margin: 0.56rem 0.31rem 0.15rem ;
+}
+
+#flightData .allEquip {
+    margin-left: 0.2rem;
+    margin-right: 0.02rem;
+}
+/*#flightData .h4 {
+    position: absolute;
+    top: 1.1rem;
+    left: .3rem;
+    z-index: 1;
+    font-weight: normal;
+    color: #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}*/
+
+#flightData .tabCtrl {
+    width:100%;
+}
+#flightData .tabCtrl > div {
+    position: relative;
+    bottom: -1px;
+    float: left;
+    height: .37rem;
+    padding: 0 0.2rem;
+    line-height: .37rem;
+    text-align: center;
+    color: #428bca;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+#flightData .tabCtrl .borderR-none {
+    border-right: none;
+}
+#flightData .tabCtrl div.is-click {
+    font-weight: 600;
+    z-index: 1;
+    border-bottom-color: #fff;
+}
+
+#flightData .horiz-tabCtrl-con {
+    width: 20rem;
+}
+#flightData .tabCtrl-con ul {
+    width: 100%;
+    height: 0.44rem;
+    overflow: hidden;
+    text-align: center;
+    color: #999;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-bottom: none;
+}
+#flightData .tabCtrl-con ul > li {
+    float: left;
+    line-height: 0.44rem;
+    white-space: nowrap;
+}
+#flightData .tabCtrl-con ul > li:nth-child(1):after {
+    content: '1';
+    width: 1px;
+    font-size: 0;
+}
+#flightData .for-Hscroll {
+    width: 16.96rem;
+    overflow: hidden;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+#flightData .normal-width {
+    width: 16.96rem;
+}
+/* tableCon start */
+#flightData .tableCon {
+    position: relative;
+    /*width: 16.96rem;*/
+    height: 69vh;
+    font-size: 0.24rem;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+    overflow: hidden;
+}
+#flightData .tableCon ol {
+
+    color: #666;
+}
+#flightData .tableCon ol li {
+    height: 0.59rem;
+    line-height: 0.59rem;
+    border-bottom: 1px solid #ccc;
+}
+#flightData .tableCon ol li:hover,
+#flightData .tableCon ol li.is-active{
+    background: #ececec;
+}
+
+#flightData .tableCon ol li>p {
+    float: left;
+    font-size: 0.16rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(1),
+#flightData .tableCon ol p:nth-child(1){
+    width: 0.65rem;
+    user-select: none;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(2),
+#flightData .tableCon ol p:nth-child(2){
+    width: 1.5rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(3),
+#flightData .tableCon ol p:nth-child(3){
+    width: 1.6rem;
+}
+
+
+#flightData .tabCtrl-con ul > li:nth-child(4),
+#flightData .tableCon ol p:nth-child(4){
+    width: 1rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(5),
+#flightData .tableCon ol p:nth-child(5){
+    width: 1.78rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(6),
+#flightData .tableCon ol p:nth-child(6){
+    width: 1.6rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(7),
+#flightData .tableCon ol p:nth-child(7){
+    width: 1rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(8),
+#flightData .tableCon ol p:nth-child(8){
+    width: 1.5rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(9),
+#flightData .tableCon ol p:nth-child(9){
+    width: 0.94rem;
+    display: none;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(10),
+#flightData .tableCon ol p:nth-child(10){
+    width: 1.94rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(11),
+#flightData .tableCon ol p:nth-child(11){
+    width: 1.1rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(12),
+#flightData .tableCon ol p:nth-child(12){
+    width: 2.2rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(13),
+#flightData .tableCon ol p:nth-child(13){
+    width: 2.2rem;
+}
+
+#flightData .tabCtrl-con ul > li:nth-child(14),
+#flightData .tableCon ol p:nth-child(14){
+    width: 1.9rem;
+}
+
+/* table-col4 start*/
+#flightData .table-col4 ul > li:nth-child(2),
+#flightData .table-col4 ol p:nth-child(2){
+    width: 1.8rem;
+}
+
+#flightData .table-col4 ul > li:nth-child(3),
+#flightData .table-col4 ol p:nth-child(3){
+    width: 6rem;
+}
+
+
+#flightData .table-col4 ul > li:nth-child(4),
+#flightData .table-col4 ol p:nth-child(4){
+    width: 5rem;
+}
+
+#flightData .table-col4 ul > li:nth-child(5),
+#flightData .table-col4 ol p:nth-child(5){
+    width: 3.5rem;
+}
+
+/* table-col5 start*/
+#flightData .table-col5 ul > li:nth-child(2),
+#flightData .table-col5 ol p:nth-child(2){
+    width: 2rem;
+}
+#flightData .table-col5 ul > li:nth-child(3),
+#flightData .table-col5 ol p:nth-child(3){
+    width: 4rem;
+}
+#flightData .table-col5 ul > li:nth-child(4),
+#flightData .table-col5 ol p:nth-child(4){
+    width: 2.85rem;
+}
+#flightData .table-col5 ul > li:nth-child(5),
+#flightData .table-col5 ol p:nth-child(5){
+    width: 4.5rem;
+}
+#flightData .table-col5 ul > li:nth-child(6),
+#flightData .table-col5 ol p:nth-child(6){
+    width: 2.4rem;
+}
+/* table-col8 start*/
+#flightData .table-col8 ul > li:nth-child(2),
+#flightData .table-col8 ol p:nth-child(2){
+    width: 1.5rem;
+}
+#flightData .table-col8 ul > li:nth-child(3),
+#flightData .table-col8 ol p:nth-child(3){
+    width: 2.5rem;
+}
+#flightData .table-col8 ul > li:nth-child(4),
+#flightData .table-col8 ol p:nth-child(4){
+    width: 2.5rem;
+}
+#flightData .table-col8 ul > li:nth-child(5),
+#flightData .table-col8 ol p:nth-child(5){
+    width: 1.5rem;
+}
+#flightData .table-col8 ul > li:nth-child(6),
+#flightData .table-col8 ol p:nth-child(6){
+    width: 2rem;
+}
+#flightData .table-col8 ul > li:nth-child(7),
+#flightData .table-col8 ol p:nth-child(7){
+    width: 2rem;
+}
+#flightData .table-col8 ul > li:nth-child(8),
+#flightData .table-col8 ol p:nth-child(8){
+    width: 2rem;
+}
+#flightData .table-col8 ul > li:nth-child(9),
+#flightData .table-col8 ol p:nth-child(9){
+    display: block;
+    width:2rem;
+}
+/* table-col7 start*/
+#flightData .table-col7 ul > li:nth-child(2),
+#flightData .table-col7 ol p:nth-child(2){
+    width: 1.5rem;
+}
+#flightData .table-col7 ul > li:nth-child(3),
+#flightData .table-col7 ol p:nth-child(3){
+    width: 2.5rem;
+}
+#flightData .table-col7 ul > li:nth-child(4),
+#flightData .table-col7 ol p:nth-child(4){
+    width: 2.5rem;
+}
+#flightData .table-col7 ul > li:nth-child(5),
+#flightData .table-col7 ol p:nth-child(5){
+    width: 2.4rem;
+}
+#flightData .table-col7 ul > li:nth-child(6),
+#flightData .table-col7 ol p:nth-child(6){
+    width: 2.4rem;
+}
+#flightData .table-col7 ul > li:nth-child(7),
+#flightData .table-col7 ol p:nth-child(7){
+    width: 2.4rem;
+}
+#flightData .table-col7 ul > li:nth-child(8),
+#flightData .table-col7 ol p:nth-child(8){
+    width: 2.4rem;
+}
+/* 分页 */
+#flightData div.log-view-paging {
+    position: absolute;
+    right: 0.31rem;
+    top: 1.6rem;
+    z-index: 1;
+    cursor: pointer;
+}
+/* 复选框样式 */
+#flightData .checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 23px;
+    margin-top: -3px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 0 2px 0 #ccc inset;
+    background-color: #fff;
+}
+#flightData .checkbox-checked {
+    background: url("../Images/sprite.png");
+    background-position: 2px 0;
+    background-color: #f3f7fc;
+}
+

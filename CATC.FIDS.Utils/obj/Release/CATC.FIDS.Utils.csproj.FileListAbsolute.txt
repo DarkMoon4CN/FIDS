@@ -1,0 +1,13 @@
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\CATC.FIDS.Utils.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\CATC.FIDS.Utils.pdb
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\log4net.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\NPOI.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\NPOI.OOXML.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\NPOI.OpenXml4Net.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\NPOI.OpenXmlFormats.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\bin\Release\Interop.TaskScheduler.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\obj\Release\Interop.TaskScheduler.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\obj\Release\CATC.FIDS.Utils.csproj.ResolveComReference.cache
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\obj\Release\CATC.FIDS.Utils.dll
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\obj\Release\CATC.FIDS.Utils.pdb
+E:\Flag\Project\FIDS\CATC\src\FIDS\CATC.FIDS.Utils\obj\Release\CATC.FIDS.Utils.csprojResolveAssemblyReference.cache

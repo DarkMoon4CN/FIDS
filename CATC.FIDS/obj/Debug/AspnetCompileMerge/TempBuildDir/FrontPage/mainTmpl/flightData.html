@@ -1,0 +1,1620 @@
+<!--航班数据 start-->
+<div id="flightData">
+    <!-- menu-->
+    <div class="menu">
+        <div class="menu-add js-menu-add"><i class="icon icon-add-blue"></i>添加数据</div>
+        
+        <div class="menu-edit js-menu-edit"><i class="icon icon-edit-blue"></i>编辑数据</div>
+        <div class="js-menuDisplay">
+            <div class="menu-save js-menu-save"><i class="icon icon-save-blue"></i>导入数据</div>
+        </div>
+        <div class="menu-send js-menu-send"><i class="icon icon-send-blue"></i><span class="js-changeMenuCon">发布数据</span></div>
+        <div class="menu-del js-menu-del"><i class="icon icon-del-blue"></i>删除数据</div>
+       
+    </div>
+    <!-- end-operate-->
+    <div class="flightSearch">
+        <div><i class="icon icon-home"></i></div>
+        <div>结束运营</div>
+    </div>
+    <!-- 分页  -->
+    <div id="log-view-paging" class="log-view-paging"></div>
+    <!-- main data -->
+    <div class="js-dataTabs">
+        <!-- data type tab start-->
+        <ul class="dataTabs">
+            <li class="is-active" data-flag="morrow-plan" data-modal="flight-plan">次日航班计划</li>
+            <li data-flag="today-plan" data-modal="flight-plan">当日航班动态数据</li>
+            <li data-flag="morrow-res" data-modal="res-allo">次日资源分配</li>
+            <li data-flag="today-res" data-modal="res-allo">当日资源分配</li>
+            <li data-flag="base-data" data-modal="base-data">基础数据</li>
+        </ul>
+
+        <!-- dataTable 次日航班计划 start-->
+        <div class="dataTable hide show js-dataTable">
+            <div class="tabCtrl clearfix js-tabCtrl">
+                <div class="borderR-none is-click" data-menu="depart">离港航班</div>
+                <div data-menu="arrive">到港航班</div>
+            </div>
+            <!-- 离港航班 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide show">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>国内/国际</li>
+                        <li>任务代码</li>
+                        <li>航空公司</li>
+                        <li>机型</li>
+                        <li>机号</li>
+                        <li>服务类型</li>
+                        <li>要客标识</li>
+                        <li>起飞机场</li>
+                        <li>计离</li>
+                        <li>预离</li>
+                        <li>实离</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol id="flight-plan-d"></ol>
+                    </div>
+                </div>
+            </div>
+            <!-- 到港航班 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>国内/国际</li>
+                        <li>任务代码</li>
+                        <li>航空公司</li>
+                        <li>机型</li>
+                        <li>机号</li>
+                        <li>服务类型</li>
+                        <li>要客标识</li>
+                        <li>到达机场</li>
+                        <li>计到</li>
+                        <li>预到</li>
+                        <li>实到</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol id="flight-plan-a"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- dataTable 当日航班计划 start-->
+        <div class="dataTable hide js-dataTable">
+            <div class="tabCtrl clearfix js-tabCtrl">
+                <div class="borderR-none is-click" data-menu="depart">离港航班</div>
+                <div data-menu="arrive">到港航班</div>
+            </div>
+            <!-- 离港航班 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide show">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>国内/国际</li>
+                        <li>任务代码</li>
+                        <li>航空公司</li>
+                        <li>机型</li>
+                        <li>机号</li>
+                        <li>服务类型</li>
+                        <li>贵宾</li>
+                        <li>起飞机场</li>
+                        <li>计离</li>
+                        <li>预离</li>
+                        <li>实离</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol id="flight-plan-td"></ol>
+                    </div>
+                </div>
+            </div>
+            <!-- 到港航班 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>国内/国际</li>
+                        <li>任务代码</li>
+                        <li>航空公司</li>
+                        <li>机型</li>
+                        <li>机号</li>
+                        <li>服务类型</li>
+                        <li>贵宾</li>
+                        <li>到达机场</li>
+                        <li>计到</li>
+                        <li>预到</li>
+                        <li>实到</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol id="flight-plan-ta"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- dataTable 次日资源分配 start-->
+        <div class="dataTable hide js-dataTable">
+            <div class="tabCtrl clearfix js-tabCtrl">
+                <div class="borderR-none is-click" data-menu="board-gate">登机口资源</div>
+                <div class="borderR-none" data-menu="check-in">值机柜台资源</div>
+                <div data-menu="baggage">行李转盘资源</div>
+            </div>
+            <!-- 登机口资源 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide show">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>机号</li>
+                        <li>到/离港标识</li>
+                        <li>国内/国际</li>
+                        <li>登机口号</li>
+                        <li>预计开始</li>
+                        <li>预计结束</li>
+                        <li>实际开始</li>
+                        <li>实际结束</li>
+                        <li>始发地</li>
+                        <li>目的地</li>
+                        <li>航空公司</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol>
+                            <li class="row">
+                                <p><span class="checkbox"></span></p>
+                                <p>CZ1021</p>
+                                <p>CZ1021</p>
+                                <p>D</p>
+                                <p>W/Z</p>
+                                <p>CZ</p>
+                                <p>B738</p>
+                                <p>B2695</p>
+                                <p>---</p>
+                                <p>N</p>
+                                <p>HGH</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- 值机柜台资源 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>机号</li>
+                        <li>到/离港标识</li>
+                        <li>国内/国际</li>
+                        <li>值机柜台</li>
+                        <li>预计开始</li>
+                        <li>预计结束</li>
+                        <li>实际开始</li>
+                        <li>实际结束</li>
+                        <li>始发地</li>
+                        <li>目的地</li>
+                        <li>航空公司</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol>
+                            <li class="row">
+                                <p><span class="checkbox"></span></p>
+                                <p>CZ1021</p>
+                                <p>CZ1021</p>
+                                <p>D</p>
+                                <p>W/Z</p>
+                                <p>CZ</p>
+                                <p>B738</p>
+                                <p>B2695</p>
+                                <p>---</p>
+                                <p>N</p>
+                                <p>HGH</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- 行李转盘资源 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>机号</li>
+                        <li>到/离港标识</li>
+                        <li>国内/国际</li>
+                        <li>行李转盘</li>
+                        <li>预计开始</li>
+                        <li>预计结束</li>
+                        <li>实际开始</li>
+                        <li>实际结束</li>
+                        <li>始发地</li>
+                        <li>目的地</li>
+                        <li>航空公司</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol>
+                            <li class="row">
+                                <p><span class="checkbox"></span></p>
+                                <p>CZ1021</p>
+                                <p>CZ1021</p>
+                                <p>D</p>
+                                <p>W/Z</p>
+                                <p>CZ</p>
+                                <p>B738</p>
+                                <p>B2695</p>
+                                <p>---</p>
+                                <p>N</p>
+                                <p>HGH</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- dataTable 当日资源分配 start-->
+        <div class="dataTable hide js-dataTable">
+            <div class="tabCtrl clearfix js-tabCtrl">
+                <div class="borderR-none is-click" data-menu="board-gate">登机口资源</div>
+                <div class="borderR-none" data-menu="check-in">值机柜台资源</div>
+                <div data-menu="baggage">行李转盘资源</div>
+            </div>
+            <!-- 登机口资源 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide show">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>机号</li>
+                        <li>到/离港标识</li>
+                        <li>国内/国际</li>
+                        <li>登机口号</li>
+                        <li>预计开始</li>
+                        <li>预计结束</li>
+                        <li>实际开始</li>
+                        <li>实际结束</li>
+                        <li>始发地</li>
+                        <li>目的地</li>
+                        <li>航空公司</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol>
+                            <li class="row">
+                                <p><span class="checkbox"></span></p>
+                                <p>CZ1021</p>
+                                <p>CZ1021</p>
+                                <p>D</p>
+                                <p>W/Z</p>
+                                <p>CZ</p>
+                                <p>B738</p>
+                                <p>B2695</p>
+                                <p>---</p>
+                                <p>N</p>
+                                <p>HGH</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- 值机柜台资源 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>机号</li>
+                        <li>到/离港标识</li>
+                        <li>国内/国际</li>
+                        <li>值机柜台</li>
+                        <li>预计开始</li>
+                        <li>预计结束</li>
+                        <li>实际开始</li>
+                        <li>实际结束</li>
+                        <li>始发地</li>
+                        <li>目的地</li>
+                        <li>航空公司</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol>
+                            <li class="row">
+                                <p><span class="checkbox"></span></p>
+                                <p>CZ1021</p>
+                                <p>CZ1021</p>
+                                <p>D</p>
+                                <p>W/Z</p>
+                                <p>CZ</p>
+                                <p>B738</p>
+                                <p>B2695</p>
+                                <p>---</p>
+                                <p>N</p>
+                                <p>HGH</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- 行李转盘资源 start-->
+            <div class="for-Hscroll js-tabCtrl-con hide">
+                <div class="tabCtrl-con horiz-tabCtrl-con">
+                    <ul>
+                        <li><span class="allEquip checkbox js-allEquip" title=""></span>全选</li>
+                        <li>运营日</li>
+                        <li>航班号</li>
+                        <li>机号</li>
+                        <li>到/离港标识</li>
+                        <li>国内/国际</li>
+                        <li>行李转盘</li>
+                        <li>预计开始</li>
+                        <li>预计结束</li>
+                        <li>实际开始</li>
+                        <li>实际结束</li>
+                        <li>始发地</li>
+                        <li>目的地</li>
+                        <li>航空公司</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol>
+                            <li class="row">
+                                <p><span class="checkbox"></span></p>
+                                <p>CZ1021</p>
+                                <p>CZ1021</p>
+                                <p>D</p>
+                                <p>W/Z</p>
+                                <p>CZ</p>
+                                <p>B738</p>
+                                <p>B2695</p>
+                                <p>---</p>
+                                <p>N</p>
+                                <p>HGH</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                                <p>2011/10/10 15:00:00</p>
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- dataTable 基础数据 start-->
+        <div class="dataTable hide js-dataTable">
+            <div class="tabCtrl clearfix js-tabCtrl">
+                <div class="borderR-none is-click" data-menu="plane-data">飞机数据</div>
+                <div class="borderR-none" data-menu="model-data">机型数据</div>
+                <div class="borderR-none" data-menu="airline">航空公司</div>
+                <div class="borderR-none" data-menu="air-alliance">航空联盟</div>
+                <div class="borderR-none" data-menu="airport">机场</div>
+                <div class="borderR-none" data-menu="city">城市</div>
+                <div class="borderR-none" data-menu="province">省份</div>
+                <div class="borderR-none" data-menu="country">国家</div>
+                <div class="borderR-none" data-menu="task-code">任务代码</div>
+                <div data-menu="delay-code">延误代码</div>
+            </div>
+            <!-- 飞机数据 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col5 hide show">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>飞机注册号</li>
+                    <li>机型IATA代码</li>
+                    <li>所属航空公司IATA代码</li>
+                    <li>删除标识</li>
+                    <li>附加代码</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="plane-data"></ol>
+                </div>
+            </div>
+            <!-- 机型数据 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col4 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>机型IATA代码</li>
+                    <li>机型IACO代码</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="model-data"></ol>
+                </div>
+            </div>
+            <!-- 航空公司 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col8 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>简称</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>国内/国际属性</li>
+                    <li>航空公司IATA代码</li>
+                    <li>航空公司ICAO代码</li>
+                    <li>基地机场IATA代码</li>
+                    <li>航空公司联盟代码</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="airline-data"></ol>
+                </div>
+            </div>
+            <!-- 航空联盟 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col4 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>联盟代码</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>备注</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="air-alliance"></ol>
+                </div>
+            </div>
+            <!-- 机场 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col8 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>简称</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>国内/国际属性</li>
+                    <li>机场IATA代码</li>
+                    <li>机场ICAO代码</li>
+                    <li>城市IATA代码</li>
+                    <li>区域代码</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="airport-data"></ol>
+                </div>
+            </div>
+            <!-- 城市 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col7 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>简称</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>所属省份标志</li>
+                    <li>城市IATA代码</li>
+                    <li>城市ICAO代码</li>
+                    <li>国际IATA代码</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="city-data"></ol>
+                </div>
+            </div>
+            <!-- 省份 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col4 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>简称</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>国内/国际属性</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="province-data"></ol>
+                </div>
+            </div>
+            <!-- 国家 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col4 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>国家IATA代码</li>
+                    <li>国家ICAO代码</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="country-data"></ol>
+                </div>
+            </div>
+            <!-- 任务代码 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col4 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>任务代码</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>描述</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="task-code"></ol>
+                </div>
+            </div>
+            <!-- 延误代码 start-->
+            <div class="tabCtrl-con normal-width lr-border table-col5 hide">
+                <ul class="l-border">
+                    <li><span class="allEquip checkbox js-allEquip" title=""></span>全部</li>
+                    <li>延误代码</li>
+                    <li>延误类型</li>
+                    <li>中文名称</li>
+                    <li>英文名称</li>
+                    <li>描述</li>
+                </ul>
+                <div class="tableCon js-tableCon">
+                    <ol id="delay-code"></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--航班数据 end-->
+
+<!-- flightData弹框 -->
+<div class="modal-fliData js-modal-fliData">
+    <!--航班计划 弹框-->
+    <div class="mod-boxMask js-flight-plan" style="display: none">
+        <div class="mod-popupBox">
+            <!-- 弹框内容 start -->
+            <h3 class="js-modalBigTitle">添加数据</h3>
+            <!-- 离港弹框内容 -->
+            <form class="layui-form depart-form show">
+                <input type="text" name="fdid" class="js-fdid" style="display: none"/>
+                <div class="flight-top">
+                    <h4>基本信息</h4>
+                    <div class="dataList clearfix">
+                        <!-- 运营日 -->
+                        <div class="dataList-item">
+                            <label class="label">运营日<span class="required">(必填)</span></label>
+                            <input type="text" name="oper_day" id="oper-day-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date" lay-verify="required"/>
+                        </div>
+                        <!-- 航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">航班号<span class="required">(必填)</span></label>
+                            <input type="text" name="flight_num" id="flight-num-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <!-- 国内国际标识 -->
+                        <div class="dataList-item">
+                            <label class="label">国内/国际标识<span class="required">(必填)</span></label>
+                            <select name="dori" id="dori-dep" class="select-style" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="D">国内(D)</option>
+                                <option value="I">国际(I)</option>                         
+                                <option value="M">混合(M)</option>                         
+                                <option value="R">地区(R)</option>                         
+                            </select>
+                        </div>
+                        <!-- 任务代码 -->
+                        <div class="dataList-item">
+                            <label class="label">任务代码<span class="required">(必填)</span></label>
+                            <select name="task_code" class="select-style" id="task-code-d" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="A/L">备降(A/L)</option>
+                                <option value="B/W">专机(B/W)</option>
+                                <option value="C/B">加班(C/B)</option>
+                                <option value="D/Y">带飞(D/Y)</option>
+                                <option value="F/J">检验(F/J)</option>
+                                <option value="J/B">班专(J/B)</option>
+                                <option value="K/L">本训(K/L)</option>
+                                <option value="L/W">包机(L/W)</option>
+                                <option value="N/M">调机(N/M)</option>
+                                <option value="O/F">急救(O/F)</option>
+                                <option value="P/F">单飞(P/F)</option>
+                                <option value="R/T">返航(R/T)</option>
+                                <option value="R/W">日航(R/W)</option>
+                                <option value="R/Z">试航(R/Z)</option>
+                                <option value="S/F">试飞(S/F)</option>
+                                <option value="U/H">公务(U/H)</option>
+                                <option value="W/Z">正班(W/Z)</option>
+                                <option value="X/F">校飞(X/F)</option>
+                                <option value="Y/H">夜航(Y/H)</option>
+                                <option value="Z/P">补班(Z/P)</option>
+                            </select>
+                        </div>
+                        <!-- 航站楼 -->
+                        <div class="dataList-item">
+                            <label class="label">航站楼</label>
+                            <input type="text" name="term_floor" id="term-floor-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <!-- 航空公司 -->
+                        <div class="dataList-item">
+                            <label class="label">航空公司IATA</label>
+                            <input type="text" name="airline" id="airline-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <!-- 机号 -->
+                        <div class="dataList-item">
+                            <label class="label">机号</label>
+                            <input type="text" name="plane_num" id="plane-num-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 机型 -->
+                        <div class="dataList-item">
+                            <label class="label">机型IATA</label>
+                            <input type="text" name="plane_type" id="plane-type-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!--<div class="dataList-item">
+                            <label class="label">服务等级</label>
+                            <select name="state" class="select-style">
+                                <option value="">请选择</option>
+                                <option value="1">已离港</option>
+                                <option value="2">未离港</option>
+                                <option value="3">未进港</option>
+                            </select>
+                        </div>-->
+                        <!-- 贵宾标识 -->
+                        <div class="dataList-item">
+                            <label class="label">贵宾标识</label>
+                            <select name="flg_vip" id="flag-vip-dep" class="select-style">
+                                <option value="">请选择</option>
+                                <option value="Y">有要客(Y)</option>
+                                <option value="N">无要客(N)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="flight-bottom">
+                    <h4>航线信息</h4>
+                    <div class="dataList clearfix">
+                        <!-- 本场起飞 -->
+                        <div class="dataList-item">
+                            <label class="label">本场起飞<span class="required">(必填)</span></label>
+                            <input type="text" name="take_off" id="take-off-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <!-- 后场到达 -->
+                        <div class="dataList-item">
+                            <label class="label">后场到达<span class="required">(必填)</span></label>
+                            <input type="text" name="arrive" id="arrive-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 计划本场离港时间 -->
+                        <div class="dataList-item">
+                            <label class="label">计划本场离港时间<span class="required">(必填)</span></label>
+                            <input type="text" name="std" id="std-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" lay-verify="required"/>
+                        </div>
+                        <!-- 预计本场离港时间 -->
+                        <div class="dataList-item">
+                            <label class="label">预计本场离港时间</label>
+                            <input type="text" name="etd" id="etd-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <!-- 实际本场离港时间 -->
+                        <div class="dataList-item">
+                            <label class="label">实际本场离港时间</label>
+                            <input type="text" name="atd" id="atd-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <!-- 计划后场到港时间 -->
+                        <div class="dataList-item">
+                            <label class="label">计划后场到港时间<span class="required">(必填)</span></label>
+                            <input type="text" name="sta" id="sta-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <!-- 预计后场到港时间 -->
+                        <div class="dataList-item">
+                            <label class="label">预计后场到港时间</label>
+                            <input type="text" name="eta" id="eta-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <!-- 实际后场到港时间 -->
+                        <div class="dataList-item">
+                            <label class="label">实际后场到港时间</label>
+                            <input type="text" name="ata" id="ata-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+
+                        <!-- 链接航班 -->
+                        <!--<div class="dataList-item">
+                            <label class="label">链接航班</label>
+                            <input type="text" name="link_flight" id="fli-link-flight" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>-->
+                        <!-- 链接运营日 -->
+                        <!--<div class="dataList-item">
+                            <label class="label">链接运营日</label>
+                            <input type="text" name="link_oper_day" id="fli-link-day" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date" />
+                        </div>-->
+                        <!-- 航线起始 -->
+                        <div class="dataList-item">
+                            <label class="label">航线起始<span class="required">(必填)</span></label>
+                            <input type="text" name="airline_start" id="airline-start-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <!-- 经停1 -->
+                        <div class="dataList-item">
+                            <label class="label">经停1</label>
+                            <input type="text" name="air_line_1" id="airline-1-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 经停2 -->
+                        <div class="dataList-item">
+                            <label class="label">经停2</label>
+                            <input type="text" name="air_line_2" id="airline-2-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 航线结束 -->
+                        <div class="dataList-item">
+                            <label class="label">航线结束<span class="required">(必填)</span></label>
+                            <input type="text" name="airline_end" id="airline-end-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <!-- 共享主航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">共享主航班号</label>
+                            <input type="text" name="share_main" id="share-main-dep"  placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                         <!-- 共享航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">共享航班号</label>
+                            <input type="text" name="share_code2" id="share-2-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 合并航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">合并航班号</label>
+                            <input type="text" name="merge_flight" id="merge-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 被合并航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">被合并航班号</label>
+                            <input type="text" name="be_merge_fli" id="be-merge-dep" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                    </div>
+                </div>
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit lay-filter="flight-data">确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <!-- 到港弹框内容 -->
+            <form class="layui-form arrive-form hide">
+                <input type="text" name="fdid" class="js-fdid" style="display: none"/>
+                <div class="flight-top">
+                    <h4>基本信息</h4>
+                    <div class="dataList clearfix">
+                        <!-- 运营日 -->
+                        <div class="dataList-item">
+                            <label class="label">运营日<span class="required">(必填)</span></label>
+                            <input type="text" name="oper_day" id="oper-day-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date" lay-verify="required"/>
+                        </div>
+                        <!-- 航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">航班号<span class="required">(必填)</span></label>
+                            <input type="text" name="flight_num" id="flight-num-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <!-- 国内国际标识 -->
+                        <div class="dataList-item">
+                            <label class="label">国内/国际标识<span class="required">(必填)</span></label>
+                            <select name="dori" id="dori-arr" class="select-style" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="D">国内(D)</option>
+                                <option value="I">国际(I)</option>                         
+                                <option value="M">混合(M)</option>                         
+                                <option value="R">地区(R)</option>                         
+                            </select>
+                        </div>
+                        <!-- 任务代码 -->
+                        <div class="dataList-item">
+                            <label class="label">任务代码<span class="required">(必填)</span></label>
+                            <select name="task_code" class="select-style" id="task-code-a" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="A/L">备降(A/L)</option>
+                                <option value="B/W">专机(B/W)</option>
+                                <option value="C/B">加班(C/B)</option>
+                                <option value="D/Y">带飞(D/Y)</option>
+                                <option value="F/J">检验(F/J)</option>
+                                <option value="J/B">班专(J/B)</option>
+                                <option value="K/L">本训(K/L)</option>
+                                <option value="L/W">包机(L/W)</option>
+                                <option value="N/M">调机(N/M)</option>
+                                <option value="O/F">急救(O/F)</option>
+                                <option value="P/F">单飞(P/F)</option>
+                                <option value="R/T">返航(R/T)</option>
+                                <option value="R/W">日航(R/W)</option>
+                                <option value="R/Z">试航(R/Z)</option>
+                                <option value="S/F">试飞(S/F)</option>
+                                <option value="U/H">公务(U/H)</option>
+                                <option value="W/Z">正班(W/Z)</option>
+                                <option value="X/F">校飞(X/F)</option>
+                                <option value="Y/H">夜航(Y/H)</option>
+                                <option value="Z/P">补班(Z/P)</option>
+                            </select>
+                        </div>
+                        <!-- 航站楼 -->
+                        <div class="dataList-item">
+                            <label class="label">航站楼</label>
+                            <input type="text" name="term_floor" id="term-floor-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <!-- 航空公司 -->
+                        <div class="dataList-item">
+                            <label class="label">航空公司IATA</label>
+                            <input type="text" name="airline" id="airline-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <!-- 机号 -->
+                        <div class="dataList-item">
+                            <label class="label">机号</label>
+                            <input type="text" name="plane_num" id="plane-num-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 机型 -->
+                        <div class="dataList-item">
+                            <label class="label">机型IATA</label>
+                            <input type="text" name="plane_type" id="plane-type-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!--<div class="dataList-item">
+                            <label class="label">服务等级</label>
+                            <select name="state" class="select-style">
+                                <option value="">请选择</option>
+                                <option value="1">已离港</option>
+                                <option value="2">未离港</option>
+                                <option value="3">未进港</option>
+                            </select>
+                        </div>-->
+                        <!-- 贵宾标识 -->
+                        <div class="dataList-item">
+                            <label class="label">贵宾标识</label>
+                            <select name="flg_vip" id="flag-vip-arr" class="select-style">
+                                <option value="">请选择</option>
+                                <option value="Y">有要客(Y)</option>
+                                <option value="N">无要客(N)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="flight-bottom">
+                    <h4>航线信息</h4>
+                    <div class="dataList clearfix">
+                        <div class="dataList-item">
+                            <label class="label">前场起飞<span class="required">(必填)</span></label>
+                            <input type="text" name="take_off" id="take-off-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">本场到达<span class="required">(必填)</span></label>
+                            <input type="text" id="arrive-arr" name="arrive" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">计划前场离港时间<span class="required">(必填)</span></label>
+                            <input type="text" name="std" id="std-arr"  placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" lay-verify="required"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">预计前场离港时间</label>
+                            <input type="text" name="etd" id="etd-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">实际前场离港时间</label>
+                            <input type="text" name="atd" id="atd-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">计划本场到港时间<span class="required">(必填)</span></label>
+                            <input type="text" name="sta" id="sta-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" lay-verify="required"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">预计本场到港时间</label>
+                            <input type="text" name="eta" id="eta-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">实际本场到港时间</label>
+                            <input type="text" name="ata" id="ata-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <!-- 链接航班 -->
+                        <!--<div class="dataList-item">
+                            <label class="label">链接航班</label>
+                            <input type="text" name="link_flight" id="fli-link-flight" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>-->
+                        <!-- 链接运营日 -->
+                        <!--<div class="dataList-item">
+                            <label class="label">链接运营日</label>
+                            <input type="text" name="link_oper_day" id="fli-link-day" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date" />
+                        </div>-->
+                        <!-- 航线起始 -->
+                        <div class="dataList-item">
+                            <label class="label">航线起始<span class="required">(必填)</span></label>
+                            <input type="text" name="airline_start" id="airline-start-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <!-- 经停1 -->
+                        <div class="dataList-item">
+                            <label class="label">经停1</label>
+                            <input type="text" name="air_line_1" id="airline-1-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 经停2 -->
+                        <div class="dataList-item">
+                            <label class="label">经停2</label>
+                            <input type="text" name="air_line_2" id="airline-2-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 航线结束 -->
+                        <div class="dataList-item">
+                            <label class="label">航线结束<span class="required">(必填)</span></label>
+                            <input type="text" name="airline_end" id="airline-end-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <!-- 共享主航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">共享主航班号</label>
+                            <input type="text" name="share_main" id="share-main-arr"  placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                         <!-- 共享航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">共享航班号</label>
+                            <input type="text" name="share_code2" id="share-2-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 合并航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">合并航班号</label>
+                            <input type="text" name="merge_flight" id="merge-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <!-- 被合并航班号 -->
+                        <div class="dataList-item">
+                            <label class="label">被合并航班号</label>
+                            <input type="text" name="be_merge_fli" id="be-merge-arr" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                    </div>
+                </div>
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit lay-filter="flight-data">确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <div class="close-btn icon icon-close"></div>
+        </div>
+    </div>
+    <!--资源分配 弹框-->
+    <div class="mod-boxMask resource-allo js-resource-allo" style="display: none">
+        <div class="mod-popupBox">
+            <!-- 弹框内容 start -->
+            <h3 class="js-modalBigTitle">添加数据</h3>
+            <form class="layui-form">
+                <div class="flight-top">
+                    <div class="dataList clearfix">
+                        <div class="dataList-item">
+                            <label class="label">运营日<span class="required">(必填)</span></label>
+                            <input type="text" name="oper-day" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date" lay-verify="required"
+                            />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">航班号<span class="required">(必填)</span></label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"
+                            />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">机号</label>
+                            <input type="text" name="oper-day" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">到/离港标识<span class="required">(必填)</span></label>
+                            <select name="state" class="select-style" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="1">到港</option>
+                                <option value="2">离港</option>                         
+                            </select>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">国内/国际标识<span class="required">(必填)</span></label>
+                            <select name="state" class="select-style" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="1">国内</option>
+                                <option value="2">国际</option>                         
+                            </select>
+                        </div>
+                        <div class="board-gate-res board-check-bag show">
+                            <div class="dataList-item">
+                                <label class="label">登机口<span class="required">(必填)</span></label>
+                                <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"
+                                />
+                            </div>
+                        </div>
+                        <div class="check-in-res board-check-bag hide">
+                            <div class="dataList-item">
+                                <label class="label">值机柜台<span class="required">(必填)</span></label>
+                                <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"
+                                />
+                            </div>
+                        </div>
+                        <div class="baggage-res board-check-bag hide">
+                            <div class="dataList-item">
+                                <label class="label">行李转盘<span class="required">(必填)</span></label>
+                                <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"
+                                />
+                            </div>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">预计开始时间</label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">预计结束时间</label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">实际开始时间</label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">实际结束时间</label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style js-date-time" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">始发地</label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">目的地</label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">航空公司</label>
+                            <input type="text" name="flight-num" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                    </div>
+                </div>
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit>确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <div class="close-btn icon icon-close"></div>
+        </div>
+    </div>
+    <!--基础数据 弹框-->
+    <div class="mod-boxMask base-data js-base-data" style="display: none">
+        <div class="mod-popupBox">
+            <!-- 弹框内容 start -->
+            <h3 class="js-modalBigTitle">添加数据</h3>
+            <div class="form-box">
+                <!--飞机数据-->
+                <form class="layui-form plane-data show">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-flag-id" style="display: none"/>                        
+                        <div class="dataList-item">
+                            <label class="label">飞机注册号</label>
+                            <input type="text" name="ac_reg_no" placeholder="请输入" autocomplete="off" class="layui-input input-style" lay-verify="required"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">机型IATA代码</label>
+                            <input type="text" name="ac_type_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">所属航空公司IATA代码</label>
+                            <input type="text" name="airline_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">删除标志</label>
+                            <select name="flag_del" class="select-style" lay-filter="base-data-sel">
+                                <option value="">请选择</option>
+                                <option value="N">未删除</option>
+                                <option value="Y">已删除</option>
+                            </select>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">附加代码</label>
+                            <input type="text" name="ext_code" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--机型数据-->
+                <form class="layui-form model-data hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-model-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">机型IATA代码</label>
+                            <input type="text" name="ac_type_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">机型IACO代码</label>
+                            <input type="text" name="ac_type_iaco" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--航空公司-->
+                <form class="layui-form airline hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-airline-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">简称</label>
+                            <input type="text" name="short_name" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">国内/国际属性</label>
+                            <select name="dori" class="select-style" lay-filter="base-data-sel">
+                                <option value="">请选择</option>
+                                <option value="D">国内(D)</option>
+                                <option value="I">国际(I)</option>                         
+                                <option value="M">混合(M)</option>                         
+                                <option value="R">地区(R)</option> 
+                            </select>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">航空公司IATA代码</label>
+                            <input type="text" name="airline_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">航空公司ICAO代码</label>
+                            <input type="text" name="airline_icao" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">基地机场ICAO代码</label>
+                            <input type="text" name="airport_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">航空公司联盟代码</label>
+                            <input type="text" name="alliance_code" placeholder="请输入" autocomplete="off" class="layui-input input-style" />
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--航空联盟-->
+                <form class="layui-form air-alliance hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-alliance-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">联盟代码</label>
+                            <input type="text" name="alliance_code" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">备注</label>
+                            <input type="text" name="remark" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--机场-->
+                <form class="layui-form airport hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-airport-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">简称</label>
+                            <input type="text" name="short_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">国内/国际属性</label>
+                            <select name="dori" class="select-style" lay-filter="base-data-sel">
+                                <option value="">请选择</option>
+                                <option value="D">国内(D)</option>
+                                <option value="I">国际(I)</option>                         
+                                <option value="M">混合(M)</option>                         
+                                <option value="R">地区(R)</option>   
+                            </select>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">机场IATA代码</label>
+                            <input type="text" name="airport_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">机场ICAO代码</label>
+                            <input type="text" name="airport_icao" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">城市IATA代码</label>
+                            <input type="text" name="city_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">区域代码</label>
+                            <input type="text" name="area_code" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--城市-->
+                <form class="layui-form city hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-city-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">简称</label>
+                            <input type="text" name="short_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">所属省份标识</label>
+                            <input type="text" name="province_flag" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">城市IATA代码</label>
+                            <input type="text" name="city_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">城市ICAO代码</label>
+                            <input type="text" name="city_icao" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">国际IATA代码</label>
+                            <input type="text" name="con_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--省份-->
+                <form class="layui-form province hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-province-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">简称</label>
+                            <input type="text" name="short_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">国内/国际属性</label>
+                            <select name="dori" class="select-style" lay-filter="base-data-sel">
+                                <option value="">请选择</option>
+                                <option value="D">国内(D)</option>
+                                <option value="I">国际(I)</option>                         
+                                <option value="M">混合(M)</option>                         
+                                <option value="R">地区(R)</option> 
+                            </select>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--国家-->
+                <form class="layui-form country hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-country-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">国家IATA代码</label>
+                            <input type="text" name="country_iata" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">国家ICAO代码</label>
+                            <input type="text" name="country_icao" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--任务代码-->
+                <form class="layui-form task-code hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-task-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">任务代码</label>
+                            <input type="text" name="task_code" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">描述</label>
+                            <input type="text" name="desc" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>
+                <!--延误代码-->
+                <form class="layui-form delay-code hide">
+                    <div class="dataList clearfix">
+                        <input type="text" name="id" class="js-delay-id" style="display: none"/>
+                        <div class="dataList-item">
+                            <label class="label">延误代码</label>
+                            <input type="text" name="delay_code" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">延误类型</label>
+                            <input type="text" name="delay_type" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">中文名称</label>
+                            <input type="text" name="cn_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">英文名称</label>
+                            <input type="text" name="en_name" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                        <div class="dataList-item">
+                            <label class="label">描述</label>
+                            <input type="text" name="desc" placeholder="请输入" autocomplete="off" class="layui-input input-style"/>
+                        </div>
+                    </div>
+                    <!-- btn start -->
+                    <div class="btnBox">
+                        <div class="cancel-btn">取消</div>
+                        <div class="ensure-btn" lay-submit lay-filter="base-data">确定</div>
+                        <input type="reset" class="js-reset" style="display: none" />
+                    </div>
+                </form>                
+            </div>
+            <div class="close-btn icon icon-close"></div>
+        </div>
+    </div>
+    <!-- 导入数据 -->
+    <div class="mod-boxMask import-data js-import-data" style="display: none">
+        <div class="mod-popupBox">
+            <!-- 弹框内容 start -->
+            <h3 class="js-modalBigTitle">上传文件</h3>
+            <form enctype="multipart/form-data" class="importFile">
+                <div class="importFile-con">
+                    <label class="label">文件位置：</label>
+                    <input type="text" name="oper-day" class="layui-input input-style show-file-name" readonly/>
+                    <div class="upload">
+                        选择文件路径<input id="path" name="path" accept=".xlsx,.xls" type="file" />
+                    </div>
+                    <span class="input-tips"></span>
+                </div>
+                <!-- btn start -->
+                <div class="btnBox">
+                    <div class="cancel-btn">取消</div>
+                    <div class="ensure-btn" lay-submit>确定</div>
+                    <input type="reset" class="js-reset" style="display: none" />
+                </div>
+            </form>
+            <div class="close-btn icon icon-close"></div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--航班计划：tableCon列表-->
+<script type="text/x-dot-template" id="flight-plan-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.FDID}}">
+        <p><span class="checkbox"></span></p>
+        <p>{{!new Date(Number(/(\d+)/.exec(value.OPERATION_DATE)[1])).toLocaleDateString()}}</p>
+        <p>{{=value.FLIGHT_NO}}</p>
+        <p>{{=value.DORI}}</p>
+        <p>{{=value.TASK_CODE}}</p>
+        <p>{{=value.AIRLINE_IATA}}</p>
+        <p>{{=value.AIRCRAFT_TYPE_IATA || '---'}}</p>
+        <p>{{=value.AC_REG_NO || '---'}}</p>
+        <p>{{=value.SERVICE_CLASS || '---'}}</p>
+        <p>{{=value.FLG_VIP}}</p>
+        <p>{{=value.ORIGIN_AIRPORT_IATA}}</p>
+        <p>{{! value.STD ? new Date(Number(/(\d+)/.exec(value.STD)[1])).toLocaleString() : '---'}}</p>
+        <p>{{! value.ETD ? new Date(Number(/(\d+)/.exec(value.ETD)[1])).toLocaleString() : '---'}}</p>
+        <p>{{! value.ATD ? new Date(Number(/(\d+)/.exec(value.ATD)[1])).toLocaleString() : '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--弹框中的任务代码选择框-->
+<script  type="text/x-dot-template" id="modal-task-code-tmpl">
+    <option value="">请选择</option>
+    {{~it:value}}
+    <option value="{{=value.Task_Code}}">{{=value.Name_Chinese}}({{=value.Task_Code}})</option>
+    {{~}}
+</script>
+<!--基础数据：飞机数据列表 -->
+<script type="text/x-dot-template" id="plane-data-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-reg-no="{{!value.AC_REG_NO.trim()}}">{{!value.AC_REG_NO.trim() || '---'}}</p>
+        <p data-type-iata="{{!value.AC_TYPE_IATA.trim()}}">{{!value.AC_TYPE_IATA.trim() || '---'}}</p>
+        <p data-airline-iata={{!value.AIRLINE_IATA.trim()}}>{{!value.AIRLINE_IATA.trim() || '---'}}</p>
+        <p data-flg-del="{{!value.FLG_DELETED.trim()}}">{{!value.FLG_DELETED.trim() || '---'}}</p>
+        <p data-ext-code="{{!value.EXT_CODE.trim()}}">{{!value.EXT_CODE.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：机型数据列表 -->
+<script type="text/x-dot-template" id="model-data-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-name-cn={{!value.name_chinese.trim()}}>{{!value.name_chinese.trim() || '---'}}</p>
+        <p data-name-en={{!value.name_english.trim()}}>{{!value.name_english.trim() || '---'}}</p>
+        <p data-iata-code={{!value.iataCode.trim()}}>{{!value.iataCode.trim() || '---'}}</p>
+        <p data-icao-code={{!value.icaoCode.trim()}}>{{!value.icaoCode.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：航空公司列表 -->
+<script type="text/x-dot-template" id="airline-data-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-short-name="{{!value.Short_Name.trim()}}">{{!value.Short_Name.trim() || '---'}}</p>
+        <p data-cn-name="{{!value.NAME_CHINESE.trim()}}">{{!value.NAME_CHINESE.trim() || '---'}}</p>
+        <p data-en-name="{{!value.NAME_ENGLISH.trim()}}" >{{!value.NAME_ENGLISH.trim() || '---'}}</p>
+        <p data-dori="{{!value.DORI.trim()}}">{{!value.DORI.trim() || '---'}}</p>
+        <p data-airline-iata="{{!value.Airline_IATA.trim()}}">{{!value.Airline_IATA.trim() || '---'}}</p>
+        <p data-airline-icao="{{!value.Airline_ICAO.trim()}}">{{!value.Airline_ICAO.trim() || '---'}}</p>
+        <p data-airport-iata="{{!value.Host_AirPort_IATA.trim()}}">{{!value.Host_AirPort_IATA.trim() || '---'}}</p>
+        <p data-alliance-code="{{!value.ALLIANCE_CODE.trim()}}">{{!value.ALLIANCE_CODE.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：航空联盟列表 -->
+<script type="text/x-dot-template" id="air-alliance-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-alliance-name="{{!value.ALLIANCE_NAME.trim()}}">{{!value.ALLIANCE_NAME.trim() || '---'}}</p>
+        <p data-cn-name="{{!value.NAME_CHINESE.trim()}}">{{!value.NAME_CHINESE.trim() || '---'}}</p>
+        <p data-en-name="{{!value.NAME_ENGLISH.trim()}}">{{!value.NAME_ENGLISH.trim() || '---'}}</p>
+        <p data-remark="{{!value.REMARK.trim()}}">{{!value.REMARK.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：机场列表 -->
+<script type="text/x-dot-template" id="airport-data-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-short-name="{{!value.SHORT_NAME.trim()}}">{{!value.SHORT_NAME.trim() || '---'}}</p>
+        <p data-cn-name="{{!value.NAME_CHINESE.trim()}}">{{!value.NAME_CHINESE.trim() || '---'}}</p>
+        <p data-en-name="{{!value.NAME_ENGLISH.trim()}}">{{!value.NAME_ENGLISH.trim() || '---'}}</p>
+        <p data-dori="{{!value.DORI.trim()}}">{{!value.DORI.trim() || '---'}}</p>
+        <p data-airport-iata="{{!value.AIRPORT_IATA.trim()}}">{{!value.AIRPORT_IATA.trim() || '---'}}</p>
+        <p data-airport-icao="{{!value.AIRPORT_ICAO.trim()}}">{{!value.AIRPORT_ICAO.trim() || '---'}}</p>
+        <p data-city-iata="{{!value.CITY_IATA.trim()}}">{{!value.CITY_IATA.trim() || '---'}}</p>
+        <p data-area-code="{{!value.REGION_CODE.trim()}}">{{!value.REGION_CODE.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：城市列表 -->
+<script type="text/x-dot-template" id="city-data-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-short-name="{{!value.Short_Chinese.trim()}}">{{!value.Short_Chinese.trim() || '---'}}</p>
+        <p data-cn-name="{{!value.Name_Chinese.trim()}}">{{!value.Name_Chinese.trim() || '---'}}</p>
+        <p data-en-name="{{!value.Name_English.trim()}}">{{!value.Name_English.trim() || '---'}}</p>
+        <p data-province="{{!value.Province_IS}}">{{!value.Province_IS || '---'}}</p>
+        <p data-city-iata="{{!value.City_IATA.trim()}}">{{!value.City_IATA.trim() || '---'}}</p>
+        <p data-city-icao="{{!value.City_ICAO.trim()}}">{{!value.City_ICAO.trim() || '---'}}</p>
+        <p data-country-iata="{{!value.Country_IATA.trim()}}">{{!value.Country_IATA.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：省份列表 -->
+<script type="text/x-dot-template" id="province-data-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.Province_ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-short-name="{{!value.Short_Name.trim()}}">{{!value.Short_Name.trim() || '---'}}</p>
+        <p data-cn-name="{{!value.Name_Chinese.trim()}}">{{!value.Name_Chinese.trim() || '---'}}</p>
+        <p data-en-name="{{!value.Name_English.trim()}}">{{!value.Name_English.trim() || '---'}}</p>
+        <p data-dori="{{!value.DORI.trim()}}">{{!value.DORI.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：国家列表 -->
+<script type="text/x-dot-template" id="country-data-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-cn-name="{{!value.Name_Chinese.trim()}}">{{!value.Name_Chinese.trim() || '---'}}</p>
+        <p data-en-name="{{!value.Name_English.trim()}}">{{!value.Name_English.trim() || '---'}}</p>
+        <p data-country-iata="{{!value.Country_IATA.trim()}}">{{!value.Country_IATA.trim() || '---'}}</p>
+        <p data-country-icao="{{!value.Country_ICAO.trim()}}">{{!value.Country_ICAO.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：任务代码 -->
+<script type="text/x-dot-template" id="task-code-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-task-code="{{!value.Task_Code.trim()}}">{{!value.Task_Code.trim() || '---'}}</p>
+        <p data-cn-name="{{!value.Name_Chinese.trim()}}">{{!value.Name_Chinese.trim() || '---'}}</p>
+        <p data-en-name="{{!value.Name_English.trim()}}">{{!value.Name_English.trim() || '---'}}</p>
+        <p data-desc="{{!value.Description.trim()}}">{{!value.Description.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>
+<!--基础数据：延误代码 -->
+<script type="text/x-dot-template" id="delay-code-tmpl">
+    {{~it:value}}
+    <li class="row" data-id="{{=value.ID}}">
+        <p><span class="checkbox"></span></p>
+        <p data-delay-code="{{!value.Delay_Code.trim()}}">{{!value.Delay_Code.trim() || '---'}}</p>
+        <p data-delay-type="{{!value.Type.trim()}}">{{!value.Type.trim() || '---'}}</p>
+        <p data-cn-name="{{!value.Code_Chinese.trim()}}">{{!value.Code_Chinese.trim() || '---'}}</p>
+        <p data-en-name="{{!value.Code_English.trim()}}">{{!value.Code_English.trim() || '---'}}</p>
+        <p data-desc="{{!value.Description.trim()}}">{{!value.Description.trim() || '---'}}</p>
+    </li>
+    {{~}}
+</script>

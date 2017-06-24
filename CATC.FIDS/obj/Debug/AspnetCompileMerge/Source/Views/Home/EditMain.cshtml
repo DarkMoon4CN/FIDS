@@ -1,0 +1,241 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>编辑主页</title>
+    <link href="~/Content/publicEdit.css" rel="stylesheet" />
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/editMain.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/editMain.js"></script>
+    <script src="~/Scripts/util.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="logo clearfix">
+            <h1>
+                <div><img src="~/Images/catc.png" alt="民航电信" /></div>
+                <span>民航电信</span>
+            </h1>
+            <p>FIDS编辑系统</p>
+        </div>
+        <div class="admin">
+            <span><i class="icon-admin"></i>管理员11</span>
+            <span>退出</span>
+        </div>
+    </div>
+    <div id="main">
+        <!-- 左侧边栏 start-->
+        <ul class="leftSildeBar">
+            <li class="option">
+                <h3>航显风格</h3>
+                <ol class="templateStyle js-templateStyle">
+                    <li class="is-active" data-style="blue">
+                        <div>蓝色风格</div>
+                    </li>
+                    <li data-style="black">
+                        <div>黑色风格</div>
+                    </li>
+                    <li data-style="classic">
+                        <div>经典风格</div>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+        <!--左侧边栏 end-->
+        <!-- 主要编辑部分 start -->
+        <div class="mainContent">
+            <ul class="category js-category blueStyle">
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>到港、离港大屏</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">到港、离港大屏显示设计</p>
+                        <p class="dis-titleEn">DepartureLargeScreen Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <div class="animate-hover">
+                            <a href="/Home/index?ak=BSDepartureAndArrival" style="border:0">
+                                <div class="dis-circle">
+                                    <div class="dis-arrow"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>值机显示屏</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">值机显示屏设计</p>
+                        <p class="dis-titleEn">Checkins Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <a href="/Home/index?ak=Checkins" style="border:0">
+                            <div class="dis-circle">
+                                <div class="dis-arrow"></div>
+                            </div>
+                        </a>
+                      </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>登机引导显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">登机引导显示设计</p>
+                        <p class="dis-titleEn">BoardingGate Design</p>
+                        <p class="dis-line"><span></span></p>
+                        
+                        <a href="/Home/index?ak=BoardingGuide" style="border:0">
+                            <div class="dis-circle">
+                                <div class="dis-arrow"></div>
+                            </div>
+                        </a>
+                        
+                     </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>离港航班显示</span>
+                    </div>
+                  
+                        <div class="displayView-mask">
+                            <p class="dis-title">离港航班显示设计</p>
+                            <p class="dis-titleEn">DepartureFlight Design</p>
+                            <p class="dis-line"><span></span></p>
+                            <a href="/Home/index?ak=DepartureFlight" style="border:0">
+                                <div class="dis-circle">
+                                    <div class="dis-arrow"></div>
+                                </div>
+                            </a>
+                        </div>
+                    
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>到港航班显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">到港航班显示设计</p>
+                        <p class="dis-titleEn">ArrivalFlight Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <a href="/Home/index?ak=ArrivalFlight" style="border:0">
+                            <div class="dis-circle">
+                                <div class="dis-arrow"></div>
+                            </div>
+                        </a>
+                     </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>行李提取显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">行李提取显示设计</p>
+                        <p class="dis-titleEn">BaggageClaim Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <a href="/Home/index?ak=BaggageClaim" style="border:0">
+                            <div class="dis-circle">
+                                <div class="dis-arrow"></div>
+                            </div>
+                            </a>
+                        </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>登机口信息显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">登机口信息显示设计</p>
+                        <p class="dis-titleEn">BoardingGate Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <a href="/Home/index?ak=BoardingGate" style="border:0">
+                            <div class="dis-circle">
+                                <div class="dis-arrow"></div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>天气气象显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">天气气象显示设计</p>
+                        <p class="dis-titleEn">Weather Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <div class="dis-circle">
+                            <div class="dis-arrow"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span class="font-vip">VIP/特殊旅客信息显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">VIP/特殊旅客信息显示设计</p>
+                        <p class="dis-titleEn">Weather Design</p>
+                        <p class="dis-line"><span></span></p>
+
+                        <a href="/Home/index?ak=SpecialService" style="border:0">
+                            <div class="dis-circle">
+                                <div class="dis-arrow"></div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span class="font-vip">紧急事件/临时消息显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">紧急事件/临时消息显示设计</p>
+                        <p class="dis-titleEn">Weather Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <div class="dis-circle">
+                            <div class="dis-arrow"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="displayView">
+                        <img src="~/Images/bg-smallview.png" alt="" />
+                        <span>其他信息显示</span>
+                    </div>
+                    <div class="displayView-mask">
+                        <p class="dis-title">其他信息显示设计</p>
+                        <p class="dis-titleEn">Other Design</p>
+                        <p class="dis-line"><span></span></p>
+                        <a href="/Home/index?ak=Bulletin" style="border:0">
+                            <div class="dis-circle">
+                                <div class="dis-arrow"></div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 主要编辑部分 end -->
+    </div>
+</body>
+</html>

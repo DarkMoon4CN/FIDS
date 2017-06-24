@@ -1,0 +1,139 @@
+/* header start */
+.header {
+    position: relative;
+    width: 100%;
+    height: 3.9rem;
+    background: #fdfdfd;
+    background: -webkit-linear-gradient(left, #fdfdfd,#fcfcfc);
+    box-shadow: 2px 2px 8px 0 rgba(0,0,0,.35);
+    font-size:0.48rem;
+    overflow: hidden;
+}
+
+.header .header-logo {
+    float: left;
+    width: 10.97rem;
+    height: 3.05rem;
+    padding: 0.39rem 0 0 0.68rem;
+}
+.header .header-pic {
+    float: right;
+    width: 6.6rem;
+    height: 2.4rem;
+    padding-top: 0.68rem;
+    padding-right: 0.6rem;
+}
+.header img {
+    max-width: 100%;
+    height: auto;
+}
+/* header end */
+/* main start */
+.main {
+    color:#fff;
+    width: 100%;
+    text-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+/* main-left start */
+.main .main-left {
+    float: left;
+    width: 54.167%;
+}
+.main .main-left>div{
+    width: 8.97rem;
+    height: auto;
+    margin-left: 0.64rem;
+    text-align: center;
+}
+.main .main-left .flightNum {
+    margin-top: 0.43rem;
+    font-size: 2.4rem;
+    line-height: 1.9rem;
+    /*text-shadow: 0 0 4px #fff;*/
+}
+.main .main-left .flightRoute {
+    width: 8.97rem;
+    height: 2.5rem;
+    margin-top: 1.55rem;
+    line-height: 2rem;
+    font-size: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.main .main-left .flightRouteSpell {
+    /*margin-top: 0.05rem;*/
+    /*height: 1.30rem;*/
+    /*overflow: hidden;*/
+    padding-left: 0.5rem;
+    line-height: 2rem;
+    font-size: 2rem;
+}
+
+/* main-left end */
+.ext-line {
+    float: left;
+    width: 10px;
+    height: 2.4rem;
+    margin-top: 0.5rem;
+    background-color: #fff;
+}
+/* main-right start */
+.main .main-right {
+    float: left;
+    padding-left: 1.4rem;
+    padding-top: .5rem;
+}
+.main-right .planInfo > div{
+    /*display: inline-block;*/
+    padding-top: 0.2rem;
+    padding-bottom: 0.55rem;
+    text-align: center;
+}
+.main-right .planInfo .planInfo-name {
+    /*width: 4.7rem;*/
+    font-size: 1rem;
+    line-height: 0.57rem;
+    font-family: FangSong;
+}
+.main-right .planInfo .planInfo-con {
+    font-size: 1.2rem;
+    line-height: 0.57rem;
+}
+/* main-right end */
+/* main end */
+.labelBox {
+    position:absolute;
+    top:0;
+    left:0;
+    min-width: 3.2rem;
+    max-width: 8.0rem;
+    /*overflow:hidden;*/
+    height: 100%;
+    line-height:1.93rem;
+    color:#0f86e1;
+    text-align:center;
+    background-color:#fff;
+    white-space: nowrap;
+    /*width:3.2rem;*/
+    height:1.93rem;
+    /*padding-top: 0.5rem;*/
+}
+.timeBox {
+    margin-left: 0.86rem;
+    margin-top: 0.66rem;
+    font-size: 0.30rem;
+    font-weight: 300;
+}
+.header .labelBox img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    /*width: 100%;
+    height: 100%;*/
+}

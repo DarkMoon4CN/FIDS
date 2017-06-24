@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CATC_FIDS_DBModelStoreContainer" CdmEntityContainer="CATC_FIDS_DBEntities">
+    <EntitySetMapping Name="DailySchedule">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.DailySchedule">
+        <MappingFragment StoreEntitySet="DailySchedule">
+          <ScalarProperty Name="flightID" ColumnName="flightID" />
+          <ScalarProperty Name="flightKey" ColumnName="flightKey" />
+          <ScalarProperty Name="actualTime" ColumnName="actualTime" />
+          <ScalarProperty Name="scheduleTime" ColumnName="scheduleTime" />
+          <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+          <ScalarProperty Name="dailyID" ColumnName="dailyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailySchedule_Extension">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.DailySchedule_Extension">
+        <MappingFragment StoreEntitySet="DailySchedule_Extension">
+          <ScalarProperty Name="override" ColumnName="override" />
+          <ScalarProperty Name="attributes" ColumnName="attributes" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="instance" ColumnName="instance" />
+          <ScalarProperty Name="fieldID" ColumnName="fieldID" />
+          <ScalarProperty Name="dailyID" ColumnName="dailyID" />
+          <ScalarProperty Name="extensionID" ColumnName="extensionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailySchedule_ExtFileds">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.DailySchedule_ExtFileds">
+        <MappingFragment StoreEntitySet="DailySchedule_ExtFileds">
+          <ScalarProperty Name="OtherName" ColumnName="OtherName" />
+          <ScalarProperty Name="englishName" ColumnName="englishName" />
+          <ScalarProperty Name="chineseName" ColumnName="chineseName" />
+          <ScalarProperty Name="field" ColumnName="field" />
+          <ScalarProperty Name="filedID" ColumnName="filedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventItem">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.EventItem">
+        <MappingFragment StoreEntitySet="EventItem">
+          <ScalarProperty Name="dataValue" ColumnName="dataValue" />
+          <ScalarProperty Name="dataID" ColumnName="dataID" />
+          <ScalarProperty Name="creationtime" ColumnName="creationtime" />
+          <ScalarProperty Name="creator" ColumnName="creator" />
+          <ScalarProperty Name="eventItemID" ColumnName="eventItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventMessage">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.EventMessage">
+        <MappingFragment StoreEntitySet="EventMessage">
+          <ScalarProperty Name="fontColor" ColumnName="fontColor" />
+          <ScalarProperty Name="actionKeys" ColumnName="actionKeys" />
+          <ScalarProperty Name="otherContent" ColumnName="otherContent" />
+          <ScalarProperty Name="englishContent" ColumnName="englishContent" />
+          <ScalarProperty Name="chineseContent" ColumnName="chineseContent" />
+          <ScalarProperty Name="dataType" ColumnName="dataType" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="creator" ColumnName="creator" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="strartTime" ColumnName="strartTime" />
+          <ScalarProperty Name="emid" ColumnName="emid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Aircraft">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Aircraft">
+        <MappingFragment StoreEntitySet="F_Aircraft">
+          <ScalarProperty Name="EXT_CODE" ColumnName="EXT_CODE" />
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="SUBAIRLINE_ID" ColumnName="SUBAIRLINE_ID" />
+          <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+          <ScalarProperty Name="AC_TYPE_IATA" ColumnName="AC_TYPE_IATA" />
+          <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_AircraftType">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_AircraftType">
+        <MappingFragment StoreEntitySet="F_AircraftType">
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="name_chinese" ColumnName="name_chinese" />
+          <ScalarProperty Name="name_english" ColumnName="name_english" />
+          <ScalarProperty Name="icaoCode" ColumnName="icaoCode" />
+          <ScalarProperty Name="iataCode" ColumnName="iataCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Airline">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Airline">
+        <MappingFragment StoreEntitySet="F_Airline">
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="ALLIANCE_CODE" ColumnName="ALLIANCE_CODE" />
+          <ScalarProperty Name="NAME_CHINESE" ColumnName="NAME_CHINESE" />
+          <ScalarProperty Name="NAME_ENGLISH" ColumnName="NAME_ENGLISH" />
+          <ScalarProperty Name="DORI" ColumnName="DORI" />
+          <ScalarProperty Name="MinLogo" ColumnName="MinLogo" />
+          <ScalarProperty Name="MaxLogo" ColumnName="MaxLogo" />
+          <ScalarProperty Name="Host_AirPort_IATA" ColumnName="Host_AirPort_IATA" />
+          <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+          <ScalarProperty Name="Airline_ICAO" ColumnName="Airline_ICAO" />
+          <ScalarProperty Name="Airline_IATA" ColumnName="Airline_IATA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Airline_Sub">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Airline_Sub">
+        <MappingFragment StoreEntitySet="F_Airline_Sub">
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="Subairline_Name" ColumnName="Subairline_Name" />
+          <ScalarProperty Name="Parent_Airline" ColumnName="Parent_Airline" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Airport">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Airport">
+        <MappingFragment StoreEntitySet="F_Airport">
+          <ScalarProperty Name="REGION_CODE" ColumnName="REGION_CODE" />
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="NAME_ENGLISH" ColumnName="NAME_ENGLISH" />
+          <ScalarProperty Name="NAME_CHINESE" ColumnName="NAME_CHINESE" />
+          <ScalarProperty Name="DORI" ColumnName="DORI" />
+          <ScalarProperty Name="CITY_IATA" ColumnName="CITY_IATA" />
+          <ScalarProperty Name="SHORT_NAME" ColumnName="SHORT_NAME" />
+          <ScalarProperty Name="AIRPORT_ICAO" ColumnName="AIRPORT_ICAO" />
+          <ScalarProperty Name="AIRPORT_IATA" ColumnName="AIRPORT_IATA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Alliance">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Alliance">
+        <MappingFragment StoreEntitySet="F_Alliance">
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="NAME_ENGLISH" ColumnName="NAME_ENGLISH" />
+          <ScalarProperty Name="NAME_CHINESE" ColumnName="NAME_CHINESE" />
+          <ScalarProperty Name="ALLIANCE_NAME" ColumnName="ALLIANCE_NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_City">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_City">
+        <MappingFragment StoreEntitySet="F_City">
+          <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+          <ScalarProperty Name="Province_IS" ColumnName="Province_IS" />
+          <ScalarProperty Name="Short_Chinese" ColumnName="Short_Chinese" />
+          <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+          <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+          <ScalarProperty Name="City_ICAO" ColumnName="City_ICAO" />
+          <ScalarProperty Name="Country_IATA" ColumnName="Country_IATA" />
+          <ScalarProperty Name="City_IATA" ColumnName="City_IATA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Country">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Country">
+        <MappingFragment StoreEntitySet="F_Country">
+          <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+          <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+          <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+          <ScalarProperty Name="Country_ICAO" ColumnName="Country_ICAO" />
+          <ScalarProperty Name="Country_IATA" ColumnName="Country_IATA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_DelayCode">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_DelayCode">
+        <MappingFragment StoreEntitySet="F_DelayCode">
+          <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code_English" ColumnName="Code_English" />
+          <ScalarProperty Name="Code_Chinese" ColumnName="Code_Chinese" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Delay_Code" ColumnName="Delay_Code" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Province">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Province">
+        <MappingFragment StoreEntitySet="F_Province">
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="DORI" ColumnName="DORI" />
+          <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+          <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+          <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+          <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_Status">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_Status">
+        <MappingFragment StoreEntitySet="F_Status">
+          <ScalarProperty Name="FLG_DELETED" ColumnName="FLG_DELETED" />
+          <ScalarProperty Name="StatusLevel" ColumnName="StatusLevel" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="ENGLISH_NAME" ColumnName="ENGLISH_NAME" />
+          <ScalarProperty Name="CHINESE_NAME" ColumnName="CHINESE_NAME" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="F_TaskCode">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.F_TaskCode">
+        <MappingFragment StoreEntitySet="F_TaskCode">
+          <ScalarProperty Name="FLG_Deleted" ColumnName="FLG_Deleted" />
+          <ScalarProperty Name="Is_Civil" ColumnName="Is_Civil" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+          <ScalarProperty Name="Name_Chinese" ColumnName="Name_Chinese" />
+          <ScalarProperty Name="Task_Code" ColumnName="Task_Code" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FIDS_Parameter">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.FIDS_Parameter">
+        <MappingFragment StoreEntitySet="FIDS_Parameter">
+          <ScalarProperty Name="paraDescription" ColumnName="paraDescription" />
+          <ScalarProperty Name="paraUnit" ColumnName="paraUnit" />
+          <ScalarProperty Name="paraValue" ColumnName="paraValue" />
+          <ScalarProperty Name="paraType" ColumnName="paraType" />
+          <ScalarProperty Name="paraName" ColumnName="paraName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flight_Dynamic">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Dynamic">
+        <MappingFragment StoreEntitySet="Flight_Dynamic">
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
+          <ScalarProperty Name="ADD_TYPE" ColumnName="ADD_TYPE" />
+          <ScalarProperty Name="CODE_SHARE4" ColumnName="CODE_SHARE4" />
+          <ScalarProperty Name="CODE_SHARE3" ColumnName="CODE_SHARE3" />
+          <ScalarProperty Name="CODE_SHARE2" ColumnName="CODE_SHARE2" />
+          <ScalarProperty Name="CODE_SHARE1" ColumnName="CODE_SHARE1" />
+          <ScalarProperty Name="STA4" ColumnName="STA4" />
+          <ScalarProperty Name="DORI4" ColumnName="DORI4" />
+          <ScalarProperty Name="AIRPORT4" ColumnName="AIRPORT4" />
+          <ScalarProperty Name="STD3" ColumnName="STD3" />
+          <ScalarProperty Name="STA3" ColumnName="STA3" />
+          <ScalarProperty Name="DORI3" ColumnName="DORI3" />
+          <ScalarProperty Name="AIRPORT3" ColumnName="AIRPORT3" />
+          <ScalarProperty Name="STD2" ColumnName="STD2" />
+          <ScalarProperty Name="STA2" ColumnName="STA2" />
+          <ScalarProperty Name="DORI2" ColumnName="DORI2" />
+          <ScalarProperty Name="AIRPORT2" ColumnName="AIRPORT2" />
+          <ScalarProperty Name="STD1" ColumnName="STD1" />
+          <ScalarProperty Name="DORI1" ColumnName="DORI1" />
+          <ScalarProperty Name="AIRPORT1" ColumnName="AIRPORT1" />
+          <ScalarProperty Name="ABNORMAL_STATUS" ColumnName="ABNORMAL_STATUS" />
+          <ScalarProperty Name="NEXT_FLIGHT" ColumnName="NEXT_FLIGHT" />
+          <ScalarProperty Name="PREVIOUS_FLIGHT" ColumnName="PREVIOUS_FLIGHT" />
+          <ScalarProperty Name="ATA" ColumnName="ATA" />
+          <ScalarProperty Name="ETA" ColumnName="ETA" />
+          <ScalarProperty Name="STA" ColumnName="STA" />
+          <ScalarProperty Name="DEST_AIRPORT_IATA" ColumnName="DEST_AIRPORT_IATA" />
+          <ScalarProperty Name="ATD" ColumnName="ATD" />
+          <ScalarProperty Name="ETD" ColumnName="ETD" />
+          <ScalarProperty Name="STD" ColumnName="STD" />
+          <ScalarProperty Name="ORIGIN_AIRPORT_IATA" ColumnName="ORIGIN_AIRPORT_IATA" />
+          <ScalarProperty Name="FLG_VIP" ColumnName="FLG_VIP" />
+          <ScalarProperty Name="SERVICE_CLASS" ColumnName="SERVICE_CLASS" />
+          <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+          <ScalarProperty Name="AIRCRAFT_TYPE_IATA" ColumnName="AIRCRAFT_TYPE_IATA" />
+          <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+          <ScalarProperty Name="TERMINAL_NO" ColumnName="TERMINAL_NO" />
+          <ScalarProperty Name="TASK_CODE" ColumnName="TASK_CODE" />
+          <ScalarProperty Name="DORI" ColumnName="DORI" />
+          <ScalarProperty Name="AORD" ColumnName="AORD" />
+          <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+          <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+          <ScalarProperty Name="FLG_IDU" ColumnName="FLG_IDU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FDID" ColumnName="FDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flight_Schedule">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Schedule">
+        <MappingFragment StoreEntitySet="Flight_Schedule">
+          <ScalarProperty Name="CODE_SHARE4" ColumnName="CODE_SHARE4" />
+          <ScalarProperty Name="CODE_SHARE3" ColumnName="CODE_SHARE3" />
+          <ScalarProperty Name="CODE_SHARE2" ColumnName="CODE_SHARE2" />
+          <ScalarProperty Name="CODE_SHARE1" ColumnName="CODE_SHARE1" />
+          <ScalarProperty Name="STD4" ColumnName="STD4" />
+          <ScalarProperty Name="DORI4" ColumnName="DORI4" />
+          <ScalarProperty Name="AIRPORT4" ColumnName="AIRPORT4" />
+          <ScalarProperty Name="STD3" ColumnName="STD3" />
+          <ScalarProperty Name="DORI3" ColumnName="DORI3" />
+          <ScalarProperty Name="AIRPORT3" ColumnName="AIRPORT3" />
+          <ScalarProperty Name="STD2" ColumnName="STD2" />
+          <ScalarProperty Name="DORI2" ColumnName="DORI2" />
+          <ScalarProperty Name="AIRPORT2" ColumnName="AIRPORT2" />
+          <ScalarProperty Name="STD1" ColumnName="STD1" />
+          <ScalarProperty Name="DORI1" ColumnName="DORI1" />
+          <ScalarProperty Name="AIRPORT1" ColumnName="AIRPORT1" />
+          <ScalarProperty Name="NEXT_FLIGHT" ColumnName="NEXT_FLIGHT" />
+          <ScalarProperty Name="PREVIOUS_FLIGHT" ColumnName="PREVIOUS_FLIGHT" />
+          <ScalarProperty Name="STA" ColumnName="STA" />
+          <ScalarProperty Name="DEST_AIRPORT_IATA" ColumnName="DEST_AIRPORT_IATA" />
+          <ScalarProperty Name="STD" ColumnName="STD" />
+          <ScalarProperty Name="ORIGIN_AIRPORT_IATA" ColumnName="ORIGIN_AIRPORT_IATA" />
+          <ScalarProperty Name="FLG_VIP" ColumnName="FLG_VIP" />
+          <ScalarProperty Name="SERVICE_CLASS" ColumnName="SERVICE_CLASS" />
+          <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+          <ScalarProperty Name="AIRCRAFT_TYPE_IATA" ColumnName="AIRCRAFT_TYPE_IATA" />
+          <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+          <ScalarProperty Name="TERMINAL_NO" ColumnName="TERMINAL_NO" />
+          <ScalarProperty Name="TASK_CODE" ColumnName="TASK_CODE" />
+          <ScalarProperty Name="DORI" ColumnName="DORI" />
+          <ScalarProperty Name="AORD" ColumnName="AORD" />
+          <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+          <ScalarProperty Name="OPERATION_DATTE" ColumnName="OPERATION_DATTE" />
+          <ScalarProperty Name="FLIGHT_ID" ColumnName="FLIGHT_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flight_Service">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Service">
+        <MappingFragment StoreEntitySet="Flight_Service">
+          <ScalarProperty Name="FROM_DEVICE" ColumnName="FROM_DEVICE" />
+          <ScalarProperty Name="ACTUAL_END_TIME" ColumnName="ACTUAL_END_TIME" />
+          <ScalarProperty Name="ACTUAL_START_TIME" ColumnName="ACTUAL_START_TIME" />
+          <ScalarProperty Name="EST_END_TIME" ColumnName="EST_END_TIME" />
+          <ScalarProperty Name="EST_START_TIME" ColumnName="EST_START_TIME" />
+          <ScalarProperty Name="SCHED_END_TIME" ColumnName="SCHED_END_TIME" />
+          <ScalarProperty Name="SCHED_START_TIME" ColumnName="SCHED_START_TIME" />
+          <ScalarProperty Name="SERVICE_NAME" ColumnName="SERVICE_NAME" />
+          <ScalarProperty Name="SERVICE_NO" ColumnName="SERVICE_NO" />
+          <ScalarProperty Name="SCHED_ID" ColumnName="SCHED_ID" />
+          <ScalarProperty Name="AORD" ColumnName="AORD" />
+          <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+          <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History_Flight_Dynamic">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.History_Flight_Dynamic">
+        <MappingFragment StoreEntitySet="History_Flight_Dynamic">
+          <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
+          <ScalarProperty Name="ADD_TYPE" ColumnName="ADD_TYPE" />
+          <ScalarProperty Name="CODE_SHARE4" ColumnName="CODE_SHARE4" />
+          <ScalarProperty Name="CODE_SHARE3" ColumnName="CODE_SHARE3" />
+          <ScalarProperty Name="CODE_SHARE2" ColumnName="CODE_SHARE2" />
+          <ScalarProperty Name="CODE_SHARE1" ColumnName="CODE_SHARE1" />
+          <ScalarProperty Name="STA4" ColumnName="STA4" />
+          <ScalarProperty Name="DORI4" ColumnName="DORI4" />
+          <ScalarProperty Name="AIRPORT4" ColumnName="AIRPORT4" />
+          <ScalarProperty Name="STD3" ColumnName="STD3" />
+          <ScalarProperty Name="STA3" ColumnName="STA3" />
+          <ScalarProperty Name="DORI3" ColumnName="DORI3" />
+          <ScalarProperty Name="AIRPORT3" ColumnName="AIRPORT3" />
+          <ScalarProperty Name="STD2" ColumnName="STD2" />
+          <ScalarProperty Name="STA2" ColumnName="STA2" />
+          <ScalarProperty Name="DORI2" ColumnName="DORI2" />
+          <ScalarProperty Name="AIRPORT2" ColumnName="AIRPORT2" />
+          <ScalarProperty Name="STD1" ColumnName="STD1" />
+          <ScalarProperty Name="DORI1" ColumnName="DORI1" />
+          <ScalarProperty Name="AIRPORT1" ColumnName="AIRPORT1" />
+          <ScalarProperty Name="ABNORMAL_STATUS" ColumnName="ABNORMAL_STATUS" />
+          <ScalarProperty Name="NEXT_FLIGHT" ColumnName="NEXT_FLIGHT" />
+          <ScalarProperty Name="PREVIOUS_FLIGHT" ColumnName="PREVIOUS_FLIGHT" />
+          <ScalarProperty Name="ATA" ColumnName="ATA" />
+          <ScalarProperty Name="ETA" ColumnName="ETA" />
+          <ScalarProperty Name="STA" ColumnName="STA" />
+          <ScalarProperty Name="DEST_AIRPORT_IATA" ColumnName="DEST_AIRPORT_IATA" />
+          <ScalarProperty Name="ATD" ColumnName="ATD" />
+          <ScalarProperty Name="ETD" ColumnName="ETD" />
+          <ScalarProperty Name="STD" ColumnName="STD" />
+          <ScalarProperty Name="ORIGIN_AIRPORT_IATA" ColumnName="ORIGIN_AIRPORT_IATA" />
+          <ScalarProperty Name="FLG_VIP" ColumnName="FLG_VIP" />
+          <ScalarProperty Name="SERVICE_CLASS" ColumnName="SERVICE_CLASS" />
+          <ScalarProperty Name="AC_REG_NO" ColumnName="AC_REG_NO" />
+          <ScalarProperty Name="AIRCRAFT_TYPE_IATA" ColumnName="AIRCRAFT_TYPE_IATA" />
+          <ScalarProperty Name="AIRLINE_IATA" ColumnName="AIRLINE_IATA" />
+          <ScalarProperty Name="TERMINAL_NO" ColumnName="TERMINAL_NO" />
+          <ScalarProperty Name="TASK_CODE" ColumnName="TASK_CODE" />
+          <ScalarProperty Name="DORI" ColumnName="DORI" />
+          <ScalarProperty Name="AORD" ColumnName="AORD" />
+          <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+          <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+          <ScalarProperty Name="FLG_IDU" ColumnName="FLG_IDU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FDID" ColumnName="FDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="L_Operation_Log">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.L_Operation_Log">
+        <MappingFragment StoreEntitySet="L_Operation_Log">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="LogLevel" ColumnName="LogLevel" />
+          <ScalarProperty Name="ModuleValue" ColumnName="ModuleValue" />
+          <ScalarProperty Name="ModuleType" ColumnName="ModuleType" />
+          <ScalarProperty Name="Stataus" ColumnName="Stataus" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LogType" ColumnName="LogType" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_DeviceGroup">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DeviceGroup">
+        <MappingFragment StoreEntitySet="R_DeviceGroup">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_DeviceMonitoring">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DeviceMonitoring">
+        <MappingFragment StoreEntitySet="R_DeviceMonitoring">
+          <ScalarProperty Name="ExceptionMsg" ColumnName="ExceptionMsg" />
+          <ScalarProperty Name="connectedTime" ColumnName="connectedTime" />
+          <ScalarProperty Name="pk_DeviceStatusID" ColumnName="pk_DeviceStatusID" />
+          <ScalarProperty Name="pk_DeviceID" ColumnName="pk_DeviceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_DeviceStatus">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DeviceStatus">
+        <MappingFragment StoreEntitySet="R_DeviceStatus">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_DisplayInfo">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_DisplayInfo">
+        <MappingFragment StoreEntitySet="R_DisplayInfo">
+          <ScalarProperty Name="displayConnectTime" ColumnName="displayConnectTime" />
+          <ScalarProperty Name="displayMark" ColumnName="displayMark" />
+          <ScalarProperty Name="displayMAC" ColumnName="displayMAC" />
+          <ScalarProperty Name="displayGroup" ColumnName="displayGroup" />
+          <ScalarProperty Name="displayState" ColumnName="displayState" />
+          <ScalarProperty Name="displayLuminance" ColumnName="displayLuminance" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+          <ScalarProperty Name="index" ColumnName="index" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="displayName" ColumnName="displayName" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="displayID" ColumnName="displayID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_Facility">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_Facility">
+        <MappingFragment StoreEntitySet="R_Facility">
+          <ScalarProperty Name="FacilityType" ColumnName="FacilityType" />
+          <ScalarProperty Name="Recorder_ID" ColumnName="Recorder_ID" />
+          <ScalarProperty Name="Status_Remark" ColumnName="Status_Remark" />
+          <ScalarProperty Name="Status_Timestamp" ColumnName="Status_Timestamp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DORI" ColumnName="DORI" />
+          <ScalarProperty Name="Terminal_NO" ColumnName="Terminal_NO" />
+          <ScalarProperty Name="Display_Symbol" ColumnName="Display_Symbol" />
+          <ScalarProperty Name="Aodb_Facility_ID" ColumnName="Aodb_Facility_ID" />
+          <ScalarProperty Name="Facility_ID" ColumnName="Facility_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_FacilityType">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.R_FacilityType">
+        <MappingFragment StoreEntitySet="R_FacilityType">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedule">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="siteID" ColumnName="siteID" />
+          <ScalarProperty Name="flightID" ColumnName="flightID" />
+          <ScalarProperty Name="scheduleTime" ColumnName="scheduleTime" />
+          <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sy_Role">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Sy_Role">
+        <MappingFragment StoreEntitySet="Sy_Role">
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="role_status" ColumnName="role_status" />
+          <ScalarProperty Name="role_desc" ColumnName="role_desc" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sy_UserInfo">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Sy_UserInfo">
+        <MappingFragment StoreEntitySet="Sy_UserInfo">
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="login_remark" ColumnName="login_remark" />
+          <ScalarProperty Name="login_password_wage" ColumnName="login_password_wage" />
+          <ScalarProperty Name="login_password" ColumnName="login_password" />
+          <ScalarProperty Name="login_id" ColumnName="login_id" />
+          <ScalarProperty Name="login_status" ColumnName="login_status" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sy_UserRole">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Sy_UserRole">
+        <MappingFragment StoreEntitySet="Sy_UserRole">
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="is_effective" ColumnName="is_effective" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Template">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Template">
+        <MappingFragment StoreEntitySet="Template">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="isValid" ColumnName="isValid" />
+          <ScalarProperty Name="modifytime" ColumnName="modifytime" />
+          <ScalarProperty Name="modifier" ColumnName="modifier" />
+          <ScalarProperty Name="creationtime" ColumnName="creationtime" />
+          <ScalarProperty Name="creator" ColumnName="creator" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="templateID" ColumnName="templateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Template_DisplayInfo_Rel">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Template_DisplayInfo_Rel">
+        <MappingFragment StoreEntitySet="Template_DisplayInfo_Rel">
+          <ScalarProperty Name="IsSend" ColumnName="IsSend" />
+          <ScalarProperty Name="DataValue" ColumnName="DataValue" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="TopScreenCode" ColumnName="TopScreenCode" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="IntervalSecond" ColumnName="IntervalSecond" />
+          <ScalarProperty Name="SpaceEndTime" ColumnName="SpaceEndTime" />
+          <ScalarProperty Name="SpaceStartTime" ColumnName="SpaceStartTime" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="AdvertUrl" ColumnName="AdvertUrl" />
+          <ScalarProperty Name="IsAdvert" ColumnName="IsAdvert" />
+          <ScalarProperty Name="IsCover" ColumnName="IsCover" />
+          <ScalarProperty Name="Weeks" ColumnName="Weeks" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="DisplayID" ColumnName="DisplayID" />
+          <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateDisplayInfoView">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.TemplateDisplayInfoView">
+        <MappingFragment StoreEntitySet="TemplateDisplayInfoView">
+          <ScalarProperty Name="DataValue" ColumnName="DataValue" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="IsSend" ColumnName="IsSend" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="TopScreenCode" ColumnName="TopScreenCode" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="IntervalSecond" ColumnName="IntervalSecond" />
+          <ScalarProperty Name="SpaceEndTime" ColumnName="SpaceEndTime" />
+          <ScalarProperty Name="SpaceStartTime" ColumnName="SpaceStartTime" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="AdvertUrl" ColumnName="AdvertUrl" />
+          <ScalarProperty Name="IsAdvert" ColumnName="IsAdvert" />
+          <ScalarProperty Name="IsCover" ColumnName="IsCover" />
+          <ScalarProperty Name="Weeks" ColumnName="Weeks" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="DisplayID" ColumnName="DisplayID" />
+          <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status1" ColumnName="status" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="statusID" ColumnName="statusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flight_Resource_Allocation">
+      <EntityTypeMapping TypeName="CATC_FIDS_DBModel.Flight_Resource_Allocation">
+        <MappingFragment StoreEntitySet="Flight_Resource_Allocation">
+          <ScalarProperty Name="ACTUAL_END" ColumnName="ACTUAL_END" />
+          <ScalarProperty Name="ACTUAL_START" ColumnName="ACTUAL_START" />
+          <ScalarProperty Name="ACTUAL_ID" ColumnName="ACTUAL_ID" />
+          <ScalarProperty Name="ESTIMATE_END" ColumnName="ESTIMATE_END" />
+          <ScalarProperty Name="ESTIMATE_START" ColumnName="ESTIMATE_START" />
+          <ScalarProperty Name="ESTIMATE_ID" ColumnName="ESTIMATE_ID" />
+          <ScalarProperty Name="SCHED_END" ColumnName="SCHED_END" />
+          <ScalarProperty Name="SCHED_START" ColumnName="SCHED_START" />
+          <ScalarProperty Name="SCHED_ID" ColumnName="SCHED_ID" />
+          <ScalarProperty Name="AORD" ColumnName="AORD" />
+          <ScalarProperty Name="FLIGHT_NO" ColumnName="FLIGHT_NO" />
+          <ScalarProperty Name="FacilityType" ColumnName="FacilityType" />
+          <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FRID" ColumnName="FRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

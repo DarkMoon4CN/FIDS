@@ -1,0 +1,310 @@
+/* 公共样式 start */
+.modal-fliData .float {
+    float: left;
+}
+
+.modal-fliData .marginRight {
+    margin-right: 0.45rem;
+}
+.modal-fliData h4{
+    padding-left: .7rem;
+    padding-bottom: .2rem;
+    font-size: .24rem;
+    font-weight: 300;
+}
+
+.modal-fliData .hide {
+    display: none;
+}
+.modal-fliData .show {
+    display: block;
+}
+.modal-fliData .jedateblue{
+    width: 200px !important;
+}
+/* 公共样式 end */
+
+/* 弹出窗口 start */
+.modal-fliData .mod-boxMask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*display: none;*/
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 1000;
+}
+
+.modal-fliData .mod-popupBox {
+    position: relative;
+    width: 10.4rem;
+    /*height: 8.5rem;*/
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 6px rgba(0, 0, 0, .08);
+}
+
+.modal-fliData .base-data .mod-popupBox{
+    width: 7.5rem;
+}
+.modal-fliData .import-data .mod-popupBox{
+    width: 6.5rem;
+}
+/* 弹出窗口 end */
+
+/* 弹框内容 start */
+.modal-fliData h3 {
+    width: 100%;
+    height: .6rem;
+    padding-bottom: .12rem;
+    line-height: .6rem;
+    font-size: .3rem;
+    /*font-weight: 300;*/
+    text-align: center;
+    color: #333c54;
+}
+
+.modal-fliData .dataTitle {
+    padding-left: 0.46rem;
+    font-size: 0.24rem;
+    line-height: 0.5rem;
+}
+
+.modal-fliData .dataList {
+    margin: 0 auto;
+    /*padding-bottom: 25px;*/
+    font-size: .18rem;
+    color: #666;
+}
+
+.modal-fliData .dataList .dataList-item {
+    float: left;
+    /*width: 3.2rem;*/
+    margin-right: .2rem;
+    line-height: 0.4rem;
+    position: relative;
+}
+
+.modal-fliData .label {
+    float: left;
+    width: 1.6rem;
+    height: .5rem;
+    font-size: .16rem;
+    color: #666;
+    text-align: right;
+}
+.modal-fliData .plane-data .label {
+    width: 1.8rem;
+}
+
+/*.modal-fliData .plane-data {
+    display: none;
+}*/
+
+
+.modal-fliData .input-style,
+.modal-fliData .select-style {
+    float: left;
+    position: relative;
+    width: 1.59rem;
+    font-size: .16rem;
+}
+/* 弹框内容 end */
+/* 上传样式 start */
+.modal-fliData .importFile-con {
+    margin: .4rem 0;
+}
+.modal-fliData .upload {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    top: -3px;  
+    left: 2px; 
+    height: 20px;
+    padding: 4px 10px;
+    line-height: 20px;    
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;   
+}
+
+.modal-fliData .upload  input {
+    position: absolute;
+    /*font-size: 100px;*/
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.modal-fliData .upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none;
+}
+.modal-fliData .input-tips {
+    position: absolute;
+    display: none;
+    width: 100%;
+    padding-top: .05rem;
+    padding-left: .55rem;
+    text-align: center;
+    color: #f00
+}
+.modal-fliData .importFile .show-file-name {
+    top: 7px;
+    width: 3rem;
+    margin-left: .1rem;
+    cursor: not-allowed;
+}
+/* btn start */
+.modal-fliData .btnBox {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+.modal-fliData .ensure-btn,
+.modal-fliData .cancel-btn {
+    position: absolute;
+    bottom: 0.18rem;
+    width: 1.65rem;
+    height: 0.54rem;
+    line-height: 0.54rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1px;
+}
+
+.modal-fliData .cancel-btn {
+    background: #ebebeb;
+    color: #333;
+    left: 20%;
+}
+.modal-fliData .ensure-btn {
+    right: 20%;
+    z-index: 11;
+    border-radius: 2px;
+    background-color: #428bca;
+}
+
+.modal-fliData .close-btn {
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+}
+
+/* btn end */
+
+/* layui组件样式覆盖 */
+.modal-fliData .layui-input {
+    top: .1rem;
+    height: .2rem;
+    line-height: .2rem;
+    text-align: center;
+    color: #666;
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+    cursor: pointer;
+}
+
+/* 下拉框 */
+.modal-fliData .layui-form-select {
+    float: left;
+    width: 1.59rem;
+    margin-top: .1rem;
+    font-size: .16rem;
+    text-align: center;
+}
+
+.modal-fliData .layui-select-title {
+    font-size: 16px;
+}
+
+.modal-fliData .layui-form-select dl {
+    top: 21px;
+    text-align: center;
+    max-height: 200px;
+}
+
+.modal-fliData .layui-icon {
+    position: absolute;
+    top: 19px;
+    left: 40px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 50%;
+}
+
+/* 单选框覆盖样式 */
+.modal-fliData .layui-form-radio {
+    margin: 0;
+    padding: 0;
+}
+
+.modal-fliData .layui-form-radio i {
+    font-size: 0;
+    color: #427fff;
+    box-shadow: 0 0 0 5px rgba(61, 124, 255, .08);
+}
+
+.modal-fliData .layui-form-radioed i {
+    background-color: #427fff;
+}
+
+.modal-fliData .layui-form-radio i:hover {
+    border-color: #427fff;
+}
+
+.modal-fliData .layui-form-radio span {
+    font-size: 12px;
+}
+
+/* 多选框覆盖样式 */
+.modal-fliData .layui-form-checkbox i {
+    left: 63px;
+    top: 10px;
+    width: 16px;
+    color: #fb931a;
+    font-size: 0;
+    border-color: #fb931a;
+    box-shadow: 0 0 0 5px rgba(251, 145, 21, .08);
+}
+
+.modal-fliData .layui-form-checkbox span {
+    background: #fff;
+    color: inherit;
+}
+
+.modal-fliData .layui-form-checked,
+.modal-fliData .layui-form-checked:hover {
+    border: none;
+
+}
+
+.modal-fliData .layui-form-checked i,
+.modal-fliData .layui-form-checked:hover i {
+    background-color: #fb931a;
+}
+
+.modal-fliData .layui-unselect.layui-form-checkbox:hover {
+    background-color: #fff;
+    border: none;
+}
+
+
+

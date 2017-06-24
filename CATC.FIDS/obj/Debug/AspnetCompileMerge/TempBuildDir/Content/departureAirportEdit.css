@@ -1,0 +1,204 @@
+/* header部分 start */
+#header {
+    width: 100%;
+    height: 0.4rem;
+    overflow: hidden;
+    line-height: 0.4rem;
+    color: #fff;
+    background-color: #414e53;
+}
+
+#header .logo {
+    float: left;
+}
+
+#header .logo h1,
+#header .logo p {
+    float: left;
+}
+
+#header .logo h1 {
+    margin-left: 0.13rem;
+    font-size: 0.16rem;
+    line-height: 0.17rem;
+}
+
+#header .logo h1 div {
+    width: 0.69rem;
+    height: 0.15rem;
+    margin-top: 0.05rem;
+}
+
+#header .logo h1 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#header .logo h1 span {
+    display: block;
+    margin-top: 1px;
+    text-align: center;
+}
+
+#header .logo p {
+    margin-left: 0.18rem;
+    font-size: 0.28rem;
+    line-height: 0.4rem;
+}
+
+#header .admin {
+    float: right;
+    margin-right: 0.21rem;
+}
+
+#header .admin span {
+    display: inline-block;
+    font-size: 0.2rem;
+    cursor: pointer;
+}
+
+#header .admin span:nth-child(1) {
+    margin-right: 0.25rem;
+}
+
+#header .admin .icon-admin {
+    position: relative;
+    top: 0.05rem;
+    right: 0.08rem;
+    width: 0.23rem;
+    height: 0.23rem;
+    background-position: -1727px -5px;
+}
+
+/* header部分 end */
+
+/* main部分 start */
+#main {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+}
+
+/* 通用左侧边栏 start */
+#main .leftSildeBar {
+    float: left;
+    width: 8.3%;
+    height: 100%;
+    background-color: #242b2e;
+}
+
+#main .leftSildeBar .option {
+    width: 100%;
+    line-height: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    background-color: #2f373b;
+    border-bottom: 1px solid #414e53;
+}
+
+.leftSildeBar .option h3 {
+    width: 100%;
+    font-size: 0.2rem;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px solid #414e53;
+}
+
+.leftSildeBar .option .template,
+.leftSildeBar .option .customList {
+    background-color: #414e53;
+}
+
+.option ol > li {
+    padding-left: 0.09rem;
+}
+.option ol > li:hover {
+    background-color:#2f373b;
+}
+.option .template div,
+.option .customList div {
+    display: inline-block;
+    font-size: 0.18rem;
+}
+
+.template li a{
+    color:#fff;
+    width: 100%;
+}
+
+.template .tmpl-add {
+    font-size: 0.16rem;
+}
+
+.customList li div:nth-child(1) {
+    width: 1.09rem;
+}
+
+/* 左侧边栏 end */
+
+/* 主要编辑部分 start */
+.mainContent {
+    float: left;
+    width: 91.7%;
+    height: 100%;
+}
+
+/* menu部分 start */
+.menu {
+    width: 100%;
+    height: 45px;
+    padding-top: 5px;
+    padding-left: 10px;
+    overflow: hidden;
+    background-color: #141f29;
+}
+.menu .menuGroup-1 {
+    float: left;
+}
+.menu .menuGroup-2,
+.menu .menuGroup-3{
+    float: right;
+}
+.menu .menuGroup-1 div ,
+.menu .menuGroup-2 div,
+.menu .menuGroup-3 div{
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    border-radius: 5px;
+    background-color: #428bca;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.menu > div span {
+    padding-left: 1px;
+}
+
+.menu .menuGroup-3 {
+    margin-right: 22px;
+}
+.menu .menuGroup-2 {
+    margin-right: 67px;
+}
+.menu .menuGroup-2 .menu-clear,
+.menu .menuGroup-3 .menu-save {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.menu .menuGroup-2 .menu-view,
+.menu .menuGroup-3 .menu-pub {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* menu部分 end */
+
+
+
+/* 主要编辑部分 end */

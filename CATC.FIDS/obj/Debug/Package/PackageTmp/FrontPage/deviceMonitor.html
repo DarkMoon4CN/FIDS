@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>设备监控</title>
+    <link rel="stylesheet" href="Content/reset.css" />
+    <link rel="stylesheet" href="Scripts/layui/css/layui.css" />
+    <link rel="stylesheet" href="Content/publicEdit.css" />
+    <link rel="stylesheet" href="Content/sprite.css" />
+    <link rel="stylesheet" href="Content/deviceMonitor.css" />
+</head>
+
+<body>
+    <div id="header">
+        <div class="logo clearfix">
+            <h1>
+                <div><img src="Images/catc.png" alt="民航电信" /></div>
+                <span>民航电信</span>
+            </h1>
+            <p>FIDS航显系统</p>
+        </div>
+        <div class="admin">
+            <span><i class="icon-admin"></i>admin</span>
+            <span>退出</span>
+        </div>
+    </div>
+    <div id="main">
+        <!-- 左侧边栏 start-->
+        <ul class="leftSildeBar">
+            <li class="option js-leftSildeBar">
+                <ol class="template js-template"></ol>
+            </li>
+        </ul>
+        <!--左侧边栏 end-->
+        <!-- 主要内容部分 start -->
+        <div class="mainContent js-mainContent">
+            <!-- 设备管理 start -->
+            <div id="deviceManage">
+                <div class="menu">
+                    <div class="menu-monitor" id="menu-monitor"><i class="icon icon-set-blue"></i>监控频率<span class="monitor-count js-monitor-count">5</span>s/次</div>
+                </div>
+                <!--主要内容-->
+                <div class="equipTable js-equipTable">
+                    <ul class="ul-monitor">
+                        <li>设备名称</li>
+                        <li>IP地址</li>
+                        <li>设备组</li>
+                        <li>设备状态</li>
+                        <li>上次链接成功</li>
+                        <li>说明</li>
+                    </ul>
+                    <div class="tableCon js-tableCon">
+                        <ol id="device-list"></ol>
+                    </div>
+                </div>
+            </div>
+            <!-- 设备管理 end -->
+        </div>
+        <!-- 主要内容部分 end -->
+    </div>
+
+    <!--设备监控弹框-->
+    <div class="js-modal-device">
+        <!--监控频率-->
+        <div class="modal-device js-modal-monitor">
+            <div class="mod-boxMask js-boxMask" style="display: none">
+                <div class="mod-popupBox">
+                    <!-- 弹框内容 start -->
+                    <h3 class="js-modalTitle">监控频率设置</h3>
+                    <form>
+                        <div class="row">
+                            <label class="label">监控频率</label>
+                            <div class="input-number">
+                                <input type="number" id="displayMonitor" name="displayMonitor" max="30" min="1">
+                            </div>
+                        </div>
+                        <!-- btn start -->
+                        <div class="btnBox">
+                            <input type="reset" class="js-reset" style="display: none" />
+                            <div class="cancel-btn js-btnCancel">取消</div>
+                            <div class="ensure-btn js-btnEnsure" lay-submit>保存</div>
+                        </div>
+                        <div class="close-btn icon icon-close js-btnClose"></div>
+                        <!-- btn end -->
+                    </form>
+                    <!-- 弹框内容 start -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--设备管理: 设备监控显示列表-->
+    <script type="text/x-dot-template" id="device-monitor-tmpl">
+        {{~it:value}}
+            {{?value.Status1 === '异常!'}}
+            <li class="row li-monitor is-equipError">
+                <p>{{=value.DisplayName}}</p>
+                <p>{{=value.Ip}}</p>
+                <p>字段还未添加</p>                 
+                <p>{{=value.Status1}}</p>
+                <p>{{=value.ConnectedTime}}</p>
+                <p title="{{=value.ExceptionMsg}}">{{=value.ExceptionMsg}}</p>
+            </li>
+            {{??}}
+            <li class="row li-monitor">
+                <p>{{=value.DisplayName}}</p>
+                <p>{{=value.Ip}}</p>
+                <p>字段还未添加</p>                 
+                <p class=" is-equipNormal">{{=value.Status1}}</p>
+                <p>{{=value.ConnectedTime}}</p>
+                <p title="{{=value.ExceptionMsg}}">{{=value.ExceptionMsg}}</p>
+            </li>
+            {{?}}
+        {{~}}
+    </script>
+    <!-- 设备组列表 -->
+    <script type="text/x-dot-template" id="device-group-tmpl">
+        <li class="is-active" data-groupid="all">全部设备</li>
+        {{~it:value}}
+        <li title="{{=value.description}}" data-groupid="{{=value.ID}}">{{=value.name}}</li>
+        {{~}}
+    </script>
+
+    <script src="Scripts/jquery-1.11.3.min.js"></script>
+    <script src="Scripts/iscroll-5.1.3.min.js"></script>
+    <script src="Scripts/layui/layui.all.js"></script>
+    <script src="Scripts/doT.min.js"></script>
+    <script src="Scripts/util.js"></script>
+    <script src="Scripts/deviceMonitor.js"></script>
+</body>
+
+</html>

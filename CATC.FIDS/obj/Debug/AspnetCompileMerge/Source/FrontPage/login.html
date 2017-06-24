@@ -1,0 +1,48 @@
+﻿@using CATC.FIDS.Models;
+@using CATC.FIDS.Model;
+@{
+    ViewBag.Title = "编辑页面";
+    List<DailySchedule_ExtFileds> list = (List<DailySchedule_ExtFileds>)ViewBag.fildes;
+    List<TemplateTD> sf = (List<TemplateTD>)ViewBag.sf;
+    string ak =(string)ViewBag.ak;
+}
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>FIDS航班信息显示系统</title>
+    <link rel="stylesheet" href="Content/reset.css" />
+    <link rel="stylesheet" href="Content/login.css" />
+</head>
+
+<body>
+    <!---->
+    <div class="login">
+        <div class="login-box">
+            <div class="fl login-box-l">
+                <div class="img-high"></div>
+                <div class="logo"></div>
+            </div>
+            
+            <div class="fr login-box-r">
+                <div class="login-title"></div>
+                <div class="login-input clearfix">
+                    <p class="fl">账号</p>
+                    <input id="t_logintext" type="text" class="fl" />
+                </div>
+                <div class="login-input clearfix">
+                    <p class="fl">密码</p>
+                    <input id="t_loginpwd" type="password" class="fl" />
+                    <div class="eye fl"></div>
+                </div>
+                <div class="login-btn">登&nbsp;录</div>
+                <div class="login-forget">账号或密码输入错误，请重新输入</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="Scripts/jquery-1.11.3.min.js"></script>
+<script src="Scripts/login.js"></script>
+
+</html>

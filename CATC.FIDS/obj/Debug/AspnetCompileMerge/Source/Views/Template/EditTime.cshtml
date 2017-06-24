@@ -1,0 +1,205 @@
+﻿@using CATC.FIDS.Models;
+@{
+    Layout = null;
+    EventItem eventItem = @ViewBag.result;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>修改Time</title>
+    <link href="~/Content/bootstrap2.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <link href="~/Scripts/jquery.cxcolor-1.2/css/jquery.cxcolor.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.cxcolor-1.2/jquery.cxcolor.js"></script>
+    <script src="~/Scripts/departureflight.js"></script>
+    <script src="~/Scripts/ajaxfileupload.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script>
+        $(function () {
+            $("#fontcolor").cxColor({ color: $("#hid_fontcolor").val() });
+            $("input[type=radio][name='timeType'][value=" + $("#hid_timetype").val() + "]").attr("checked", 'checked');
+            var timeType = $("input[name='timeType']:checked");
+            var tmsg = timeType.attr("msg");
+            var tvalue = timeType.val();
+            $("#g8").html(tmsg);
+            $("#fontcolor").cxColor({ color: $("#hid_fontcolor").val() });
+            $("#fontsize").val($("#hid_fontsize").val());
+            $("#g7").css("color",$("#hid_fontcolor").val());
+            if ($("#hid_isBold").val() == "True") {
+                $("#g7").css("font-weight", "bold");
+                $("#isBold").click();
+            }
+            $("input[name='timeType']").on("click", function () {
+                var msg = $(this).attr("msg");
+                $("#g8").html(msg);
+            });
+            $("#fontcolor").change(function () {
+                $("#g8").css("color", $(this).val());
+            });
+            $("#fontsize").change(function () {
+                $("#g8").css("fontSize", $(this).val());
+            });
+            $("#isBold").click(function () {
+                var isBold = $("#isBold").is(':checked');
+                if (isBold == true) {
+                    $("#g8").css("font-weight", "bold");
+                } else {
+                    $("#g8").css("font-weight", "normal");
+                }
+            });
+            $(".btn-info").on("click", function () {
+                _defaultData = null;
+                var url = "/Template/DoEditTime";
+                var dataid = $("#dataId").val();
+                var tt = $("input[name='timeType']:checked");
+                var ttype = tt.val();
+                var fontcolor = $("#fontcolor").val();
+                var fontsize = $("#fontsize").val();
+                var isBold = $("#isBold").is(':checked');
+                data = { dataid: dataid, fontcolor: fontcolor, fontsize: fontsize, isBold: isBold, timeType: ttype };
+                defaultAjax(url, data, defaultCallback);
+                layer.alert('设置成功！', { icon: 1 }, function () {
+                    var json = $.parseJSON(_defaultData.Data);
+                    parent.Global.FillTime(json, tt.attr("msg"));
+                    parent.layer.closeAll();
+                });
+                return false;
+            });
+            $(".btn-default").on("click", function () {
+                parent.layer.closeAll();
+            });
+        });
+        function ajaxFileUpload() {
+            $.ajaxFileUpload
+            ({
+                url: "/Template/Upload",
+                secureuri: false,
+                fileElementId: 'path',
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (data, status) {
+                    $("#g3").show();
+                    $("#url").attr("src", data.Data);
+                    $("#url").parent().attr("href", data.Data);
+                },
+                error: function (data, status, e) {
+                    $("#g3").hide();
+                    console.log(e);
+                }
+            });
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" method="post" name="mi" enctype="multipart/form-data">
+        <div class="form-horizontal">
+            <fieldset>
+                <div id="legend">
+                    <legend></legend>
+                </div>
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">默认元素ID</label>
+                    <div class="controls">
+                        <input class="input-xlarge" type="text" id="dataId" value="@eventItem.dataID" readonly>
+                        <p class="help-block">此为默认元素ID</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label valtype" data-valtype="label">时间格式</label>
+                    <div class="controls valtype" data-valtype="radios">
+                        <!-- Multiple Radios -->
+                        <label class="radio">
+                            <input type="radio" value="1" msg="@ViewBag.timeFormat1 01时01分01秒" checked="checked"  name="timeType">@ViewBag.timeFormat1 00时00分00秒
+                        </label>
+                        <label class="radio">
+                            <input type="radio" value="2" msg="@ViewBag.timeFormat2 01:01:01"  name="timeType">@ViewBag.timeFormat2 01:01:01
+                        </label>
+                        <label class="radio">
+                            <input type="radio" value="3" msg="01:01:01 @ViewBag.timeFormat2" name="timeType">00:00:00 @ViewBag.timeFormat2
+                        </label>
+                        <label class="radio">
+                            <input type="radio" value="4" msg="AM 01:01 @ViewBag.timeFormat2" name="timeType">AM 00:00 @ViewBag.timeFormat2
+                        </label>
+                        <label class="radio">
+                            <input type="radio" value="5" msg="13:00 @ViewBag.timeFormat2" name="timeType">13:00 @ViewBag.timeFormat2
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">字体颜色</label>
+                    <div class="controls">
+                        <input class="input_cxcolor" id="fontcolor" style="background-color:rgb(0,0,0);width:18px;height:18px;padding:0;border:0;font-size:0px;line-height:0" type="text" readonly="">
+                    </div>
+                    <input type="hidden" id="hid_timetype" value="@ViewBag.timeType">
+                    <input type="hidden" id="hid_fontcolor" value="@ViewBag.color">
+                    <input type="hidden" id="hid_fontsize" value="@ViewBag.fontSize">
+                    <input type="hidden" id="hid_isBold" value="@ViewBag.isBold">
+                </div>
+                <div class="control-group">
+                    <label class="control-label">字体大小</label>
+                    <div class="controls">
+                        <select class="input-xlarge" id="fontsize">
+                            <option>12px</option>
+                            <option>14px</option>
+                            <option>16px</option>
+                            <option>18px</option>
+                            <option>20px</option>
+                            <option>22px</option>
+                            <option>24px</option>
+                            <option>26px</option>
+                            <option>28px</option>
+                            <option>30px</option>
+                            <option>32px</option>
+                            <option>34px</option>
+                            <option>36px</option>
+                            <option>38px</option>
+                            <option>40px</option>
+                            <option>42px</option>
+                            <option>44px</option>
+                            <option>46px</option>
+                            <option selected="selected">48px</option>
+                            <option>50px</option>
+                            <option>60px</option>
+                            <option>70px</option>
+                            <option>80px</option>
+                            <option>90px</option>
+                            <option>100px</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">是否加粗</label>
+                    <div class="controls">
+                        <!-- Multiple Checkboxes -->
+                        <label class="checkbox">
+                            <input type="checkbox" value="1" id="isBold">
+                            是
+                        </label>
+                    </div>
+
+                </div>
+                <div class="control-group">
+                    <label class="control-label">示例</label>
+                    <div class="controls">
+                        <div id="g7" style="font-size:36px;width:100%;">
+                            <div id="g8" style="float:left"></div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"></label>
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-info" style="margin-left:20px;">提交</button>
+                        <button class="btn btn-default" style="margin-left:20px;">取消</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>
